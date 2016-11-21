@@ -1,10 +1,14 @@
 # coding: utf-8
+import calendar
 
+from datetime import date, datetime
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models.aggregates import Sum
 from django.forms import formset_factory
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
+from django.views.generic.dates import timezone_today
 from django.views.generic.edit import FormView
 
 from main.forms import CuentaForm
@@ -241,3 +245,77 @@ class listaOrdenes(ListView):
 class listaProductos(ListView):
     model = producto
     template_name = 'main/produccion_ventas.html'
+
+    def get(self, request, *args, **kwargs):
+        fecha = datetime.today().date()
+        fecha = fecha.replace(day=1)
+        productos = producto.objects.filter(ordenDeFabricacion__fechaExpedicion__year=fecha.year)\
+            .filter(ordenDeFabricacion__fechaExpedicion__month=fecha.month)
+
+        totalMP = 0.0
+        invI_PenP = 0.0
+        totalMOD = 0.0
+        importe = 0.0
+        invF_PenP = 0.0
+        costoArtTerminado = 0.0
+        InvI_PT = 0.0
+        artTermDisp = 0.0
+        InvF_PTerm = 0.0
+        costoVendido = 0.0
+
+        for p in productos:
+            totalMP += p.ordenDeFabricacion.totalMP()
+
+        for p in productos:
+            totalMOD += p.ordenDeFabricacion.totalMOD()
+
+        for p in productos:
+            invI_PenP += p.invIniPenP
+
+        for p in productos:
+            InvI_PT += p.invInicialProductTerminado
+
+        for p in productos:
+            importe += p.ordenDeFabricacion.importe()
+
+        for p in productos:
+            invF_PenP += p.invFinalPenP
+
+        for p in productos:
+            costoArtTerminado += p.costoArtTerminado()
+
+        for p in productos:
+            artTermDisp += p.artTerDisp()
+
+        for p in productos:
+            invF_PenP += p.invFinalPenP
+
+        for p in productos:
+            InvF_PTerm += p.invFinalProductTerminado
+
+        for p in productos:
+            costoVendido += p.costoVendido()
+
+        # aux = productos.aggregate(totalMP=Sum('ordenDeFabricacion__catidadMP'), totalCU=Sum('ordenDeFabricacion__costoUnitarioMP'))
+        # totalMP = float(aux['totalMP'])*float(aux['totalCU'])
+        # calculos = productos.aggregate(totalMOD=Sum(''))
+
+        if len(args) > 0:
+            fecha.replace(month=args.index('mes'))
+            fecha.replace(args.index('año'))
+
+        return render(request, self.template_name, {
+            'title': 'Producción y Ventas',
+            'object_list': productos,
+            'totalMP': totalMP,
+            'invI_PenP': invI_PenP,
+            'totalMOD': totalMOD,
+            'importe': importe,
+            'invF_PenP': invF_PenP,
+            'InvI_PT': InvI_PT,
+            'costoArtTerminado': costoArtTerminado,
+            'artTermDisp': artTermDisp,
+            'InvF_PTerm': InvF_PTerm,
+            'costoVendido': costoVendido
+        })
+

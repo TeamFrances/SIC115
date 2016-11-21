@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 from django.db import models
@@ -145,8 +146,8 @@ class Prestacion(models.Model):
 
 class ordenDeFabricacion(models.Model):
     numOrden=models.IntegerField(editable=False, auto_created=True, primary_key=True, unique=True)
-    fechaExpedicion=models.DateField
-    fechaRequerida=models.DateField
+    fechaExpedicion=models.DateField(default='2000-01-01')  #Fecha en que la orden se generó
+    fechaRequerida=models.DateField(default='2000-01-01')   #Fecha en que la orden se entregó y se descargó de inventario
     materal=models.CharField(max_length=100, null=False)
     catidadMP=models.FloatField(default=0.0)
     costoUnitarioMP=models.FloatField(default=0.0)
@@ -154,7 +155,6 @@ class ordenDeFabricacion(models.Model):
     numHoras=models.IntegerField()
     costoHora=models.FloatField(default=0.0)
     tasaCIF=models.FloatField(default=0.0)
-
 
     def totalMP(self):
         return self.catidadMP*self.costoUnitarioMP
@@ -164,8 +164,6 @@ class ordenDeFabricacion(models.Model):
 
     def importe(self):
         return (self.catidadMP*self.costoUnitarioMP)*self.tasaCIF
-
-
 
 
 class producto(models.Model):
@@ -180,8 +178,6 @@ class producto(models.Model):
     invInicialProductTerminado=models.FloatField(default=0.0)
     invFinalProductTerminado=models.FloatField(default=0.0)
     nuneroArticulos=models.IntegerField(default=0.0)
-
-
 
     def MPDisp(self):
         return self.inventarioInicialMp+self.compras

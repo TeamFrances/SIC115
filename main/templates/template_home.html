@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     {% load staticfiles %}
 
-    <script src="{% static 'main/js/Chart.js' %}"></script>
+    <script src="{% static 'main/js/chart.js' %}"></script>
 
     <link rel="shortcut icon" href="{% static 'main/images/frances.ico' %}">
     <!--Import Google Icon Font-->
@@ -19,6 +19,7 @@
     {% block extra_lib %}
         <link type="text/css" rel="stylesheet" href="{% static 'main/css/index.css' %}"  media="screen,projection"/>
     {% endblock %}
+    {% block extra_js %}{% endblock %}
 
     <title>{{ titulo }}</title>
 

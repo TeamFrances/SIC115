@@ -2,16 +2,29 @@
 
 {% load staticfiles %}
 
-{% block titulo %}Produccion{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'main/js/jquery-3.1.0.js' %}" type="text/javascript"></script>
+    <script src="{% static 'main/js/scripts.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+        {#        $(document).ready(function () {#}
+        {#            getTotal("#cdc_totalMP", "#cdc_total_totalMP");#}
+        {#            getTotal("#cdc_invIniPenP", "#cdc_total_invIniPenP");#}
+        {#            getTotal("#cdc_totalMOD", "#cdc_total_totalMOD");#}
+        {#            getTotal("#cdc_importe", "#cdc_total_importe");#}
+        {#            getTotal("#cdc_invFinalPenP", "#cdc_total_invFinalPenP");#}
+        {#            getTotal("#cdc_costoArtTerminado", "#cdc_total_costoArtTerminado");#}
+        {#            getTotal("#cdc_invInicialProductTerminado", "#cdc_total_invInicialProductTerminado");#}
+        {#            getTotal("#cdc_artTerDisp", "#cdc_total_artTerDisp");#}
+        {#            getTotal("#cdc_invFinalProductTerminado", "#cdc_total_invFinalProductTerminado");#}
+        {#            getTotal("#cdc_costoVendido", "#cdc_total_costoVendido");#}
+        {#        })#}
+    </script>
+{% endblock %}
 
 {% block contenido %}
 
     <main>
         <div class="container">
-
-
-            <h1>Producción y Ventas</h1>
-            <div class="divider"></div>
 
             <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href=""><i class="material-icons right">add_circle</i>Agregar</a>
 
@@ -21,10 +34,9 @@
             <h3>Caja de costos</h3>
             <div class="divider"></div>
             {% if object_list %}
-                <table class="striped centered responsive-table">
+                <table class="striped centered responsive-table" id="caja_de_costos">
 
                     <thead>
-
                     <tr>
                         <th data-field="numero">No orden</th>
                         <th data-field="MPUsada">MP utilizada</th>
@@ -37,7 +49,96 @@
                         <th data-field="CAT">Art. terminados Disp.</th>
                         <th data-field="CAT">Inv. Fin P Terminado</th>
                         <th data-field="CAT">Costo de lo vendido</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
+                    {% with cdc_total_totalMP=0 cdc_total_invIniPenP=0 cdc_total_totalMOD=0 cdc_total_importe=0 cdc_total_invFinalPenP=0 cdc_total_costoArtTerminado=0 cdc_total_invInicialProductTerminado=0 cdc_total_artTerDisp=0 cdc_total_invFinalProductTerminado=0 cdc_total_costoVendido=0 %}
+                        {% for producto in object_list %}
+                            <tr>
+                                <td id="cdc_numOrden">{{producto.ordenDeFabricacion.numOrden}}</td>
+                                <td id="cdc_totalMP">{{producto.ordenDeFabricacion.totalMP}}</td>
+                                <td id="cdc_invIniPenP">{{producto.invIniPenP}}</td>
+                                <td id="cdc_totalMOD">{{producto.ordenDeFabricacion.totalMOD}}</td>
+                                <td id="cdc_importe">{{producto.ordenDeFabricacion.importe}}</td>
+                                <td id="cdc_invFinalPenP">{{producto.invFinalPenP}}</td>
+                                <td id="cdc_costoArtTerminado">{{producto.costoArtTerminado }}</td>
+                                <td id="cdc_invInicialProductTerminado">{{producto.invInicialProductTerminado}}</td>
+                                <td id="cdc_artTerDisp">{{producto.artTerDisp}}</td>
+                                <td id="cdc_invFinalProductTerminado">{{producto.invFinalProductTerminado}}</td>
+                                <td id="cdc_costoVendido">{{producto.costoVendido}}</td>
+                            </tr>
+                        {%endfor%}
+
+                        <tr>
+                            <td><h6>Total</h6></td>
+                            <td id="cdc_total_totalMP">{{ totalMP }}</td>
+                            <td id="cdc_total_invIniPenP">{{ invF_PenP }}</td>
+                            <td id="cdc_total_totalMOD">{{ totalMOD }}</td>
+                            <td id="cdc_total_importe">{{ importe }}</td>
+                            <td id="cdc_total_invFinalPenP">{{ invF_PenP }}</td>
+                            <td id="cdc_total_costoArtTerminado">{{ costoArtTerminado }}</td>
+                            <td id="cdc_total_invInicialProductTerminado">{{ InvI_PT }}</td>
+                            <td id="cdc_total_artTerDisp">{{ artTermDisp }}</td>
+                            <td id="cdc_total_invFinalProductTerminado">{{ InvF_PTerm }}</td>
+                            <td id="cdc_total_costoVendido">{{ costoVendido }}</td>
+                        </tr>
+                    {% endwith %}
+
+                    </tbody>
+                </table>
+
+
+                <h5 class="bold">Costo de lo Vendido vrs. Orden de Fabricación</h5>
+
+                <div class="divider"></div>
+                <p>Costo de lo vendido</p>
+                <div id="canvas-holder">
+                    <canvas id="chart-area1" width="500" height="250" ></canvas>
+                </div>
+                <script>
+                    var data = {
+                        labels : [
+                            {% for producto in object_list %}
+                                "{{ producto.ordenDeFabricacion.numOrden}}",
+                            {% endfor %}],
+
+                        datasets : [
+                            {
+                                label: "Primera serie de datos",
+                                fillColor : "rgba(20, 220, 51, 0.2)",
+                                strokeColor : "#36b4a0",
+                                pointColor : "#1e45d7",
+                                pointStrokeColor : "#fff",
+                                pointHighlightFill : "#fff",
+                                pointHighlightStroke : "rgba(220,220,220,1)",
+                                data : [
+                                    {% for producto in object_list%}
+                                        {{producto.costoVendido}},
+                                    {% endfor %}
+                                ]
+                            }
+                        ]
+
+                    };
+                    var ctx1 = document.getElementById("chart-area1").getContext("2d");
+                    window.myPie = new Chart(ctx1).Bar(data,{responsive:false});
+
+                </script>
+                <p class="center">Ordenes de fabricación</p>
+
+                <h3>Costos Unitarios</h3>
+                <div class="divider"></div>
+                <table class="striped centered responsive-table" id="costos_unitarios">
+
+                    <thead>
+
+                    <tr>
+                        <th data-field="numero">No orden</th>
+                        <th data-field="nombre">Producto</th>
+                        <th data-field="CAT">Costo de lo vendido</th>
+                        <th data-field="cantidad">Cantidad de Productos</th>
+                        <th data-field="CU">Costo Unitario</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -45,116 +146,14 @@
 
                     {%for producto in object_list%}
                         <tr>
-                            <td>{{producto.ordenDeFabricacion.numOrden}}</td>
-                            <td>{{producto.ordenDeFabricacion.totalMP}}</td>
-                            <td>{{producto.invIniPenP}}</td>
-                            <td>{{producto.ordenDeFabricacion.totalMOD}}</td>
-                            <td>{{producto.ordenDeFabricacion.importe}}</td>
-                            <td>{{producto.invFinalPenP}}</td>
-                            <td>{{producto.costoArtTerminado}}</td>
-                            <td>{{producto.invInicialProductTerminado}}</td>
-                            <td>{{producto.artTerDisp}}</td>
-                            <td>{{producto.invFinalProductTerminado}}</td>
-                            <td>{{producto.costoVendido}}</td>
-
-
+                            <td id="cu_numOrden">{{producto.ordenDeFabricacion.numOrden}}</td>
+                            <td id="cu_nombre">{{producto.nombre}}</td>
+                            <td id="cu_costoVendido">${{producto.costoVendido|floatformat:"2"}}</td>
+                            <td id="cu_nuneroArticulos">{{producto.nuneroArticulos|floatformat:"2"}}</td>
+                            <td id="cu_costoUnitario">${{producto.costoUnitario|floatformat:"2"}}</td>
                         </tr>
                     {%endfor%}
-
-                        <tr>
-                            <td><h6>Total</h6></td>
-
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-
-
                     </tbody>
-                </table>
-
-
-
-                    <h5 class="bold">Costo de lo Vendido vrs. Orden de Fabricación</h5>
-
-                    <div class="divider"></div>
-                <p>Costo de lo vendido</p>
-                <div id="canvas-holder">
-                    <canvas id="chart-area1" width="500" height="250" ></canvas>
-                </div>
-                    <script>
-                        var data = {
-                            labels : [
-                                {% for producto in object_list %}
-                                    "{{ producto.ordenDeFabricacion.numOrden}}",
-                                {% endfor %}],
-
-                            datasets : [
-                                {
-                                    label: "Primera serie de datos",
-                                    fillColor : "rgba(20, 220, 51, 0.2)",
-                                    strokeColor : "#36b4a0",
-                                    pointColor : "#1e45d7",
-                                    pointStrokeColor : "#fff",
-                                    pointHighlightFill : "#fff",
-                                    pointHighlightStroke : "rgba(220,220,220,1)",
-                                    data : [
-                                        {% for producto in object_list%}
-                                            {{producto.costoVendido}},
-                                        {% endfor %}
-                                    ]
-                                }
-                            ]
-
-                        };
-                        var ctx1 = document.getElementById("chart-area1").getContext("2d");
-                        window.myPie = new Chart(ctx1).Bar(data,{responsive:false});
-
-                    </script>
-                <p class="center">Ordenes de fabricación</p>
-
-
-
-
-
-                <h3>Costos Unitarios</h3>
-                <div class="divider"></div>
-                <table class="striped centered responsive-table">
-
-                <thead>
-
-                <tr>
-                    <th data-field="numero">No orden</th>
-                    <th data-field="nombre">Producto</th>
-                    <th data-field="CAT">Costo de lo vendido</th>
-                    <th data-field="cantidad">Cantidad de Productos</th>
-                    <th data-field="CU">Costo Unitario</th>
-
-
-                </tr>
-                </thead>
-                <tbody>
-
-
-                {%for producto in object_list%}
-                    <tr>
-                        <td>{{producto.ordenDeFabricacion.numOrden}}</td>
-                        <td>{{producto.nombre}}</td>
-                        <td>${{producto.costoVendido}}</td>
-                        <td>{{producto.nuneroArticulos}}</td>
-                        <td>${{producto.costoUnitario}}</td>
-
-                    </tr>
-                {%endfor%}
-                </tbody>
                 </table>
 
                 <br>
@@ -205,6 +204,4 @@
 
 
     </main>
-
-
 {% endblock %}

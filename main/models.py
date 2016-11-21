@@ -165,6 +165,9 @@ class ordenDeFabricacion(models.Model):
     def importe(self):
         return (self.catidadMP*self.costoUnitarioMP)*self.tasaCIF
 
+    def __str__(self):
+        numeroOrden=str(self.numOrden)
+        return numeroOrden
 
 class producto(models.Model):
     numProducto=models.IntegerField(editable=False, auto_created=True, primary_key=True, unique=True)
@@ -178,6 +181,8 @@ class producto(models.Model):
     invInicialProductTerminado=models.FloatField(default=0.0)
     invFinalProductTerminado=models.FloatField(default=0.0)
     nuneroArticulos=models.IntegerField(default=0.0)
+
+
 
     def MPDisp(self):
         return self.inventarioInicialMp+self.compras
@@ -212,6 +217,9 @@ class MovimientoMp(models.Model):
     nombre=models.CharField(max_length=50)
     cantidad=models.FloatField(default=0.0)
     precioUnitario= models.FloatField(default=0.0)
+
+    def totalMovimiento(self):
+        return self.cantidad*self.precioUnitario
 
 
 

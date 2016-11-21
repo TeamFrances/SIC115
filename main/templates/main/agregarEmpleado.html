@@ -1,7 +1,7 @@
 {% extends 'template_home.html' %}
 
 {% block titulo %}
-    Hola
+    Agregar Empleado
 {% endblock %}
 
 {% block contenido %}
@@ -9,14 +9,85 @@
 
 <main>
 <div class="container">
+    <h5 class="light">Rellene los campos</h5>
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn waves-effect waves-light #2e7d32 green darken-3" type="submit" name="action">Guardar
-            <i class="material-icons right">send</i>
-        </button>
-        <a class="waves-effect waves-light btn #e53935 red darken-1" href="{% url 'empleados_list' %}"><i class="material-icons right">clear_all</i>Cancelar</a>
+
+
+        <div class="row">
+            <div class="input-field col s4">
+                {{ form.nombres }}
+                <label class="active " for="{{ form.nombres.id_for_label }}" >{{ form.nombres.label }}</label>
+            </div>
+
+            <div class="input-field col s4">
+                {{ form.apellidos }}
+                <label class="active " for="{{ form.apellidos.id_for_label }}" >{{ form.apellidos.label }}</label>
+            </div>
+            <div class="col s1">
+            <label class="active " for="{{ form.sexo.id_for_label }}" >{{ form.sexo.label }}</label>
+             </div>
+            <div class="col s2">
+                {{ form.sexo }}
+            </div>
+            <div class="input-field col s1">
+                {{ form.edad }}
+                <label class="active " for="{{ form.edad.id_for_label }}" >{{ form.edad.label }}</label>
+            </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s6">
+            {{ form.direccion }}
+            <label class="active " for="{{ form.direccion.id_for_label }}" >{{ form.direccion.label }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            {{ form.telefono }}
+            <label class="active " for="{{ form.telefono.id_for_label }}" >{{ form.telefono.label }}</label>
+        </div>
+        <div class="input-field col s3">
+            {{ form.contacto }}
+            <label class="active " for="{{ form.contacto.id_for_label }}" >Telefono Fijo</label>
+        </div>
+
+
+    </div>
+        <div class="row">
+            <div class="input-field col s3">
+                {{ form.dui }}
+                <label class="active " for="{{ form.dui.id_for_label }}" >DUI</label>
+            </div>
+
+            <div class="input-field col s3">
+                {{ form.nit }}
+                <label class="active " for="{{ form.nit.id_for_label }}" >NIT</label>
+            </div>
+            <div class="input-field col s3">
+                {{ form.afp }}
+                <label class="active " for="{{ form.afp.id_for_label }}" >AFP</label>
+            </div>
+            <div class="col s1">
+                <label class="active " for="{{ form.puesto.id_for_label }}" >Puesto</label>
+            </div>
+            <div class="col s2">
+                {{ form.puesto}}
+            </div>
+            <div class="input-field col s3">
+                {{ form.activo }}
+                <label class="active " for="{{ form.activo.id_for_label }}" >activo</label>
+            </div>
+
+
+        </div>
+
+        <div id="BotonEnviar">
+            <br>
+            <button class="btn waves-effect waves-light #2e7d32 green darken-3" type="submit" name="action" >Agregar <i class="material-icons right">send</i>
+            </button>
+            <a class="waves-effect waves-light btn #e53935 red darken-1" href="{% url 'empleados_list' %}"><i class="material-icons right">clear_all</i>Cancelar</a>
+        </div>
+
     </form>
 </div>
 </main>

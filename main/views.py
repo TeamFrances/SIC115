@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.aggregates import Sum
 from django.forms import formset_factory
 from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.dates import timezone_today
 from django.views.generic.edit import FormView
@@ -15,7 +16,8 @@ from main.forms import CuentaForm
 from main.forms import EmpleadoForm
 from main.forms import LoginForm
 from main.forms import MovimientoForm
-from main.forms import TransaccionForm
+from main.forms import TransaccionForm,OrdenForm
+from main.models import MovimientoMp
 from models import Cuenta, TipoCuenta, Transaccion, Empleado, Movimiento, ordenDeFabricacion, producto
 
 
@@ -231,15 +233,34 @@ class empleado_list(ListView):
     model = Empleado
     template_name = 'main/list_empleados.html'
 
+    def get(self, request, *args, **kwargs):
+        return render(request, 'main/list_empleados.html', {
+            'titulo':'Empleados',
+            'object_list': Empleado.objects.all()
+        })
+
+
 
 class planilla(ListView):
     model = Empleado
     template_name = 'main/Planilla.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, 'main/Planilla.html', {
+            'titulo':'Planilla',
+            'object_list': Empleado.objects.all()
+        })
+
 
 
 class listaOrdenes(ListView):
     model = ordenDeFabricacion
     template_name = 'main/ordenFabricacion.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, 'main/ordenFabricacion.html', {
+            'titulo':'Ordenes de Fabricación',
+            'object_list': ordenDeFabricacion.objects.all()
+        })
+
 
 
 class listaProductos(ListView):
@@ -319,3 +340,20 @@ class listaProductos(ListView):
             'costoVendido': costoVendido
         })
 
+
+class listaMovimientosMP(ListView):
+    model = MovimientoMp
+    template_name = 'main/inventarioMP.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'main/inventarioMP.html', {
+            'titulo':'Inventario de materia Prima',
+            'object_list': MovimientoMp.objects.all()
+        })
+
+
+class CrearOrde(CreateView):
+    model = ordenDeFabricacion
+    form_class = OrdenForm
+    template_name = 'main/agregarOrden.html'
+    success_url = reverse_lazy('ordenDeFabricacion:listaOrdenes')

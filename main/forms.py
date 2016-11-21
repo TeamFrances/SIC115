@@ -3,6 +3,7 @@ import datetime
 from django import forms
 from django.core.exceptions import ValidationError
 
+from main.models import ordenDeFabricacion, Movimiento, producto
 from models import Cuenta,Rubro,Transaccion,Empleado,TipoTransaccion
 
 tiposCuentas=((1, 'Activo',), (2, 'Pasivo',), (3, 'Capital',),(4, 'Resultado',))
@@ -82,10 +83,10 @@ class EmpleadoForm(forms.ModelForm):
             'activo': 'Activo',
         }
         widgets = {
-            'nombres': forms.TextInput(attrs={'class': 'input-field col s3'}),
+            'nombres': forms.TextInput(attrs={'class': 'input-field'}),
             'apellidos': forms.TextInput(attrs={'class': 'input-field '}),
             'edad': forms.NumberInput(attrs={'class': 'input-field '}),
-            'sexo': forms.Select(attrs={'class': 'input-field '}),
+            'sexo': forms.Select(attrs={'class': 'input-field ','placeholder':'sexo'}),
             'direccion': forms.TextInput(attrs={'class': 'input-field'}),
             'telefono': forms.NumberInput(attrs={'class': 'input-field '}),
             'contacto': forms.TextInput(attrs={'class': 'input-field'}),
@@ -103,3 +104,75 @@ class EmpleadoForm(forms.ModelForm):
             raise ValidationError("Los nombres no deben contener números")
 
         return nombres
+
+
+class ProductoForm(forms.ModelForm):
+    class Meta:
+        model = producto
+
+        fields = [
+
+        ]
+        labels = {
+
+        }
+        widgets = {
+
+        }
+
+
+
+class OrdenForm(forms.ModelForm):
+    class Meta:
+        model = ordenDeFabricacion
+
+        fields = [
+            'fechaExpedicion',
+            'fechaRequerida',
+            'materal',
+            'catidadMP',
+            'costoUnitarioMP',
+            'obrero',
+            'numHoras',
+            'costoHora',
+            'tasaCIF',
+
+        ]
+        labels = {
+            'FechaExpedicion':'Fecha de expedición',
+            'fechaRequerida':'Fecha requerida',
+            'materal':'Material',
+            'catidadMp':'Cantidad de Material',
+            'costoUnitarioMP':'Costo Unitario',
+            'obrero':'Empleado',
+            'numHoras':'Numero de horas',
+            'costoHora':'Costo por hora',
+            'tasaCIF':'Tasa CIF',
+
+        }
+        widgets = {
+            'fechaExpedicion': forms.TextInput(attrs={'class': 'input-field '}),
+            'fechaRequerida': forms.TextInput(attrs={'class': 'input-field '}),
+            'materal':forms.NumberInput(attrs={'class': 'input-field '}),
+            'catidadMP':forms.NumberInput(attrs={'class': 'input-field '}),
+            'costoUnitarioMP': forms.NumberInput(attrs={'class': 'input-field '}),
+            'obrero': forms.Select(attrs={'class': 'input-field '}),
+            'numHoras': forms.NumberInput(attrs={'class': 'input-field '}),
+            'costoHora': forms.NumberInput(attrs={'class': 'input-field '}),
+            'tasaCIF': forms.NumberInput(attrs={'class': 'input-field '}),
+        }
+
+
+class MovimientoForm(forms.ModelForm):
+    class Meta:
+        model = Movimiento
+
+        fields = [
+
+        ]
+        labels = {
+
+        }
+        widgets = {
+
+        }

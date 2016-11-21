@@ -1,0 +1,84 @@
+{% extends 'template_home.html' %}
+
+{% block titulo %}
+    Inventario de materia prima
+{% endblock %}
+
+{% block contenido %}
+    <main>
+        <div class="container">
+            <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href=""><i class="material-icons right">add_circle</i>Agregar</a>
+            <br>
+            <br>
+            {% if object_list %}
+                <div class="row">
+                    <div class="col s2 offset-s3"><h5>Entradas</h5></div>
+                    <div class="col s2 offset-s1"><h5>Salidas</h5></div>
+                    <div class="col s2 offset-s1"><h5>Saldos</h5></div>
+                </div>
+                <table class="striped centered">
+
+                    <thead>
+
+                    <tr>
+                        <th data-field="nombre">Materia Prima</th>
+                        <th data-field="apellidos">Cantidad</th>
+                        <th data-field="cargo">Costo Unitario</th>
+                        <th data-field="SalarioNominal">Total</th>
+                        <th data-field="apellidos">Cantidad</th>
+                        <th data-field="cargo">Costo Unitario</th>
+                        <th data-field="SalarioNominal">Total</th>
+                        <th data-field="apellidos">Cantidad</th>
+                        <th data-field="cargo">Costo Unitario</th>
+                        <th data-field="SalarioNominal">Total</th>
+
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for movimiento in object_list%}
+                        {% if movimiento.tipo == 'E'%}
+                            <tr>
+                                <td>{{movimiento.nombre}}</td>
+                                <td>{{movimiento.cantidad}}</td>
+                                <td>{{movimiento.precioUnitario}}</td>
+                                <td>${{movimiento.totalMovimiento}}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+
+                            </tr>
+
+                        {% else %}
+
+                            <tr>
+                                <td>{{movimiento.nombre}}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{movimiento.cantidad}}</td>
+                                <td>{{movimiento.precioUnitario}}</td>
+                                <td>${{movimiento.totalMovimiento}}</td>
+                            </tr>
+
+
+                        {% endif %}
+                    {%endfor%}
+
+
+
+
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay Movimientos</h6>
+            {% endif %}
+
+
+        </div>
+    </main>
+
+
+{% endblock %}

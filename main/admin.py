@@ -1,7 +1,5 @@
 from django.contrib import admin
-
-from main.models import ordenDeFabricacion
-from models import Cuenta,TipoCuenta,Rubro, Transaccion,TipoTransaccion,Empleado,Puesto,Movimiento,Prestacion, producto
+from models import Cuenta,TipoCuenta,Rubro, Transaccion,TipoTransaccion,Empleado,Puesto,Movimiento,Prestacion, ordenDeFabricacion, producto
 
 # Register your models here.
 admin.site.register(Cuenta)
@@ -15,5 +13,7 @@ admin.site.register(Movimiento)
 admin.site.register(Prestacion)
 admin.site.register(ordenDeFabricacion)
 admin.site.register(producto)
+admin.site.register(MovimientoMp)
+
 
 

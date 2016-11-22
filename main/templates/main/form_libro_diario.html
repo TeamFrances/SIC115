@@ -1,0 +1,15 @@
+<form action="{% url 'transaccion_nueva' %}" method="POST">{%csrf_token%}
+    <h4>Crear Transacción</h4>
+    <div class="container">
+        {{transaccion.as_p}}
+        <table>
+            <tr data-field="col s7 push-s5">
+                {% for form in movimientos %}
+                    {{ form.as_table }}
+                    <div class="divider"></div>
+                {% endfor %}
+            </tr>
+        </table>
+        <button type="submit" class="save btn btn-default">Guardar Transaccion</button>
+    </div>
+</form>

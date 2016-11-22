@@ -41,12 +41,26 @@ class MovimientoForm(forms.Form):
 
 
 class TransaccionForm(forms.Form):
-    monto = forms.DecimalField(label='monto de transaccion', max_digits=10, decimal_places=2, min_value=0.0)
-    empleado = forms.ModelChoiceField(required=True,
-                                      queryset=Empleado.objects.all())
-    tipo = forms.ModelChoiceField(required=True,
-                                  queryset=TipoTransaccion.objects.all())
-    descripcion = forms.CharField(widget=forms.Textarea)
+    monto = forms.DecimalField(
+        label='monto de transaccion',
+        max_digits=10,
+        decimal_places=2,
+        min_value=0.0,
+        initial=0.0
+    )
+    empleado = forms.ModelChoiceField(
+        required=True,
+        queryset=Empleado.objects.all(),
+        empty_label="Empleado",
+        widget=forms.Select()
+    )
+    tipo = forms.ModelChoiceField(
+        required=True,
+        queryset=TipoTransaccion.objects.all()
+    )
+    descripcion = forms.CharField(
+        widget=forms.Textarea()
+    )
     fecha = forms.DateField()
 
 
@@ -121,7 +135,6 @@ class ProductoForm(forms.ModelForm):
         }
 
 
-
 class OrdenForm(forms.ModelForm):
     class Meta:
         model = ordenDeFabricacion
@@ -163,7 +176,7 @@ class OrdenForm(forms.ModelForm):
         }
 
 
-class MovimientoForm(forms.ModelForm):
+class MovimientoFormMP(forms.ModelForm):
     class Meta:
         model = MovimientoMp
 

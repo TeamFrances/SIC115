@@ -1,6 +1,7 @@
 # coding: utf-8
 
 from datetime import datetime
+from httplib import HTTPResponse
 
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
@@ -10,10 +11,10 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic.edit import FormView, CreateView
 
-from main.forms import CuentaForm
+from main.forms import CuentaForm, MovimientoForm
 from main.forms import EmpleadoForm
 from main.forms import LoginForm
-from main.forms import MovimientoForm
+from main.forms import MovimientoFormMP
 from main.forms import TransaccionForm,OrdenForm
 from main.models import MovimientoMp
 from models import Cuenta, TipoCuenta, Transaccion, Empleado, Movimiento, ordenDeFabricacion, producto
@@ -78,7 +79,7 @@ def empleados_list_view(request):
 def cuentas_list_view(request):
     cuentas=CuentaForm()
     return render(request,  'main/cuentas_list.html',
-                  {'cuenta': cuentas,'titulo':'Cuentas',
+                  {'cuenta': cuentas, 'titulo':'Cuentas',
                    'activos': Cuenta.objects.filter(tipo=1),
                    'pasivos': Cuenta.objects.filter(tipo=2),
                    'patrimonios': Cuenta.objects.filter(tipo=3),
@@ -146,18 +147,39 @@ def balance_comprobacion(request):
 
 def agregar_movimiento(request):
     formulario = TransaccionForm()
+    agregar = False
 
     if request.method == 'POST':
         futura = int(request.POST.get('mov'))
-        movimientos = formset_factory(MovimientoForm, extra=futura)
+        movimientos = formset_factory(MovimientoFormMP, extra=futura)
+        agregar = True
 
-        return render(request, 'main/libro_diario.html', {'titulo': 'Libro Diario', 'movimientos': movimientos, 'transaccion': formulario, 'agregar': True})
+        return render(request, 'main/form_libro_diario.html', {
+            'movimientos': movimientos,
+            'transaccion': formulario,
+            'agregar': agregar
+        })
     elif request.method == 'GET':
         return render(request, 'main/libro_diario.html')
 
 
+def getMovimientoForm(request):
+    formulario = TransaccionForm()
+
+    if request.method == "POST":
+        mov = int(request.POST.get('mov'))
+        movimientos = formset_factory(MovimientoForm, extra=mov)
+
+        r = render(request, 'main/form_libro_diario.html', {
+            'movimientos': movimientos,
+            'transaccion': formulario
+        })
+
+        return r
+
+
 def agregar_Transaccion(request):
-    movimientoF = formset_factory(MovimientoForm)
+    movimientoF = formset_factory(MovimientoFormMP)
 
     if request.method == 'POST':
         formulario = TransaccionForm(request.POST)
@@ -225,20 +247,21 @@ def empleado_view(reques):
     return render(reques, 'main/agregarEmpleado.html', {'form': form, 'titulo': 'Agregar Empleado'})
 
 
-class empleado_list(ListView):
+class Empleado_list(ListView):
     model = Empleado
     template_name = 'main/list_empleados.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, 'main/list_empleados.html', {
-            'titulo':'Empleados',
+            'titulo': 'Empleados',
             'object_list': Empleado.objects.all()
         })
 
 
-class planilla(ListView):
+class Planilla(ListView):
     model = Empleado
     template_name = 'main/Planilla.html'
+
     def get(self, request, *args, **kwargs):
         return render(request, 'main/Planilla.html', {
             'titulo':'Planilla',
@@ -246,9 +269,10 @@ class planilla(ListView):
         })
 
 
-class listaOrdenes(ListView):
+class ListaOrdenes(ListView):
     model = ordenDeFabricacion
     template_name = 'main/ordenFabricacion.html'
+
     def get(self, request, *args, **kwargs):
         return render(request, 'main/ordenFabricacion.html', {
             'titulo':'Ordenes de Fabricación',
@@ -256,7 +280,7 @@ class listaOrdenes(ListView):
         })
 
 
-class listaProductos(ListView):
+class ListaProductos(ListView):
     model = producto
     template_name = 'main/produccion_ventas.html'
 
@@ -267,7 +291,6 @@ class listaProductos(ListView):
             .filter(ordenDeFabricacion__fechaExpedicion__month=fecha.month)
 
         totalMP = 0.0
-        invI_PenP = 0.0
         totalMOD = 0.0
         importe = 0.0
         costoArtTerminado = 0.0
@@ -328,7 +351,7 @@ class CrearOrde(CreateView):
 
 class crearMovimientoMP(CreateView):
     model = MovimientoMp
-    form_class = MovimientoForm
+    form_class = MovimientoFormMP
     template_name = 'main/agregarMovimientoMP.html'
     success_url = reverse_lazy('inventario')
 

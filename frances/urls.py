@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^cuentas/', views.cuentas_list_view, name="cuentas_list"),
     url(r'^nuevaCuenta/',views.cuenta_nueva,name='cuenta_nueva'),
     url(r'^agregar_Movimiento/',views.agregar_movimiento,name='agregar_movimiento'),
+    url(r'^get_movimiento_form/',views.getMovimientoForm,name='get_movimiento_form'),
     url(r'^agregar_Transaccion/',views.agregar_Transaccion,name='transaccion_nueva'),
     url(r'^ajustes_financieros/', views.ajustes_financieros_view, name="ajustes_financieros"),
     url(r'^balance/', views.balance_general_view, name="balance_general"),
@@ -40,13 +41,13 @@ urlpatterns = [
     url(r'^libro_diario/', views.libro_diario, name="libro_diario"),
 
     url(r'^agregar_empleado/', views.empleado_view, name="agregar_empleado"),
-    url(r'^planilla/', views.planilla.as_view(), name="planilla"),
-    url(r'^empleados/', views.empleado_list.as_view(), name="empleados_list"),
+    url(r'^planilla/', views.Planilla.as_view(), name="planilla"),
+    url(r'^empleados/', views.Empleado_list.as_view(), name="empleados_list"),
 
-    url(r'^ordenes/', views.listaOrdenes.as_view(), name="ordenes"),
+    url(r'^ordenes/', views.ListaOrdenes.as_view(), name="ordenes"),
     url(r'^crearOrde/', views.CrearOrde.as_view(), name="crearOrden"),
 
-    url(r'^produccion/', views.listaProductos.as_view(), name="produccion"),
+    url(r'^produccion/', views.ListaProductos.as_view(), name="produccion"),
 
     url(r'^inventario/', views.listaMovimientosMP.as_view(), name="inventario"),
     url(r'^add_mov/', views.crearMovimientoMP.as_view(), name="add_mov"),

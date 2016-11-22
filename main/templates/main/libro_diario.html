@@ -1,45 +1,26 @@
 {% extends 'template_home.html' %}
 
-{% block titulo %}Libro Diario{% endblock %}
+{% block extra_scripts %}
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'main/js/scripts.js' %}"></script>
+{% endblock %}
 
 {% block contenido %}
     <main>
-
-
         <div class="container">
-
-
-            <form action="{% url 'agregar_movimiento' %}" method="POST" >{%csrf_token%}
-                <h3>Cantidad de movimientos involucrados</h3>
-                <input type="number" name="mov" min="2" placeholder="Dijite el numero de cuentas a usar"  required>
-                <button type="submit" class="save btn btn-default">Agregar Movimientos</button>
-            </form>
-
+            <input id="fnum" type="number" name="mov" min="2" placeholder="Dijite el numero de cuentas a usar" value="1" aria-valuemin="2" required>
+            {% csrf_token %}
+            <button class="save btn btn-default" onclick="updateViewLibroDiario()">Agregar Movimientos</button>
             <br>
             <br>
             <br>
-            <a class="waves-effect waves-light btn modal-trigger #2e7d32 green " href="#modal1">Agregar Transaccion</a>
 
 
-            <div id="modal1" class="modal" height="100">
-                <div class="modal-content" >
+            <div id="form-container" class="modal-content"></div>
+{#            <div id="modal1" class="modal" height="100">#}
+{#            </div>#}
 
-                    {%if agregar%}
-                        <form action="{%url 'transaccion_nueva'%}" method="POST">{%csrf_token%}
-                            <h4>Crear Transacción</h4>
-                            <div class="container">
-                                {{transaccion.as_p}}
-                                <table>
-                                    <tr data-field="col s7 push-s5">
-                                        <td >{{movimientos.as_table}}</td>
-                                    </tr>
-                                </table>
-                                <button type="submit" href="" class="save btn btn-default">Guardar Transaccion</button>
-                            </div>
-                        </form>
-                    {%endif%}
-                </div>
-            </div>
+{#            <a class="waves-effect waves-light btn modal-trigger #2e7d32 green " href="#modal1">Agregar Transaccion</a>#}
         </div>
     </main>
 {% endblock %}

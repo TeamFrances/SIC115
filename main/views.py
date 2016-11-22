@@ -1,15 +1,13 @@
 # coding: utf-8
-import calendar
 
-from datetime import date, datetime
+from datetime import datetime
+
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from django.db.models.aggregates import Sum
+from django.core.urlresolvers import reverse_lazy
 from django.forms import formset_factory
 from django.shortcuts import render, redirect
-from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView
-from django.views.generic.dates import timezone_today
 from django.views.generic.edit import FormView, CreateView
 
 from main.forms import CuentaForm
@@ -142,15 +140,12 @@ def estado_resultados(request):
 
 def balance_comprobacion(request):
     return render(request, 'main/balance_comprobacion.html', {
-
-
-        'titulo': 'Balance de Comprobación','cuentas':Cuenta.objects.all()
+        'titulo': 'Balance de Comprobación','cuentas': Cuenta.objects.all()
     })
 
 
 def agregar_movimiento(request):
-
-    formulario=TransaccionForm()
+    formulario = TransaccionForm()
 
     if request.method == 'POST':
         futura = int(request.POST.get('mov'))
@@ -159,6 +154,7 @@ def agregar_movimiento(request):
         return render(request, 'main/libro_diario.html', {'titulo': 'Libro Diario', 'movimientos': movimientos, 'transaccion': formulario, 'agregar': True})
     elif request.method == 'GET':
         return render(request, 'main/libro_diario.html')
+
 
 def agregar_Transaccion(request):
     movimientoF = formset_factory(MovimientoForm)
@@ -240,7 +236,6 @@ class empleado_list(ListView):
         })
 
 
-
 class planilla(ListView):
     model = Empleado
     template_name = 'main/Planilla.html'
@@ -251,7 +246,6 @@ class planilla(ListView):
         })
 
 
-
 class listaOrdenes(ListView):
     model = ordenDeFabricacion
     template_name = 'main/ordenFabricacion.html'
@@ -260,7 +254,6 @@ class listaOrdenes(ListView):
             'titulo':'Ordenes de Fabricación',
             'object_list': ordenDeFabricacion.objects.all()
         })
-
 
 
 class listaProductos(ListView):

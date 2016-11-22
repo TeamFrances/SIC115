@@ -110,8 +110,7 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = producto
 
-        fields=['nombre', 'ordenDeFabricacion', 'inventarioInicialMp', 'compras', 'inventarioFinal', 'invIniPenP', 'invFinalPenP',
-                'invInicialProductTerminado', 'invFinalProductTerminado', 'nuneroArticulos',]
+        fields=['nombre', 'ordenDeFabricacion', 'nuneroArticulos',]
 
 class OrdenForm(forms.ModelForm):
     class Meta:

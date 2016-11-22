@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from main.models import MovimientoMp
 from models import Cuenta,TipoCuenta,Rubro, Transaccion,TipoTransaccion,Empleado,Puesto,Movimiento,Prestacion, ordenDeFabricacion, producto
 
 # Register your models here.

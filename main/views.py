@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.dates import timezone_today
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, CreateView
 
 from main.forms import CuentaForm
 from main.forms import EmpleadoForm
@@ -326,7 +326,7 @@ class listaProductos(ListView):
             fecha.replace(args.index('año'))
 
         return render(request, self.template_name, {
-            'title': 'Producción y Ventas',
+            'titulo': 'Producción y Ventas',
             'object_list': productos,
             'totalMP': totalMP,
             'invI_PenP': invI_PenP,

@@ -47,7 +47,10 @@ urlpatterns = [
     url(r'^crearOrde/', views.CrearOrde.as_view(), name="crearOrden"),
 
     url(r'^produccion/', views.listaProductos.as_view(), name="produccion"),
+
     url(r'^inventario/', views.listaMovimientosMP.as_view(), name="inventario"),
+    url(r'^add_mov/', views.crearMovimientoMP.as_view(), name="add_mov"),
+
 
 
 

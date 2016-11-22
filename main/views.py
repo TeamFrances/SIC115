@@ -356,4 +356,19 @@ class CrearOrde(CreateView):
     model = ordenDeFabricacion
     form_class = OrdenForm
     template_name = 'main/agregarOrden.html'
-    success_url = reverse_lazy('ordenDeFabricacion:listaOrdenes')
+    success_url = reverse_lazy('ordenes')
+
+
+class crearMovimientoMP(CreateView):
+    model = MovimientoMp
+    form_class = MovimientoForm
+    template_name = 'main/agregarMovimientoMP.html'
+    success_url = reverse_lazy('inventario')
+
+    # def get(self, request, *args, **kwargs):
+    #     return render(request, 'main/agregarMovimientoMP.html', {'titulo':'Agregar movimiento'})
+
+
+
+
+

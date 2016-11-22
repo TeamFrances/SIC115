@@ -3,7 +3,7 @@ import datetime
 from django import forms
 from django.core.exceptions import ValidationError
 
-from main.models import ordenDeFabricacion, Movimiento, producto
+from main.models import ordenDeFabricacion, Movimiento, producto, MovimientoMp
 from models import Cuenta,Rubro,Transaccion,Empleado,TipoTransaccion
 
 tiposCuentas=((1, 'Activo',), (2, 'Pasivo',), (3, 'Capital',),(4, 'Resultado',))
@@ -153,7 +153,7 @@ class OrdenForm(forms.ModelForm):
         widgets = {
             'fechaExpedicion': forms.TextInput(attrs={'class': 'input-field '}),
             'fechaRequerida': forms.TextInput(attrs={'class': 'input-field '}),
-            'materal':forms.NumberInput(attrs={'class': 'input-field '}),
+            'materal':forms.TextInput(attrs={'class': 'input-field '}),
             'catidadMP':forms.NumberInput(attrs={'class': 'input-field '}),
             'costoUnitarioMP': forms.NumberInput(attrs={'class': 'input-field '}),
             'obrero': forms.Select(attrs={'class': 'input-field '}),
@@ -165,14 +165,6 @@ class OrdenForm(forms.ModelForm):
 
 class MovimientoForm(forms.ModelForm):
     class Meta:
-        model = Movimiento
+        model = MovimientoMp
 
-        fields = [
-
-        ]
-        labels = {
-
-        }
-        widgets = {
-
-        }
+        fields=['fecha', 'nombre', 'cantidad', 'precioUnitario','tipo']

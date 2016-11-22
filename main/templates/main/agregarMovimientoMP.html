@@ -1,0 +1,55 @@
+{% extends 'template_home.html' %}
+
+{% block titulo %}
+    Agregar Movimiento
+{% endblock %}
+
+{% block contenido %}
+
+
+    <main>
+        <div class="container">
+            <form method="post">
+                <h1>Agregar movimiento</h1>
+                <div class="divider"></div>
+                <br>
+                <br>
+                <br>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s4">
+                        {{ form.fecha }}
+                        <label class="active " for="{{ form.fecha.id_for_label }}" >Fecha (año-mes-dia)</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        {{ form.nombre }}
+                        <label class="active " for="{{ form.nombre.id_for_label }}" >Nombre</label>
+                    </div>
+                    <div class="input-field col s4">
+                        {{ form.cantidad }}
+                        <label class="active " for="{{ form.cantidad.id_for_label }}" >Cantidad</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        {{ form.precioUnitario }}
+                        <label class="active " for="{{ form.precioUnitario.id_for_label }}" >Precio Unitario ($)</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        {{ form.tipo }}
+                        <label class="active " for="{{ form.nombre.id_for_label }}" >Tipo de movimiento</label>
+                    </div>
+
+                </div>
+                <button class="btn waves-effect waves-light #2e7d32 green darken-3" type="submit" name="action" >Agregar <i class="material-icons right">send</i>
+                </button>
+                <a class="waves-effect waves-light btn #e53935 red darken-1" href="{% url 'inventario' %}"><i class="material-icons right">clear_all</i>Cancelar</a>
+            </form>
+
+        </div>
+
+    </main>
+
+{% endblock %}

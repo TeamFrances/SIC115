@@ -8,12 +8,15 @@
    <main>
    <div class="container">
 
+        <h3>Datos del Empleado</h3>
+       <div class="divider"></div>
        {% if object_list %}
            <table class="striped centered">
 
                <thead>
 
                <tr>
+                   <th data-field="Idempleado">ID</th>
                    <th data-field="nombre">Nombre</th>
                    <th data-field="apellidos">Apellidos</th>
                    <th data-field="cargo">Cargo</th>
@@ -28,18 +31,20 @@
 
                {%for empleado in object_list%}
                    <tr>
+                       <td>{{empleado.id}}</td>
                        <td>{{empleado.nombres}}</td>
                        <td>{{empleado.apellidos}}</td>
                        <td>{{empleado.puesto.nombre}}</td>
-                       <td>${{empleado.puesto.salarioNominalDiario}}</td>
-                       <td>${{empleado.salReal}}</td>
+                       <td>${{empleado.puesto.salarioNominalDiario|floatformat:"2"}}</td>
+                       <td>${{empleado.salReal|floatformat:"2"}}</td>
                    </tr>
                {%endfor%}
-
-
-
                </tbody>
            </table>
+           <br>
+           <br>
+           <h3>Prestaciones</h3>
+           <div class="divider"></div>
        {% else %}
            <h6>No hay empleados</h6>
        {% endif %}

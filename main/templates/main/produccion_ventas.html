@@ -19,46 +19,35 @@
                     <tr>
                         <th data-field="numero">No orden</th>
                         <th data-field="MPUsada">MP utilizada</th>
-                        <th data-field="IIPP">Inv. Inicial P en P</th>
-                        <th data-field="mod">MOD</th>
-                        <th data-field="CIF">CIF</th>
-                        <th data-field="IFPP">Inv. Final P en P</th>
+                        <th data-field="mod">Mano de obra D.</th>
+                        <th data-field="CIF">Costos indirectos F.</th>
                         <th data-field="CAT">Costo Art. terminado</th>
-                        <th data-field="CAT">Inv. Ini P Terminado</th>
                         <th data-field="CAT">Art. terminados Disp.</th>
-                        <th data-field="CAT">Inv. Fin P Terminado</th>
                         <th data-field="CAT">Costo de lo vendido</th>
                     </tr>
                     </thead>
                     <tbody>
 
-                    {% for producto in object_list %}
-                            <tr>
-                                <td id="cdc_numOrden">{{producto.ordenDeFabricacion.numOrden}}</td>
-                                <td id="cdc_totalMP">{{producto.ordenDeFabricacion.totalMP}}</td>
-                                <td id="cdc_invIniPenP">{{producto.invIniPenP}}</td>
-                                <td id="cdc_totalMOD">{{producto.ordenDeFabricacion.totalMOD}}</td>
-                                <td id="cdc_importe">{{producto.ordenDeFabricacion.importe}}</td>
-                                <td id="cdc_invFinalPenP">{{producto.invFinalPenP}}</td>
-                                <td id="cdc_costoArtTerminado">{{producto.costoArtTerminado }}</td>
-                                <td id="cdc_invInicialProductTerminado">{{producto.invInicialProductTerminado}}</td>
-                                <td id="cdc_artTerDisp">{{producto.artTerDisp}}</td>
-                                <td id="cdc_invFinalProductTerminado">{{producto.invFinalProductTerminado}}</td>
-                                <td id="cdc_costoVendido">{{producto.costoVendido}}</td>
-                            </tr>
-                        {%endfor%}
+
+                    {%for producto in object_list%}
+                        <tr>
+                            <td>{{producto.ordenDeFabricacion.numOrden}}</td>
+                            <td>{{producto.ordenDeFabricacion.totalMP}}</td>
+                            <td>{{producto.ordenDeFabricacion.totalMOD}}</td>
+                            <td>{{producto.ordenDeFabricacion.importe}}</td>
+                            <td>{{producto.costoArtTerminado}}</td>
+                            <td>{{producto.artTerDisp}}</td>
+                            <td>{{producto.costoVendido}}</td>
+                        </tr>
+                    {%endfor%}
 
                         <tr>
                             <td><h6>Total</h6></td>
                             <td id="cdc_total_totalMP">{{ totalMP }}</td>
-                            <td id="cdc_total_invIniPenP">{{ invF_PenP }}</td>
                             <td id="cdc_total_totalMOD">{{ totalMOD }}</td>
                             <td id="cdc_total_importe">{{ importe }}</td>
-                            <td id="cdc_total_invFinalPenP">{{ invF_PenP }}</td>
                             <td id="cdc_total_costoArtTerminado">{{ costoArtTerminado }}</td>
-                            <td id="cdc_total_invInicialProductTerminado">{{ InvI_PT }}</td>
                             <td id="cdc_total_artTerDisp">{{ artTermDisp }}</td>
-                            <td id="cdc_total_invFinalProductTerminado">{{ InvF_PTerm }}</td>
                             <td id="cdc_total_costoVendido">{{ costoVendido }}</td>
                         </tr>
 
@@ -122,16 +111,16 @@
                 <tbody>
 
 
-                    {%for producto in object_list%}
-                        <tr>
-                            <td id="cu_numOrden">{{producto.ordenDeFabricacion.numOrden}}</td>
-                            <td id="cu_nombre">{{producto.nombre}}</td>
-                            <td id="cu_costoVendido">${{producto.costoVendido|floatformat:"2"}}</td>
-                            <td id="cu_nuneroArticulos">{{producto.nuneroArticulos|floatformat:"2"}}</td>
-                            <td id="cu_costoUnitario">${{producto.costoUnitario|floatformat:"2"}}</td>
-                        </tr>
-                    {%endfor%}
-                    </tbody>
+                {%for producto in object_list%}
+                    <tr>
+                        <td>{{producto.ordenDeFabricacion.numOrden}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>${{producto.costoVendido}}</td>
+                        <td>{{producto.nuneroArticulos}}</td>
+                        <td>${{producto.costoUnitario}}</td>
+                    </tr>
+                {%endfor%}
+                </tbody>
                 </table>
 
                 <br>

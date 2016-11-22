@@ -215,11 +215,14 @@ class MovimientoMp(models.Model):
     tipo = models.CharField(max_length=1, choices=tipo_opt, null=False)
     fecha=models.DateField()
     nombre=models.CharField(max_length=50)
-    cantidad=models.FloatField(default=0.0)
-    precioUnitario= models.FloatField(default=0.0)
+    cantidad=models.FloatField()
+    precioUnitario= models.FloatField()
 
     def totalMovimiento(self):
         return self.cantidad*self.precioUnitario
+
+    def __str__(self):
+        return str(self.nombre)
 
 
 

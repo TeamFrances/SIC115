@@ -32,23 +32,23 @@
                     {%for producto in object_list%}
                         <tr>
                             <td>{{producto.ordenDeFabricacion.numOrden}}</td>
-                            <td>{{producto.ordenDeFabricacion.totalMP}}</td>
-                            <td>{{producto.ordenDeFabricacion.totalMOD}}</td>
-                            <td>{{producto.ordenDeFabricacion.importe}}</td>
-                            <td>{{producto.costoArtTerminado}}</td>
-                            <td>{{producto.artTerDisp}}</td>
-                            <td>{{producto.costoVendido}}</td>
+                            <td>${{producto.ordenDeFabricacion.totalMP|floatformat:"2"}}</td>
+                            <td>${{producto.ordenDeFabricacion.totalMOD|floatformat:"2"}}</td>
+                            <td>${{producto.ordenDeFabricacion.importe|floatformat:"2"}}</td>
+                            <td>${{producto.costoArtTerminado|floatformat:"2"}}</td>
+                            <td>${{producto.artTerDisp|floatformat:"2"}}</td>
+                            <td>${{producto.costoVendido|floatformat:"2"}}</td>
                         </tr>
                     {%endfor%}
 
-                        <tr>
-                            <td><h6>Total</h6></td>
-                            <td id="cdc_total_totalMP">{{ totalMP }}</td>
-                            <td id="cdc_total_totalMOD">{{ totalMOD }}</td>
-                            <td id="cdc_total_importe">{{ importe }}</td>
-                            <td id="cdc_total_costoArtTerminado">{{ costoArtTerminado }}</td>
-                            <td id="cdc_total_artTerDisp">{{ artTermDisp }}</td>
-                            <td id="cdc_total_costoVendido">{{ costoVendido }}</td>
+                        <tr style="color: #ff5018;font-weight: 800;">
+                            <td>Total</td>
+                            <td id="cdc_total_totalMP">${{ totalMP|floatformat:"2" }}</td>
+                            <td id="cdc_total_totalMOD">${{ totalMOD|floatformat:"2" }}</td>
+                            <td id="cdc_total_importe">${{ importe|floatformat:"2" }}</td>
+                            <td id="cdc_total_costoArtTerminado">${{ costoArtTerminado|floatformat:"2" }}</td>
+                            <td id="cdc_total_artTerDisp">${{ artTermDisp|floatformat:"2" }}</td>
+                            <td id="cdc_total_costoVendido">${{ costoVendido|floatformat:"2" }}</td>
                         </tr>
 
 
@@ -57,7 +57,7 @@
 
                     <br>
                     <br>
-                    <h5 class="bold">Costo de lo Vendido vrs. Orden de Fabricación</h5>
+                    <h5 class="bold">Orden de Fabricación vs. Costo de lo Vendido</h5>
 
                 <div class="divider"></div>
                 <p>Costo de lo vendido</p>
@@ -115,9 +115,9 @@
                     <tr>
                         <td>{{producto.ordenDeFabricacion.numOrden}}</td>
                         <td>{{producto.nombre}}</td>
-                        <td>${{producto.costoVendido}}</td>
+                        <td>${{producto.costoVendido|floatformat:"2"}}</td>
                         <td>{{producto.nuneroArticulos}}</td>
-                        <td>${{producto.costoUnitario}}</td>
+                        <td>${{producto.costoUnitario|floatformat:"2"}}</td>
                     </tr>
                 {%endfor%}
                 </tbody>
@@ -125,7 +125,7 @@
 
                 <br>
 
-                <h5>Precio vrs. Producto</h5>
+                <h5>Producto vs. Precio</h5>
 
                 <div class="divider"></div>
                 <p>Costo unitario</p>

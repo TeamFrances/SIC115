@@ -277,11 +277,8 @@ class listaProductos(ListView):
         invI_PenP = 0.0
         totalMOD = 0.0
         importe = 0.0
-        invF_PenP = 0.0
         costoArtTerminado = 0.0
-        InvI_PT = 0.0
         artTermDisp = 0.0
-        InvF_PTerm = 0.0
         costoVendido = 0.0
 
         for p in productos:
@@ -291,16 +288,7 @@ class listaProductos(ListView):
             totalMOD += p.ordenDeFabricacion.totalMOD()
 
         for p in productos:
-            invI_PenP += p.invIniPenP
-
-        for p in productos:
-            InvI_PT += p.invInicialProductTerminado
-
-        for p in productos:
             importe += p.ordenDeFabricacion.importe()
-
-        for p in productos:
-            invF_PenP += p.invFinalPenP
 
         for p in productos:
             costoArtTerminado += p.costoArtTerminado()
@@ -309,17 +297,7 @@ class listaProductos(ListView):
             artTermDisp += p.artTerDisp()
 
         for p in productos:
-            invF_PenP += p.invFinalPenP
-
-        for p in productos:
-            InvF_PTerm += p.invFinalProductTerminado
-
-        for p in productos:
             costoVendido += p.costoVendido()
-
-        # aux = productos.aggregate(totalMP=Sum('ordenDeFabricacion__catidadMP'), totalCU=Sum('ordenDeFabricacion__costoUnitarioMP'))
-        # totalMP = float(aux['totalMP'])*float(aux['totalCU'])
-        # calculos = productos.aggregate(totalMOD=Sum(''))
 
         if len(args) > 0:
             fecha.replace(month=args.index('mes'))
@@ -329,14 +307,10 @@ class listaProductos(ListView):
             'titulo': 'Producción y Ventas',
             'object_list': productos,
             'totalMP': totalMP,
-            'invI_PenP': invI_PenP,
             'totalMOD': totalMOD,
             'importe': importe,
-            'invF_PenP': invF_PenP,
-            'InvI_PT': InvI_PT,
             'costoArtTerminado': costoArtTerminado,
             'artTermDisp': artTermDisp,
-            'InvF_PTerm': InvF_PTerm,
             'costoVendido': costoVendido
         })
 
@@ -364,9 +338,6 @@ class crearMovimientoMP(CreateView):
     form_class = MovimientoForm
     template_name = 'main/agregarMovimientoMP.html'
     success_url = reverse_lazy('inventario')
-
-    # def get(self, request, *args, **kwargs):
-    #     return render(request, 'main/agregarMovimientoMP.html', {'titulo':'Agregar movimiento'})
 
 
 

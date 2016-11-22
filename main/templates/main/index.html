@@ -8,7 +8,7 @@
     <main>
     <div class="section no-pad-bot #263238 blue-grey darken-4" id="ini">
         <div class="container ">
-            <h2 class="white-text light">Ha iniciado sesión ¡Bienvenido!</h2>
+            <h2 class="white-text light">¡Bienvenido {{ user.username }}!</h2>
 
             <br>
             <div class='row center'> </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="col s4">
 
-                <center><img src="{% static 'main/images/card7.jpg' %}" ></center>
+                <img src="{% static 'main/images/card7.jpg' %}" class="center-block">
                 <h4 class="center-align">Util</h4>
                 <p class="center-align">La información se adecua al propósito de la empresa Francés, por lo tanto es oportuna, veraz y comprobable.</p>
 

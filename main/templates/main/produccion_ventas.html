@@ -30,23 +30,26 @@
                     {%for producto in object_list%}
                         <tr>
                             <td>{{producto.ordenDeFabricacion.numOrden}}</td>
-                            <td>{{producto.ordenDeFabricacion.totalMP}}</td>
-                            <td>{{producto.ordenDeFabricacion.totalMOD}}</td>
-                            <td>{{producto.ordenDeFabricacion.importe}}</td>
-                            <td>{{producto.costoArtTerminado}}</td>
-                            <td>{{producto.artTerDisp}}</td>
-                            <td>{{producto.costoVendido}}</td>
+                            <td>${{producto.ordenDeFabricacion.totalMP|floatformat:"2"}}</td>
+                            <td>${{producto.ordenDeFabricacion.totalMOD|floatformat:"2"}}</td>
+                            <td>${{producto.ordenDeFabricacion.importe|floatformat:"2"}}</td>
+                            <td>${{producto.costoArtTerminado|floatformat:"2"}}</td>
+                            <td>${{producto.artTerDisp|floatformat:"2"}}</td>
+                            <td>${{producto.costoVendido|floatformat:"2"}}</td>
                         </tr>
                     {%endfor%}
-                    <tr>
-                        <td><h6>Total</h6></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+
+                        <tr style="color: #ff5018;font-weight: 800;">
+                            <td>Total</td>
+                            <td id="cdc_total_totalMP">${{ totalMP|floatformat:"2" }}</td>
+                            <td id="cdc_total_totalMOD">${{ totalMOD|floatformat:"2" }}</td>
+                            <td id="cdc_total_importe">${{ importe|floatformat:"2" }}</td>
+                            <td id="cdc_total_costoArtTerminado">${{ costoArtTerminado|floatformat:"2" }}</td>
+                            <td id="cdc_total_artTerDisp">${{ artTermDisp|floatformat:"2" }}</td>
+                            <td id="cdc_total_costoVendido">${{ costoVendido|floatformat:"2" }}</td>
+                        </tr>
+
+
                     </tbody>
                 </table>
 
@@ -60,33 +63,33 @@
                 <h3>Costos Unitarios</h3>
                 <div class="divider"></div>
                 <table class="striped centered responsive-table">
-                    <thead>
+                <thead>
+                <tr>
+                    <th data-field="numero">No orden</th>
+                    <th data-field="nombre">Producto</th>
+                    <th data-field="CAT">Costo de lo vendido</th>
+                    <th data-field="cantidad">Cantidad de Productos</th>
+                    <th data-field="CU">Costo Unitario</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                {%for producto in object_list%}
                     <tr>
-                        <th data-field="numero">No orden</th>
-                        <th data-field="nombre">Producto</th>
-                        <th data-field="CAT">Costo de lo vendido</th>
-                        <th data-field="cantidad">Cantidad de Productos</th>
-                        <th data-field="CU">Costo Unitario</th>
+                        <td>{{producto.ordenDeFabricacion.numOrden}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>${{producto.costoVendido|floatformat:"2"}}</td>
+                        <td>{{producto.nuneroArticulos}}</td>
+                        <td>${{producto.costoUnitario|floatformat:"2"}}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-
-
-                    {%for producto in object_list%}
-                        <tr>
-                            <td>{{producto.ordenDeFabricacion.numOrden}}</td>
-                            <td>{{producto.nombre}}</td>
-                            <td>${{producto.costoVendido}}</td>
-                            <td>{{producto.nuneroArticulos}}</td>
-                            <td>${{producto.costoUnitario}}</td>
-                        </tr>
-                    {%endfor%}
-                    </tbody>
+                {%endfor%}
+                </tbody>
                 </table>
 
                 <br>
 
-                <h5>Producto vrs Costo Unitario </h5>
+                <h5>Producto vs. Precio</h5>
 
                 <div class="divider"></div>
                 <div id="Chart2" class="card-panel"></div>
@@ -94,7 +97,6 @@
             {% else %}
                 <h5>No hay producción</h5>
             {% endif %}
-
         </div>
     </main>
 

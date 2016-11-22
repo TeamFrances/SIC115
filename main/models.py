@@ -77,26 +77,31 @@ class TipoCuenta(models.Model):
     nombre = models.CharField(max_length=50, null=False)
 
     def __str__(self):
-        return self.nombre
+        return self.nombre+"  "+self.codigo
 
 
 class Cuenta(models.Model):
     id = models.IntegerField(editable=False, auto_created=True, primary_key=True)
     saldoInicial = models.FloatField(default=0.0)
-    nombre=models.CharField(max_length=50,  null=False)
+    nombre=models.CharField(max_length=50,  null=False, unique=True)
     tipo=models.ForeignKey(TipoCuenta, null=False)
     debe = models.FloatField(default=0.0)
     haber = models.FloatField(default=0.0)
-    saldoFinal = models.FloatField(0.0)
+    saldoFinal = models.FloatField(default=0.0)
     codigo= models.CharField(max_length=5, null=False, default=1)
     acreedor=models.BooleanField(default=True)
     rubro=models.ForeignKey(Rubro, null=False)
 
+    def codigo2(self):
+
+        if self.id <=9:
+            cod=str(self.tipo.id)+str(self.rubro.numero)+"0"+str(+self.id)
+        else:
+            cod=str(self.tipo.id)+str(self.rubro.numero)+str(self.id)
+        return cod
+
     def __str__(self):
         return self.nombre
-
-    def saldoF(self):
-        return self.haber-self.debe
 
 
 class Cliente(models.Model):
@@ -145,15 +150,15 @@ class Prestacion(models.Model):
 
 class ordenDeFabricacion(models.Model):
     numOrden=models.IntegerField(editable=False, auto_created=True, primary_key=True, unique=True)
-    fechaExpedicion=models.DateField(default='2000-01-01')
-    fechaRequerida=models.DateField(default='2000-01-01')
+    fechaExpedicion=models.DateField()
+    fechaRequerida=models.DateField()
     materal=models.CharField(max_length=100, null=False)
-    catidadMP=models.FloatField(default=0.0)
-    costoUnitarioMP=models.FloatField(default=0.0)
+    catidadMP=models.FloatField()
+    costoUnitarioMP=models.FloatField()
     obrero=models.ForeignKey(Empleado, null=False)
     numHoras=models.IntegerField()
-    costoHora=models.FloatField(default=0.0)
-    tasaCIF=models.FloatField(default=0.0)
+    costoHora=models.FloatField()
+    tasaCIF=models.FloatField()
 
 
     def totalMP(self):
@@ -167,7 +172,7 @@ class ordenDeFabricacion(models.Model):
 
     def __str__(self):
         numeroOrden=str(self.numOrden)
-        return numeroOrden
+        return numeroOrden+" "+self.materal
 
 
 
@@ -182,7 +187,7 @@ class producto(models.Model):
     invFinalPenP=models.FloatField(default=0.0)
     invInicialProductTerminado=models.FloatField(default=0.0)
     invFinalProductTerminado=models.FloatField(default=0.0)
-    nuneroArticulos=models.IntegerField(default=0.0)
+    nuneroArticulos=models.IntegerField()
 
 
 

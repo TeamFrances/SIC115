@@ -1,0 +1,48 @@
+{% extends 'template_home.html' %}
+
+{% block titulo %}
+    Agregar Cuenta
+{% endblock %}
+
+{% block contenido %}
+
+
+    <main>
+        <div class="container">
+            <form method="post">
+                <h1>Agregar Cuenta</h1>
+                <div class="divider"></div>
+                <br>
+
+                {% csrf_token %}
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="input-field col s4">
+                        {{ form.nombre }}
+                        <label class="active " for="{{ form.nombre.id_for_label }}" >Nombre de Cuenta</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        {{ form.rubro }}
+                        <label class="active " for="{{ form.rubro.id_for_label }}" >Rubro</label>
+                    </div>
+                    <div class="input-field col s4">
+                        {{ form.tipo }}
+                        <label class="active " for="{{ form.tipo.id_for_label }}" >Tipo</label>
+                    </div>
+                </div>
+
+
+
+
+                <button class="btn waves-effect waves-light #2e7d32 green darken-3" type="submit" name="action" >Agregar <i class="material-icons right">send</i>
+                </button>
+                <a class="waves-effect waves-light btn #e53935 red darken-1" href="{% url 'cuentas_list' %}"><i class="material-icons right">clear_all</i>Cancelar</a>
+            </form>
+
+        </div>
+    </main>
+
+{% endblock %}

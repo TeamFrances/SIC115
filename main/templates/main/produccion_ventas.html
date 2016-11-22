@@ -8,7 +8,7 @@
 
     <main>
         <div class="container">
-            <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href=""><i class="material-icons right">add_circle</i>Agregar</a>
+            <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href="{% url 'add_producto' %}"><i class="material-icons right">add_circle</i>Agregar</a>
             <br>
             <br>
             <h3>Caja de costos</h3>
@@ -27,8 +27,6 @@
                     </tr>
                     </thead>
                     <tbody>
-
-
                     {%for producto in object_list%}
                         <tr>
                             <td>{{producto.ordenDeFabricacion.numOrden}}</td>
@@ -40,29 +38,22 @@
                             <td>{{producto.costoVendido}}</td>
                         </tr>
                     {%endfor%}
-
-                        <tr>
-                            <td><h6>Total</h6></td>
-
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-
-                        </tr>
-
-
+                    <tr>
+                        <td><h6>Total</h6></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                     </tbody>
                 </table>
 
-                    <br>
-                    <br>
-                    <h5 class="bold">Costo de lo Vendido vrs. Orden de Fabricación</h5>
-
-                    <div class="divider"></div>
+                <br>
+                <br>
+                <h5 class="bold">Costo de lo Vendido vrs. Orden de Fabricación</h5>
+                <div class="divider"></div>
                 <p>Costo de lo vendido</p>
                 <canvas id="chart1" width="200" height="70"></canvas>
                 <script>
@@ -106,28 +97,28 @@
                 <h3>Costos Unitarios</h3>
                 <div class="divider"></div>
                 <table class="striped centered responsive-table">
-                <thead>
-                <tr>
-                    <th data-field="numero">No orden</th>
-                    <th data-field="nombre">Producto</th>
-                    <th data-field="CAT">Costo de lo vendido</th>
-                    <th data-field="cantidad">Cantidad de Productos</th>
-                    <th data-field="CU">Costo Unitario</th>
-                </tr>
-                </thead>
-                <tbody>
-
-
-                {%for producto in object_list%}
+                    <thead>
                     <tr>
-                        <td>{{producto.ordenDeFabricacion.numOrden}}</td>
-                        <td>{{producto.nombre}}</td>
-                        <td>${{producto.costoVendido}}</td>
-                        <td>{{producto.nuneroArticulos}}</td>
-                        <td>${{producto.costoUnitario}}</td>
+                        <th data-field="numero">No orden</th>
+                        <th data-field="nombre">Producto</th>
+                        <th data-field="CAT">Costo de lo vendido</th>
+                        <th data-field="cantidad">Cantidad de Productos</th>
+                        <th data-field="CU">Costo Unitario</th>
                     </tr>
-                {%endfor%}
-                </tbody>
+                    </thead>
+                    <tbody>
+
+
+                    {%for producto in object_list%}
+                        <tr>
+                            <td>{{producto.ordenDeFabricacion.numOrden}}</td>
+                            <td>{{producto.nombre}}</td>
+                            <td>${{producto.costoVendido}}</td>
+                            <td>{{producto.nuneroArticulos}}</td>
+                            <td>${{producto.costoUnitario}}</td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
                 </table>
 
                 <br>

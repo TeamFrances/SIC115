@@ -20,13 +20,13 @@ class LoginForm(forms.Form):
                                widget=forms.PasswordInput(attrs={'class': 'validate white-text'}))
 
 
-class CuentaForm(forms.Form):
-    nombre = forms.CharField(required=True,
-                             label='Nombre de la cuenta')
-    rubro = forms.ModelChoiceField(required=True,
-                                   queryset=Rubro.objects.all())
-    tipo = forms.ChoiceField(required=True,
-                             choices=tiposCuentas)
+# class CuentaForm(forms.Form):
+#     nombre = forms.CharField(required=True,
+#                              label='Nombre de la cuenta')
+#     rubro = forms.ModelChoiceField(required=True,
+#                                    queryset=Rubro.objects.all())
+#     tipo = forms.ChoiceField(required=True,
+#                              choices=tiposCuentas)
 
 
 class MovimientoForm(forms.Form):
@@ -110,17 +110,8 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = producto
 
-        fields = [
-
-        ]
-        labels = {
-
-        }
-        widgets = {
-
-        }
-
-
+        fields=['nombre', 'ordenDeFabricacion', 'inventarioInicialMp', 'compras', 'inventarioFinal', 'invIniPenP', 'invFinalPenP',
+                'invInicialProductTerminado', 'invFinalProductTerminado', 'nuneroArticulos',]
 
 class OrdenForm(forms.ModelForm):
     class Meta:
@@ -168,3 +159,10 @@ class MovimientoForm(forms.ModelForm):
         model = MovimientoMp
 
         fields=['fecha', 'nombre', 'cantidad', 'precioUnitario','tipo']
+
+
+class CuentaForm(forms.ModelForm):
+    class Meta:
+        model = Cuenta
+
+        fields = ['nombre', 'rubro', 'tipo']

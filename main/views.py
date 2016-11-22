@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import FormView, CreateView
 
-from main.forms import CuentaForm
+from main.forms import CuentaForm, ProductoForm
 from main.forms import EmpleadoForm
 from main.forms import LoginForm
 from main.forms import MovimientoForm
@@ -76,7 +76,7 @@ def empleados_list_view(request):
 def cuentas_list_view(request):
     cuentas=CuentaForm()
     return render(request,  'main/cuentas_list.html',
-                  {'cuenta': cuentas,'titulo':'Cuentas',
+                  {'cuenta': cuentas,'titulo':'Catálogo de Cuentas',
                    'activos': Cuenta.objects.filter(tipo=1),
                    'pasivos': Cuenta.objects.filter(tipo=2),
                    'patrimonios': Cuenta.objects.filter(tipo=3),
@@ -294,8 +294,19 @@ class crearMovimientoMP(CreateView):
     template_name = 'main/agregarMovimientoMP.html'
     success_url = reverse_lazy('inventario')
 
-    # def get(self, request, *args, **kwargs):
-    #     return render(request, 'main/agregarMovimientoMP.html', {'titulo':'Agregar movimiento'})
+
+class crearProducto(CreateView):
+    model = producto
+    form_class = ProductoForm
+    template_name = 'main/agregarProducto.html'
+    success_url = reverse_lazy('produccion')
+
+
+class crearCuenta(CreateView):
+    model = Cuenta
+    form_class = CuentaForm
+    template_name = 'main/agregarCuenta.html'
+    success_url = reverse_lazy('cuentas_list')
 
 
 

@@ -10,15 +10,72 @@
     <main>
         <div class="container">
             <form method="post">
+                <h1>Agregar Orden de Fabricación</h1>
+                <div class="divider"></div>
+                <br>
+
                 {% csrf_token %}
-                {{form.as_p}}
+                <div class="row">
+                    <div class="input-field col s4">
+                        {{ form.fechaExpedicion }}
+                        <label class="active " for="{{ form.fechaExpedicion.id_for_label }}" >Fecha de Expedición (año-mes-dia)</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        {{ form.fechaRequerida }}
+                        <label class="active " for="{{ form.fechaRequerida.id_for_label }}" >Fecha de requerida (año-mes-dia)</label>
+                    </div>
+                    <div class="input-field col s4">
+                        {{ form.materal }}
+                        <label class="active " for="{{ form.materal.id_for_label }}" >Material</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        {{ form.catidadMP }}
+                        <label class="active " for="{{ form.catidadMP.id_for_label }}" >Cantidad MAteria Prima ($)</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        {{ form.costoUnitarioMP }}
+                        <label class="active " for="{{ form.costoUnitarioMP.id_for_label }}" >Costo Unitario ($)</label>
+
+                    </div>
+                    <div class="input-field col s1">
+
+                        <label class="active " for="{{ form.obrero.id_for_label }}" >Empleado</label>
+                    </div>
+                    <div class="input-field col s3">
+                        {{ form.obrero }}
+
+                    </div>
+
+                </div>
+                <div class="row">
+
+
+                    <div class="input-field col s4">
+                        {{ form.numHoras }}
+                        <label class="active " for="{{ form.numHoras.id_for_label }}" >Numero de horas</label>
+                    </div>
+                    <div class="input-field col s4">
+                        {{ form.costoHora}}
+                        <label class="active " for="{{ form.costoHora.id_for_label }}" >Costo de Horas ($)</label>
+                    </div>
+                    <div class="input-field col s4">
+                        {{ form.tasaCIF}}
+                        <label class="active " for="{{ form.tasaCIF.id_for_label }}" >Costos indirectos de fabricación</label>
+                    </div>
+                </div>
+
+
                 <button class="btn waves-effect waves-light #2e7d32 green darken-3" type="submit" name="action" >Agregar <i class="material-icons right">send</i>
                 </button>
-                <a class="waves-effect waves-light btn #e53935 red darken-1" href="{% url 'ordenes' %}"><i class="material-icons right">clear_all</i>Cancelar</a>
+                <a class="waves-effect waves-light btn #e53935 red darken-1" href="{% url 'inventario' %}"><i class="material-icons right">clear_all</i>Cancelar</a>
             </form>
 
         </div>
-
     </main>
 
 {% endblock %}

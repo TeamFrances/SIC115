@@ -1,11 +1,15 @@
 # coding: utf-8
+import calendar
 
+from datetime import date, datetime
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models.aggregates import Sum
 from django.forms import formset_factory
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView
+from django.views.generic.dates import timezone_today
 from django.views.generic.edit import FormView, CreateView
 
 from main.forms import CuentaForm, ProductoForm
@@ -262,12 +266,53 @@ class listaOrdenes(ListView):
 class listaProductos(ListView):
     model = producto
     template_name = 'main/produccion_ventas.html'
-    def get(self, request, *args, **kwargs):
-        return render(request, 'main/produccion_ventas.html', {
-            'titulo':'Producción y Ventas',
-            'object_list': producto.objects.all()
-        })
 
+    def get(self, request, *args, **kwargs):
+        fecha = datetime.today().date()
+        fecha = fecha.replace(day=1)
+        productos = producto.objects.filter(ordenDeFabricacion__fechaExpedicion__year=fecha.year)\
+            .filter(ordenDeFabricacion__fechaExpedicion__month=fecha.month)
+
+        totalMP = 0.0
+        invI_PenP = 0.0
+        totalMOD = 0.0
+        importe = 0.0
+        costoArtTerminado = 0.0
+        artTermDisp = 0.0
+        costoVendido = 0.0
+
+        for p in productos:
+            totalMP += p.ordenDeFabricacion.totalMP()
+
+        for p in productos:
+            totalMOD += p.ordenDeFabricacion.totalMOD()
+
+        for p in productos:
+            importe += p.ordenDeFabricacion.importe()
+
+        for p in productos:
+            costoArtTerminado += p.costoArtTerminado()
+
+        for p in productos:
+            artTermDisp += p.artTerDisp()
+
+        for p in productos:
+            costoVendido += p.costoVendido()
+
+        if len(args) > 0:
+            fecha.replace(month=args.index('mes'))
+            fecha.replace(args.index('año'))
+
+        return render(request, self.template_name, {
+            'titulo': 'Producción y Ventas',
+            'object_list': productos,
+            'totalMP': totalMP,
+            'totalMOD': totalMOD,
+            'importe': importe,
+            'costoArtTerminado': costoArtTerminado,
+            'artTermDisp': artTermDisp,
+            'costoVendido': costoVendido
+        })
 
 
 class listaMovimientosMP(ListView):

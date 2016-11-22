@@ -40,35 +40,41 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {%for movimiento in object_list%}
-                        {% if movimiento.tipo == 'E'%}
-                            <tr>
-                                <td>{{movimiento.nombre}}</td>
-                                <td>{{movimiento.cantidad}}</td>
-                                <td>{{movimiento.precioUnitario}}</td>
-                                <td>${{movimiento.totalMovimiento}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                    {% with cantidadTotal=0.0 CU=0.0 montoTotal=0.0  %}
+
+                        {%for movimiento in object_list%}
+                            {% if movimiento.tipo == 'E'%}
+                                <tr>
+                                    <td>{{movimiento.nombre}}</td>
+                                    <td>{{movimiento.cantidad}}</td>
+                                    <td>{{movimiento.precioUnitario}}</td>
+                                    <td>${{movimiento.getTotalMovimiento}}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{ movimiento.cantidadTotal }}</td>
 
 
-                            </tr>
+                                </tr>
 
-                        {% else %}
+                            {% else %}
 
-                            <tr>
-                                <td>{{movimiento.nombre}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>{{movimiento.cantidad}}</td>
-                                <td>{{movimiento.precioUnitario}}</td>
-                                <td>${{movimiento.totalMovimiento}}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{movimiento.nombre}}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{movimiento.cantidad}}</td>
+                                    <td>{{movimiento.precioUnitario}}</td>
+                                    <td>${{movimiento.getTotalMovimiento}}</td>
+                                    <td>{{ movimiento.cantidadTotal }}</td>
+
+                                </tr>
 
 
-                        {% endif %}
-                    {%endfor%}
+                            {% endif %}
+                        {%endfor%}
+                    {% endwith %}
 
 
 

@@ -225,13 +225,22 @@ class MovimientoMp(models.Model):
     cantidad=models.FloatField()
     precioUnitario= models.FloatField()
 
-    def totalMovimiento(self):
+    def getTotalMovimiento(self):
         return self.cantidad*self.precioUnitario
 
     def __str__(self):
         return str(self.nombre)
 
 
+class EstadoFinalMP(models.Model):
+    idMov = models.IntegerField(auto_created=True, primary_key=True)
+    fechaFin = models.DateField()
+    cantidad = models.IntegerField(null=False, blank=False)
+    precioUnitario = models.FloatField(null=False, blank=False)
 
+    def __unicode__(self):
+        return "Cierre al " + str(self.fechaFin.day) + "/" + str(self.fechaFin.month) + "/" + str(self.fechaFin.year)
 
+    def getTotal(self):
+        return self.cantidad * self.precioUnitario
 

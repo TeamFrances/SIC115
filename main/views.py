@@ -17,7 +17,7 @@ from main.forms import EmpleadoForm
 from main.forms import LoginForm
 from main.forms import MovimientoForm
 from main.forms import TransaccionForm,OrdenForm
-from main.models import MovimientoMp
+from main.models import MovimientoMp, EstadoFinalMP
 from models import Cuenta, TipoCuenta, Transaccion, Empleado, Movimiento, ordenDeFabricacion, producto
 
 
@@ -320,10 +320,31 @@ class listaMovimientosMP(ListView):
     template_name = 'main/inventarioMP.html'
 
     def get(self, request, *args, **kwargs):
+        movimientos = MovimientoMp.objects.all()
+        total_anterior = EstadoFinalMP.objects.last()
+        res = []
+
+        if total_anterior is not None:
+            m = {}
+            for movimiento in movimientos:
+                if movimiento.tipo == 'E':
+                    if len(res) == 0:
+                        m["cantidad"] = total_anterior.cantidad + movimiento.idMov
+                        m["precioUnitario"] = total_anterior.precioUnitario + movimiento.idMov
+                        m["total"] = total_anterior .getTotal() + movimiento.idMov
+                    else:
+                        m["cantidad"] = movimientos + movimiento.idMov
+                        m["precioUnitario"] = total_anterior.precioUnitario + movimiento.idMov
+                        m["total"] = total_anterior .getTotal() + movimiento.idMov
+
+
         return render(request, 'main/inventarioMP.html', {
             'titulo':'Inventario de materia Prima',
-            'object_list': MovimientoMp.objects.all()
+            'object_list': MovimientoMp.objects.all(),
+            'col_resultados': res
         })
+
+
 
 
 class CrearOrde(CreateView):

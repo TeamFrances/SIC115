@@ -4,7 +4,6 @@
     <list default="true" id="f1212dae-74ac-431b-bff2-4e13c0c37658" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/forms.py" afterPath="$PROJECT_DIR$/main/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/views.py" afterPath="$PROJECT_DIR$/main/views.py" />
     </list>
     <ignored path="frances.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1113,7 +1112,7 @@
       <workItem from="1479786186091" duration="13072000" />
       <workItem from="1479825941668" duration="3219000" />
       <workItem from="1479849134460" duration="3425000" />
-      <workItem from="1479931499262" duration="1347000" />
+      <workItem from="1479931499262" duration="1495000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial. El login está funcional, pero la página &quot;acerca de&quot; no está completa">
       <created>1477889122970</created>
@@ -1346,11 +1345,18 @@
       <option name="project" value="LOCAL" />
       <updated>1479850731571</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="* Correcciones mínimas">
+      <created>1479933165013</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1479933165013</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181856000" />
+    <option name="totallyTimeSpent" value="182004000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1363,7 +1369,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1376,7 +1382,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3633388" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19591528" sideWeight="0.43048128" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19591528" sideWeight="0.43048128" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19591528" sideWeight="0.56951874" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1422,7 +1428,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se corrigió un error en el login" />
     <MESSAGE value="Después de crear la BD" />
     <MESSAGE value="* La base de datos está lista&#10;* La tabla del inventario ha sido añadida" />
     <MESSAGE value="* Implementada la tabla de &quot;Transacciones&quot;&#10;* Se modificó la tabla &quot;Cuenta&quot; añadiéndole el campo &quot;tipo&quot;, para que cada cuenta tenga, desde el principio el tipo, dejándo como predeterminado el valor &quot;Activo&quot;" />
@@ -1447,7 +1452,8 @@
     <MESSAGE value="* Eliminando espacios innecesarios en el código de Vistas" />
     <MESSAGE value="* Eliminando espacios innecesarios en views.py&#10;* Eliminando Imports no utilizados en views.py" />
     <MESSAGE value="* Los movimientos se pueden crear usando AJAX&#10;* Se deshicieron unos errores que cometí&#10;* Aún no salen habilitados los SELECT" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Los movimientos se pueden crear usando AJAX&#10;* Se deshicieron unos errores que cometí&#10;* Aún no salen habilitados los SELECT" />
+    <MESSAGE value="* Correcciones mínimas" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Correcciones mínimas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1886,7 +1892,7 @@
         <state relative-caret-position="527">
           <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
           <folding>
-            <element signature="e#640#672#0" expanded="true" />
+            <element signature="e#640#672#0" expanded="false" />
           </folding>
         </state>
       </provider>

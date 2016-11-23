@@ -8,7 +8,7 @@ from models import Cuenta,Rubro,Transaccion,Empleado,TipoTransaccion
 
 tiposCuentas=((1, 'Activo',), (2, 'Pasivo',), (3, 'Capital',),(4, 'Resultado',))
 DATE_INPUT_FORMATS = ('%d-%m-%Y')
-debes=((True,'False',),(False,'True',))
+debes=((False,'False',),(True,'True',))
 
 
 class LoginForm(forms.Form):
@@ -34,7 +34,7 @@ class MovimientoForm(forms.Form):
                                     queryset=Cuenta.objects.all())
     tipo = forms.MultipleChoiceField(
         required=False,
-        widget=forms.CheckboxSelectMultiple(attrs={'id': 'test6p', 'checked': 'checked'}),
+        widget=forms.CheckboxInput,
         choices=debes,
     )
     cantidad = forms.DecimalField(label='Cantidad a transferir a Cuenta:', max_digits=10, decimal_places=2, min_value=0)

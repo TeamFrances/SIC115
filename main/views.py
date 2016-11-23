@@ -170,12 +170,10 @@ def getMovimientoForm(request):
         mov = int(request.POST.get('mov'))
         movimientos = formset_factory(MovimientoForm, extra=mov)
 
-        r = render(request, 'main/form_libro_diario.html', {
+        return render(request, 'main/form_libro_diario.html', {
             'movimientos': movimientos,
             'transaccion': formulario
         })
-
-        return r
 
 
 def agregar_Transaccion(request):
@@ -216,10 +214,10 @@ def guardarMovimientos(request,formulario,movimientos, transaccion):
 
         if movimientoM.debe:
             cuentaModificar.debe += movimientoM.cantidad
-            t=guardarCambioCuenta(cuentaModificar)
+            guardarCambioCuenta(cuentaModificar)
         else:
             cuentaModificar.haber += movimientoM.cantidad
-            t=guardarCambioCuenta(cuentaModificar)
+            guardarCambioCuenta(cuentaModificar)
 
     return render(request, 'main/libro_diario.html', {'transaccion': formulario, 'agregar': True})
 

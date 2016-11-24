@@ -8,20 +8,13 @@
 
     <main>
         <div class="container">
-
-
             <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href="{% url 'crearOrden' %}"><i class="material-icons right">add_circle</i>Agregar</a>
-
             <br>
             <br>
-
-
             <div class="divider"></div>
             {% if object_list %}
                 <table class="striped centered responsive-table">
-
                     <thead>
-
                     <tr>
                         <th data-field=" numero">No orden</th>
                         <th data-field="material">Material</th>
@@ -34,33 +27,24 @@
                         <th data-field="totalMO">Total MOD</th>
                         <th data-field="CIF">CIF</th>
                         <th data-field="importe">Impoprte CIF</th>
-
                     </tr>
                     </thead>
                     <tbody>
-
-
                     {%for orden in object_list%}
                         <tr>
                             <td>{{orden.numOrden}}</td>
                             <td>{{orden.materal}}</td>
                             <td>{{orden.catidadMP}}</td>
-                            <td>{{orden.costoUnitarioMP}}</td>
-                            <td>{{orden.totalMP}}</td>
+                            <td>${{orden.costoUnitarioMP}}</td>
+                            <td>${{orden.totalMP}}</td>
                             <td>{{orden.obrero.nombres}}</td>
                             <td>{{orden.numHoras}}</td>
-                            <td>{{orden.costoHora}}</td>
-                            <td>{{orden.totalMOD}}</td>
+                            <td>${{orden.costoHora}}</td>
+                            <td>${{orden.totalMOD}}</td>
                             <td>{{orden.tasaCIF}}</td>
-                            <td>{{orden.importe}}</td>
-
-
-
+                            <td>${{orden.importe}}</td>
                         </tr>
                     {%endfor%}
-
-
-
                     </tbody>
                 </table>
             {% else %}

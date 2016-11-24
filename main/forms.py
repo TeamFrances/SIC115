@@ -8,7 +8,7 @@ from models import Cuenta,Rubro,Transaccion,Empleado,TipoTransaccion
 
 tiposCuentas=((1, 'Activo',), (2, 'Pasivo',), (3, 'Capital',),(4, 'Resultado',))
 DATE_INPUT_FORMATS = ('%d-%m-%Y')
-debes=((False,'False',),(True,'True',))
+debes=((True,'False',),(False,'True',))
 
 
 class LoginForm(forms.Form):
@@ -124,16 +124,7 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = producto
 
-        fields = [
-
-        ]
-        labels = {
-
-        }
-        widgets = {
-
-        }
-
+        fields=['nombre', 'ordenDeFabricacion', 'nuneroArticulos',]
 
 class OrdenForm(forms.ModelForm):
     class Meta:
@@ -181,3 +172,10 @@ class MovimientoFormMP(forms.ModelForm):
         model = MovimientoMp
 
         fields=['fecha', 'nombre', 'cantidad', 'precioUnitario','tipo']
+
+
+class CuentaForm(forms.ModelForm):
+    class Meta:
+        model = Cuenta
+
+        fields = ['nombre', 'rubro', 'tipo']

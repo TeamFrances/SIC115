@@ -6,216 +6,178 @@
 {% block titulo %} Cuentas {% endblock %}
 
 {% block contenido %}
-<main>
-<div class="container">
+    <main>
+        <div class="container">
 
-<div class="card-action">
-    <a class="waves-effect waves-light btn modal-trigger #2e7d32 green darken-3" href="#modal1">Agregar Cuenta</a>
-</div>
-<br>
-<br>
-<h5>1. Activos</h5>
-<div class="divider"></div>
-    {% if activos %}
-<table class="striped centered">
-	
-<thead>
+            <div class="card-action">
+                <a class="waves-effect waves-light btn  #2e7d32 green darken-3" href="{% url 'add_cuenta' %}">Agregar Cuenta</a>
+            </div>
+            <br>
+            <br>
 
-	<tr>
-		<th data-field="id">Codigo</th>
-		<th data-field="rubro">Rubro</th>
-		<th data-field="nombre">Nombre de Cuenta</th>
-
-
-	</tr>
-</thead>
-<tbody>
-
-	{%for activo in activos%}
-	<tr>
-		<td>{{activo.codigo}}</td>
-		<td>{{activo.rubro.nombre}}</td>
-		<td>{{activo.nombre}}</td>
-
-
-
-    {%endfor%}
-	</tr>
-
-</tbody>
-</table>
-{% else %}
-<h6>No hay registros</h6>
-{% endif %}
-    <br>
-
-    <h5>2. Pasivos</h5>
-    <div class="divider"></div>
-    {% if pasivos %}
-    <table class="striped centered">
-
-        <thead>
-
-        <tr>
-            <th data-field="id">Codigo</th>
-            <th data-field="rubro">Rubro</th>
-            <th data-field="nombre">Nombre de Cuenta</th>
+            <h5>1. Activos</h5>
+            <div class="divider"></div>
+            {% if activos %}
+                <table class="striped centered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Codigo</th>
+                        <th data-field="rubro">Rubro</th>
+                        <th data-field="nombre">Nombre de Cuenta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for activo in activos%}
+                        <tr>
+                        <td>{{activo.codigo2}}</td>
+                        <td>{{activo.rubro.nombre}}</td>
+                        <td>{{activo.nombre}}</td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay registros</h6>
+            {% endif %}
+            <br>
 
 
-        </tr>
-        </thead>
-        <tbody>
-
-	{%for pasivo in pasivos%}
-	<tr>
-		<td>{{pasivo.codigo}}</td>
-		<td>{{pasivo.rubro.nombre}}</td>
-		<td>{{pasivo.nombre}}</td>
-
-    {%endfor%}
-	</tr>
-        </tbody>
-    </table>
-    {% else %}
-        <h6>No hay registros</h6>
-    {% endif %}
-    <br>
-
-    <h5>3. Patrimonio</h5>
-    <div class="divider"></div>
-    {% if patrimonios %}
-    <table class="striped centered">
-
-        <thead>
-
-        <tr>
-            <th data-field="id">Codigo</th>
-            <th data-field="rubro">Rubro</th>
-            <th data-field="nombre">Nombre de Cuenta</th>
-
-        </tr>
-        </thead>
-        <tbody>
-	{%for patrimonio in patrimonios%}
-	<tr>
-		<td>{{patrimonio.codigo}}</td>
-		<td>{{patrimonio.rubro.nombre}}</td>
-		<td>{{patrimonio.nombre}}</td>
-		{%endfor%}
-	</tr>
-        </tbody>
-    </table>
-{% else %}
-    <h6>No hay registros</h6>
-{% endif %}
-
-    <br>
-    <h5>4. Resultado Acreedor</h5>
-    <div class="divider"></div>
-{% if resultadosA %}
-    <table class="striped centered">
-
-        <thead>
-
-        <tr>
-            <th data-field="id">Codigo</th>
-            <th data-field="rubro">Rubro</th>
-            <th data-field="nombre">Nombre de Cuenta</th>
-
-        </tr>
-        </thead>
-        <tbody>
-	{%for resultadoA in resultadosA%}
-	<tr>
-		<td>{{resultadoA.codigo}}</td>
-		<td>{{resultadoA.rubro.nombre}}</td>
-		<td>{{resultadoA.nombre}}</td>
-		{%endfor%}
-	</tr>
-        </tbody>
-    </table>
-{% else %}
-    <h6>No hay registros</h6>
-{% endif %}
-
-    <br>
-    <h5>5. Resultado Deudor</h5>
-    <div class="divider"></div>
-    {% if ResultadosD %}
-
-    <table class="striped centered">
-
-        <thead>
-
-        <tr>
-            <th data-field="id">Codigo</th>
-            <th data-field="rubro">Rubro</th>
-            <th data-field="nombre">Nombre de Cuenta</th>
-
-        </tr>
-        </thead>
-        <tbody>
-	{%for resultadoD in resultadosD%}
-	<tr>
-		<td>{{resultadoD.codigo}}</td>
-		<td>{{resultadoD.rubro.nombre}}</td>
-		<td>{{resultadoD.nombre}}</td>
-		{%endfor%}
-	</tr>
-        </tbody>
-    </table>
-    {% else %}
-        <h6>No hay registros</h6>
-    {% endif %}
-
-    <br>
-    <h5>6. Contra Activos</h5>
-    <div class="divider"></div>
-{% if contraActivos %}
-    <table class="striped centered">
-
-        <thead>
-
-        <tr>
-            <th data-field="id">Codigo</th>
-            <th data-field="rubro">Rubro</th>
-            <th data-field="nombre">Nombre de Cuenta</th>
-
-        </tr>
-        </thead>
-        <tbody>
-	{%for contra in contraActivos%}
-	<tr>
-		<td>{{contra.codigo}}</td>
-		<td>{{contra.rubro.nombre}}</td>
-		<td>{{contra.nombre}}</td>
-		{%endfor%}
-	</tr>
-        </tbody>
-    </table>
-{% else %}
-    <h6>No hay registros</h6>
-{% endif %}
+            <h5>2. Pasivos</h5>
+            <div class="divider"></div>
+            {% if pasivos %}
+                <table class="striped centered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Codigo</th>
+                        <th data-field="rubro">Rubro</th>
+                        <th data-field="nombre">Nombre de Cuenta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for pasivo in pasivos%}
+                        <tr>
+                            <td>{{pasivo.codigo2}}</td>
+                            <td>{{pasivo.rubro.nombre}}</td>
+                            <td>{{pasivo.nombre}}</td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay registros</h6>
+            {% endif %}
+            <br>
 
 
-</div>
-</main>
+            <h5>3. Patrimonio</h5>
+            <div class="divider"></div>
+            {% if patrimonios %}
+                <table class="striped centered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Codigo</th>
+                        <th data-field="rubro">Rubro</th>
+                        <th data-field="nombre">Nombre de Cuenta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for patrimonio in patrimonios%}
+                        <tr>
+                        <td>{{patrimonio.codigo2}}</td>
+                        <td>{{patrimonio.rubro.nombre}}</td>
+                        <td>{{patrimonio.nombre}}</td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay registros</h6>
+            {% endif %}
+
+            <br>
+
+            <h5>4. Resultado Acreedor</h5>
+            <div class="divider"></div>
+            {% if resultadosA %}
+                <table class="striped centered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Codigo</th>
+                        <th data-field="rubro">Rubro</th>
+                        <th data-field="nombre">Nombre de Cuenta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for resultadoA in resultadosA%}
+                        <tr>
+                        <td>{{resultadoA.codigo2}}</td>
+                        <td>{{resultadoA.rubro.nombre}}</td>
+                        <td>{{resultadoA.nombre}}</td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay registros</h6>
+            {% endif %}
+
+            <br>
+            <h5>5. Resultado Deudor</h5>
+            <div class="divider"></div>
+            {% if ResultadosD %}
+                <table class="striped centered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Codigo</th>
+                        <th data-field="rubro">Rubro</th>
+                        <th data-field="nombre">Nombre de Cuenta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for resultadoD in resultadosD%}
+                        <tr>
+                        <td>{{resultadoD.codigo2}}</td>
+                        <td>{{resultadoD.rubro.nombre}}</td>
+                        <td>{{resultadoD.nombre}}</td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay registros</h6>
+            {% endif %}
+
+            <br>
+            <h5>6. Contra Activos</h5>
+            <div class="divider"></div>
+            {% if contraActivos %}
+                <table class="striped centered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Codigo</th>
+                        <th data-field="rubro">Rubro</th>
+                        <th data-field="nombre">Nombre de Cuenta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for contra in contraActivos%}
+                        <tr>
+                        <td>{{contra.codigo2}}</td>
+                        <td>{{contra.rubro.nombre}}</td>
+                        <td>{{contra.nombre}}</td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay registros</h6>
+            {% endif %}
 
 
-    <div id="modal1" class="modal" height="100">
-        <div class="modal-content" >
-            <h4>Crear Cuenta</h4>
-
-
-            <form method="POST" action="{%url 'cuenta_nueva'%}" >{%csrf_token%}
-
-                {{cuenta.as_p}}
-
-                <button type="submit" class="save btn btn-default">Guardar cuenta</button>
-
-            </form>
         </div>
-    </div>
+    </main>
+
+
 
 
 

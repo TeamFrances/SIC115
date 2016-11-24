@@ -8,7 +8,7 @@
 
     <main>
         <div class="container">
-            <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href=""><i class="material-icons right">add_circle</i>Agregar</a>
+            <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href="{% url 'add_producto' %}"><i class="material-icons right">add_circle</i>Agregar</a>
             <br>
             <br>
             <h3>Caja de costos</h3>
@@ -27,8 +27,6 @@
                     </tr>
                     </thead>
                     <tbody>
-
-
                     {%for producto in object_list%}
                         <tr>
                             <td>{{producto.ordenDeFabricacion.numOrden}}</td>
@@ -55,60 +53,26 @@
                     </tbody>
                 </table>
 
-                    <br>
-                    <br>
-                    <h5 class="bold">Orden de Fabricación vs. Costo de lo Vendido</h5>
-
+                <br>
+                <br>
+                <h5 class="bold">  Orden de Fabricación vrs. Costo de lo Vendido</h5>
                 <div class="divider"></div>
-                <p>Costo de lo vendido</p>
-                <canvas id="chart1" width="200" height="70"></canvas>
-                <script>
-                    var ctx = document.getElementById("chart1");
-                    var chart1 = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: [
-                                {% for producto in object_list %}
-                                    "{{ producto.ordenDeFabricacion.numOrden}}",
-                                {% endfor %}],
-                            datasets: [{
-                                label: 'Costo',
+                <div id="Chart1" class="card-panel"></div>
 
-                                data: [
-                                    {% for producto in object_list%}
-                                        {{producto.costoVendido}},
-                                    {% endfor %}],
-                                backgroundColor:'rgba(0, 128, 0, 0.2)',
-                                borderColor: 'rgba(0, 128, 0,1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                </script>
-                <p class="center">Ordenes de fabricación</p>
 
                 <h3>Costos Unitarios</h3>
                 <div class="divider"></div>
                 <table class="striped centered responsive-table">
-                <thead>
-                <tr>
-                    <th data-field="numero">No orden</th>
-                    <th data-field="nombre">Producto</th>
-                    <th data-field="CAT">Costo de lo vendido</th>
-                    <th data-field="cantidad">Cantidad de Productos</th>
-                    <th data-field="CU">Costo Unitario</th>
-                </tr>
-                </thead>
-                <tbody>
+                    <thead>
+                    <tr>
+                        <th data-field="numero">No orden</th>
+                        <th data-field="nombre">Producto</th>
+                        <th data-field="CAT">Costo de lo vendido</th>
+                        <th data-field="cantidad">Cantidad de Productos</th>
+                        <th data-field="CU">Costo Unitario</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
 
                 {%for producto in object_list%}
@@ -125,47 +89,96 @@
 
                 <br>
 
-                <h5>Producto vs. Precio</h5>
+                <h5>Producto vs. Costo Unitario</h5>
 
                 <div class="divider"></div>
-                <p>Costo unitario</p>
-                <canvas id="chart2" width="200" height="70"></canvas>
-                <script>
-                    var ctx = document.getElementById("chart2");
-                    var chart2 = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels : [
-                                {% for producto in object_list %}
-                                    "{{ producto.nombre}}",
-                                {% endfor %}],
-                            datasets: [{
-                                label: 'Costo Unitario',
-                                data:  [
-                                    {% for producto in object_list%}
-                                        {{producto.costoUnitario}},
-                                    {% endfor %}],
-                                backgroundColor:'rgba(128, 0, 0, 0.2)',
-                                borderColor: 'rgba(128,0,0,1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                </script>
+                <div id="Chart2" class="card-panel"></div>
 
-                <p class="center">Producto</p>
             {% else %}
                 <h5>No hay producción</h5>
             {% endif %}
         </div>
     </main>
+
+    <script type="text/javascript">
+
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            // Create the data table.
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Costo Unitario', { role: 'style' } ],
+
+                {% for producto in object_list %}
+                    ["{{ producto.nombre}}",{{ producto.costoUnitario }}, 'color: Green'],
+                {% endfor %}
+
+            ]);
+
+            // Set chart options
+            var options = {
+                width: 800,
+                height: 400,
+                legend: { position: 'top', maxLines: 3 },
+                bar: { groupWidth: '75%' },
+                isStacked: true
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.BarChart(document.getElementById('Chart2'));
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            // Create the data table.
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Costo de lo vendido', { role: 'style' } ],
+
+                {% for producto in object_list %}
+                    ["{{producto.ordenDeFabricacion.numOrden}}",{{ producto.costoVendido }}, 'color: blue'],
+                {% endfor %}
+
+            ]);
+
+            // Set chart options
+            var options = {
+                width: 800,
+                height: 400,
+                legend: { position: 'top', maxLines: 3 },
+                bar: { groupWidth: '75%' },
+                isStacked: true
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.BarChart(document.getElementById('Chart1'));
+            chart.draw(data, options);
+        }
+    </script>
+
+
+
+
+
+
 {% endblock %}

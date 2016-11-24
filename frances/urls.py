@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^usuarios/', views.usuarios_list_view, name="usuarios_list"),
 
     url(r'^cuentas/', views.cuentas_list_view, name="cuentas_list"),
+    url(r'^add_cuenta/', views.crearCuenta.as_view(), name="add_cuenta"),
+
     url(r'^nuevaCuenta/',views.cuenta_nueva,name='cuenta_nueva'),
     url(r'^agregar_Movimiento/',views.agregar_movimiento,name='agregar_movimiento'),
     url(r'^get_movimiento_form/',views.getMovimientoForm,name='get_movimiento_form'),
@@ -49,6 +51,7 @@ urlpatterns = [
     url(r'^crearOrde/', views.CrearOrde.as_view(), name="crearOrden"),
 
     url(r'^produccion/', views.ListaProductos.as_view(), name="produccion"),
+    url(r'^add_producto/', views.crearProducto.as_view(), name="add_producto"),
 
     url(r'^inventario/', views.listaMovimientosMP.as_view(), name="inventario"),
     url(r'^add_mov/', views.crearMovimientoMP.as_view(), name="add_mov"),

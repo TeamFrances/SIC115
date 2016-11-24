@@ -1,25 +1,24 @@
 # coding: utf-8
+import calendar
 
-from datetime import datetime
-
+from datetime import date, datetime
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse_lazy
+from django.db.models.aggregates import Sum
 from django.forms import formset_factory
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView
+from django.views.generic.dates import timezone_today
 from django.views.generic.edit import FormView, CreateView
-from reportlab.lib import units
-from reportlab.lib.units import inch
-from reportlab.pdfgen import canvas
 
-from main.forms import CuentaForm, MovimientoForm
+from main.forms import CuentaForm, ProductoForm, MovimientoForm
 from main.forms import EmpleadoForm
 from main.forms import LoginForm
 from main.forms import MovimientoFormMP
 from main.forms import TransaccionForm,OrdenForm
-from main.models import MovimientoMp
+from main.models import MovimientoMp, EstadoFinalMP
 from models import Cuenta, TipoCuenta, Transaccion, Empleado, Movimiento, ordenDeFabricacion, producto
 
 
@@ -82,7 +81,7 @@ def empleados_list_view(request):
 def cuentas_list_view(request):
     cuentas=CuentaForm()
     return render(request,  'main/cuentas_list.html',
-                  {'cuenta': cuentas, 'titulo':'Cuentas',
+                  {'cuenta': cuentas,'titulo':'Catálogo de Cuentas',
                    'activos': Cuenta.objects.filter(tipo=1),
                    'pasivos': Cuenta.objects.filter(tipo=2),
                    'patrimonios': Cuenta.objects.filter(tipo=3),
@@ -337,9 +336,28 @@ class listaMovimientosMP(ListView):
     template_name = 'main/inventarioMP.html'
 
     def get(self, request, *args, **kwargs):
+        movimientos = MovimientoMp.objects.all()
+        total_anterior = EstadoFinalMP.objects.last()
+        res = []
+
+        if total_anterior is not None:
+            m = {}
+            for movimiento in movimientos:
+                if movimiento.tipo == 'E':
+                    if len(res) == 0:
+                        m["cantidad"] = total_anterior.cantidad + movimiento.idMov
+                        m["precioUnitario"] = total_anterior.precioUnitario + movimiento.idMov
+                        m["total"] = total_anterior .getTotal() + movimiento.idMov
+                    else:
+                        m["cantidad"] = movimientos + movimiento.idMov
+                        m["precioUnitario"] = total_anterior.precioUnitario + movimiento.idMov
+                        m["total"] = total_anterior .getTotal() + movimiento.idMov
+
+
         return render(request, 'main/inventarioMP.html', {
             'titulo':'Inventario de materia Prima',
-            'object_list': MovimientoMp.objects.all()
+            'object_list': MovimientoMp.objects.all(),
+            'col_resultados': res
         })
 
 
@@ -355,3 +373,22 @@ class crearMovimientoMP(CreateView):
     form_class = MovimientoFormMP
     template_name = 'main/agregarMovimientoMP.html'
     success_url = reverse_lazy('inventario')
+
+
+class crearProducto(CreateView):
+    model = producto
+    form_class = ProductoForm
+    template_name = 'main/agregarProducto.html'
+    success_url = reverse_lazy('produccion')
+
+
+class crearCuenta(CreateView):
+    model = Cuenta
+    form_class = CuentaForm
+    template_name = 'main/agregarCuenta.html'
+    success_url = reverse_lazy('cuentas_list')
+
+
+
+
+

@@ -1,15 +1,18 @@
 # coding: utf-8
 
 from datetime import datetime
-from httplib import HTTPResponse
 
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.forms import formset_factory
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic.edit import FormView, CreateView
+from reportlab.lib import units
+from reportlab.lib.units import inch
+from reportlab.pdfgen import canvas
 
 from main.forms import CuentaForm, MovimientoForm
 from main.forms import EmpleadoForm
@@ -285,7 +288,7 @@ class ListaProductos(ListView):
     def get(self, request, *args, **kwargs):
         fecha = datetime.today().date()
         fecha = fecha.replace(day=1)
-        productos = producto.objects.filter(ordenDeFabricacion__fechaExpedicion__year=fecha.year)\
+        productos = producto.objects.filter(ordenDeFabricacion__fechaExpedicion__year=fecha.year) \
             .filter(ordenDeFabricacion__fechaExpedicion__month=fecha.month)
 
         totalMP = 0.0
@@ -352,8 +355,3 @@ class crearMovimientoMP(CreateView):
     form_class = MovimientoFormMP
     template_name = 'main/agregarMovimientoMP.html'
     success_url = reverse_lazy('inventario')
-
-
-
-
-

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from wkhtmltopdf.views import PDFTemplateView
 
 from main import views
 
@@ -52,6 +53,7 @@ urlpatterns = [
     url(r'^inventario/', views.listaMovimientosMP.as_view(), name="inventario"),
     url(r'^add_mov/', views.crearMovimientoMP.as_view(), name="add_mov"),
 
+    url(r'^pdf/$', PDFTemplateView.as_view(template_name='main/balance_comprobacion.html', filename='aaa.pdf'), name="pdf"),
 
 
 

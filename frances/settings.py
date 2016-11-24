@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'wkhtmltopdf',
     'main',
 ]
 
@@ -125,7 +126,12 @@ STATICFILES_DIRS = [
     '/main/static/',
 ]
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, "main\\static")
+
+# WKHTMLTOPDF_CMD = "C:/Python27/Lib/site-packages/wkhtmltopdf"
+WKHTMLTOPDF_CMD = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
 
 MEDIA_URL = 'media/'
 

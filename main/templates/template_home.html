@@ -53,6 +53,7 @@
 
 {% block footer %}
     <footer class="page-footer #b71c1c red darken-4">
+
         <div class="footer-copyright">
             <div class="container thin">
                 AERO 2016
@@ -67,8 +68,6 @@
 <script src="{% static 'main/js/jquery-3.1.0.js' %}"></script>
 <script src="{% static 'main/js/materialize.min.js' %}"></script>
 <script src="{% static 'main/js/init.js' %}"></script>
-
-
 
 <script>
     $(document).ready(function(){
@@ -85,6 +84,9 @@
         selectMonths: true, // Creates a dropdown to control month
         selectYears:true // Creates a dropdown of 15 years to control year
     });
+
 </script>
+<script>{% block javascript %}
+    {% endblock %}</script>
 </body>
 </html>

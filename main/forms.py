@@ -1,15 +1,13 @@
 # coding: utf-8
-import datetime
 from django import forms
 from django.core.exceptions import ValidationError
 
-from main.models import ordenDeFabricacion, Movimiento, producto, MovimientoMp
-from models import Cuenta,Rubro,Transaccion,Empleado,TipoTransaccion
+from main.models import ordenDeFabricacion, producto, MovimientoMp
+from models import Cuenta,Rubro, Empleado,TipoTransaccion
 
-tiposCuentas=((1, 'Activo',), (2, 'Pasivo',), (3, 'Capital',),(4, 'Resultado',))
+tiposCuentas=((1,'Activo',),(2,'Pasivo',),(3,'Capital',),(4,'Resultado Deudora',),(5,'Resultado Acreedora'),)
 DATE_INPUT_FORMATS = ('%d-%m-%Y')
-debes=((True,'False',),(False,'True',))
-
+debes=((True,'Debe',),(False,'Haber',))
 
 class LoginForm(forms.Form):
     username = forms.CharField(required=True,
@@ -34,7 +32,7 @@ class MovimientoForm(forms.Form):
                                     queryset=Cuenta.objects.all())
     tipo = forms.MultipleChoiceField(
         required=False,
-        widget=forms.CheckboxInput,
+        widget=forms.CheckboxSelectMultiple(attrs={'id':'test6p','checked':'checked'}),
         choices=debes,
     )
     cantidad = forms.DecimalField(label='Cantidad a transferir a Cuenta:', max_digits=10, decimal_places=2, min_value=0)
@@ -68,7 +66,7 @@ class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
 
-        fields = [
+        fields=[
             'nombres',
             'apellidos',
             'edad',
@@ -82,33 +80,33 @@ class EmpleadoForm(forms.ModelForm):
             'puesto',
             'activo',
         ]
-        labels = {
+        labels={
             'nombres': 'Nombres',
-            'apellidos': 'Apellidos',
+            'apellidos':'Apellidos',
             'edad': 'Edad',
-            'sexo': 'Sexo',
-            'direccion': 'Direccion',
-            'telefono': 'Teléfono',
-            'contacto': 'Contacto',
-            'dui': 'DUI',
-            'nit': 'NIT',
-            'afp': 'AFP',
-            'puesto': 'Puesto',
-            'activo': 'Activo',
+            'sexo': 'sexo',
+            'direccion':'Direccion',
+            'telefono':'telefono',
+            'contacto':'Contacto',
+            'dui':'DUI',
+            'nit':'NIT',
+            'afp':'AFP',
+            'puesto':'Puesto',
+            'activo':'Activo',
         }
-        widgets = {
-            'nombres': forms.TextInput(attrs={'class': 'input-field'}),
-            'apellidos': forms.TextInput(attrs={'class': 'input-field '}),
-            'edad': forms.NumberInput(attrs={'class': 'input-field '}),
-            'sexo': forms.Select(attrs={'class': 'input-field ','placeholder':'sexo'}),
-            'direccion': forms.TextInput(attrs={'class': 'input-field'}),
-            'telefono': forms.NumberInput(attrs={'class': 'input-field '}),
-            'contacto': forms.TextInput(attrs={'class': 'input-field'}),
-            'dui': forms.TextInput(attrs={'class': 'input-field '}),
-            'nit': forms.TextInput(attrs={'class': 'input-field '}),
-            'afp': forms.TextInput(attrs={'class': 'input-field'}),
-            'puesto': forms.Select(attrs={'class': 'input-field'}),
-            'activo': forms.CheckboxSelectMultiple(attrs={'type': 'checkbox'}),
+        widgets={
+            'nombres': forms.TextInput (attrs={'class':'input-field col s3'}),
+            'apellidos':forms.TextInput (attrs={'class':'input-field '}),
+            'edad':forms.NumberInput(attrs={'class':'input-field '}),
+            'sexo':forms.Select(attrs={'class':'input-field '}),
+            'direccion':forms.TextInput (attrs={'class':'input-field'}),
+            'telefono':forms.NumberInput (attrs={'class':'input-field '}),
+            'contacto':forms.TextInput (attrs={'class':'input-field'}),
+            'dui':forms.TextInput (attrs={'class':'input-field '}),
+            'nit':forms.TextInput (attrs={'class':'input-field '}),
+            'afp':forms.TextInput (attrs={'class':'input-field'}),
+            'puesto':forms.Select(attrs={'class':'input-field'}),
+            'activo':forms.CheckboxSelectMultiple(attrs={'type':'checkbox'}),
         }
 
     def clean_nombres(self):
@@ -125,6 +123,7 @@ class ProductoForm(forms.ModelForm):
         model = producto
 
         fields=['nombre', 'ordenDeFabricacion', 'nuneroArticulos',]
+
 
 class OrdenForm(forms.ModelForm):
     class Meta:

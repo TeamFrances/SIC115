@@ -9,7 +9,7 @@
                 <div class="card-panel" >
                     <div >
                         <h5 class="center-align">Frances</h5>
-                        <h6  class="center-align">Estado de Resultado</h6>
+                        <h6  class="center-align">Estado de Patrimonio</h6>
                         <h6 class="center-align">del 1 al 30 de Noviembre</h6>
                         <br>
                     </div>
@@ -26,30 +26,23 @@
                                 </thead>
 
                                 <tbody>
+                                {%for inversion in patrimonioHaber%}
                                 <tr>
-                                    <td>Inversion inicial</td>
+                                    <td>{{inversion.nombre}}:($)</td>
                                     <td></td>
-                                    <td>100000</td>
+                                    <td>{{inversion.saldoFinal}}</td>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                {%endfor%}
+                               
                                 </tbody>
                             </table>
 
                             <table class="striped">
                                 <tbody>
-                                <tr>
-                                    <td>Total de Inversiones:</td>
+                                <tr class="#9e9e9e grey">
+                                    <td>Total de Inversiones: ($):</td>
                                     <td></td>
-                                    <td>$100000</td>
+                                    <td id="totalinversion"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -57,40 +50,34 @@
 
                         <div class="col m6">
 
-                            <table  class="highlight">
+                            <table id="desinversiones" class="highlight">
                                 <thead>
                                 <tr>
                                     <th data-field="tipo"><ins>Desinversiones</ins></th>
                                     <th data-field="debe"><ins>Debe</ins></th>
                                     <th data-field="haber"><ins>Haber</ins></th>
                                 </tr>
+                               
                                 </thead>
 
                                 <tbody>
+
+                                {%for desinversiones in patrimonioDebe%}
                                 <tr>
-                                    <td>Gastos personales</td>
-                                    <td>$5000</td>
+                                    <td>{{desinversiones.nombre}}:($)</td>
+                                    <td>{{desinversiones.saldoFinal}}</td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                 {%endfor%}
+                                
                                 </tbody>
 
                                 <table class="striped">
                                     <tbody>
-                                    <tr>
-                                        <td>Total de Desinversiones:</td>
-                                        <td>5000</td>
-                                        <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-                                    </tr>
+                                    <tr class="#9e9e9e grey">
+                                        <td>Total de Desinversiones ($):</td>
+                                        <td id="totaldesinversion"></td>
+                                        
                                     </tbody>
                                 </table>
 
@@ -104,3 +91,21 @@
         </div>
     </main>
 {% endblock %}
+
+{%block javascript%}
+var total=0;
+var total1=0;
+
+$('#desinversiones tbody tr').each(function(){
+total+= parseInt($(this).find('td').eq(1).text()||0,10)}
+)
+
+$('#inversiones tbody tr').each(function(){
+total1+= parseInt($(this).find('td').eq(2).text()||0,10)}
+)
+
+$("#totalinversion").html(total1);
+
+$("#totaldesinversion").html(total);
+
+{%endblock%}

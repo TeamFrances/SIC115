@@ -47,7 +47,7 @@
                     </thead>
 
                     <tbody>
-
+                    
                     {%for cuenta in cuentas%}
                         <tr>
                             <td>{{cuenta.nombre}}</td>
@@ -63,9 +63,11 @@
 
 
 
-                    <tr>
+                    <tr class="#bbdefb blue lighten-4">
                         <td> <div class="divider"></div>Total</td>
-                        <td><div class="divider"></div>$7.00</td>
+                        <td><div class="divider"></div>{{totalDebe.totalD}}</td>
+                        <td><div class="divider"></div>{{totalHaber.totalH}}</td>
+                    </td>
                         <td><div class="divider"></div></td>
                     </tr>
                     </tbody>
@@ -86,3 +88,14 @@
 
     </main>
 {% endblock %}
+{% block javascrip %}
+var total=0;
+var total1=0;
+
+$('#activos tbody tr').each(function(){
+total+= parseInt($(this).find('td').eq(1).text()||0,10)}
+)
+
+{% endblock %}
+
+

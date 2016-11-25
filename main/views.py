@@ -1,23 +1,24 @@
 # coding: utf-8
-import calendar
 
-from datetime import date, datetime
+from datetime import datetime
+
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from django.db.models.aggregates import Sum
-from django.forms import formset_factory
-from django.http.response import HttpResponse
-from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy
+from django.forms import formset_factory
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from django.views.generic.dates import timezone_today
+from django.views.generic import TemplateView
 from django.views.generic.edit import FormView, CreateView
 
-from main.forms import CuentaForm, ProductoForm, MovimientoForm
+from main.forms import CuentaForm
 from main.forms import EmpleadoForm
 from main.forms import LoginForm
+from main.forms import MovimientoForm
 from main.forms import MovimientoFormMP
-from main.forms import TransaccionForm,OrdenForm
+from main.forms import OrdenForm
+from main.forms import ProductoForm
+from main.forms import TransaccionForm
 from main.models import MovimientoMp, EstadoFinalMP
 from models import Cuenta, TipoCuenta, Transaccion, Empleado, Movimiento, ordenDeFabricacion, producto
 
@@ -81,13 +82,13 @@ def empleados_list_view(request):
 def cuentas_list_view(request):
     cuentas=CuentaForm()
     return render(request,  'main/cuentas_list.html',
-                  {'cuenta': cuentas,'titulo':'Catálogo de Cuentas',
-                   'activos': Cuenta.objects.filter(tipo=1),
-                   'pasivos': Cuenta.objects.filter(tipo=2),
-                   'patrimonios': Cuenta.objects.filter(tipo=3),
-                   'resultadosA': Cuenta.objects.filter(tipo=4),
-                   'ResultadosD': Cuenta.objects.filter(tipo=5),
-                   'contraActivos': Cuenta.objects.filter(tipo=6)})
+     {'cuenta': cuentas,'titulo':'Cuentas',
+     'activos':Cuenta.objects.filter(tipo=1),
+     'pasivos':Cuenta.objects.filter(tipo=2),
+     'patrimonios':Cuenta.objects.filter(tipo=3),
+     'ResultadosD':Cuenta.objects.filter(tipo=4),
+     'ResultadosH':Cuenta.objects.filter(tipo=5),
+     'contraActivos':Cuenta.objects.filter(tipo=6)})
 
 
 def cuenta_nueva(request):
@@ -110,9 +111,9 @@ def cuenta_nueva(request):
             cuentaNueva.saldoFinal = 0
 
             cuentaNueva.save()
-            return cuentas_list_view(request)
+            return redirect('cuentas_list')
         else:
-            return render(request,  'main/cuentas_list.html', {'cuenta': cuentas})
+            return cuentas_list_view(request)
 
     return render(request,  'main/cuentas_list.html', {'cuenta': cuentas})
 
@@ -126,18 +127,21 @@ def ajustes_financieros_view(request):
 def balance_general_view(request):
     return render(request, 'main/balance_general.html', {
         'titulo': 'Balance',
+        'activos':Cuenta.objects.filter(tipo=1).order_by('-rubro'),
+        'pasivos':Cuenta.objects.filter(tipo=2).order_by('-rubro'),
+        'patrimonios':Cuenta.objects.filter(tipo=3).order_by('-rubro')
     })
 
 
 def estado_capital_view(request):
     return render(request, 'main/estado_capital.html', {
-        'titulo': 'Estado de Capital',
+        'titulo': 'Estado de Capital','patrimonioDebe':Cuenta.objects.filter(acreedor=False,tipo=3),'patrimonioHaber':Cuenta.objects.filter(acreedor=True,tipo=3)
     })
 
 
 def estado_resultados(request):
     return render(request, 'main/estado_resultados.html', {
-        'titulo': 'Estado de Resultados',
+        'titulo': 'Estado de Resultados','resultadoDebe':Cuenta.objects.filter(tipo_id=4),'resultadoHaber':Cuenta.objects.filter(tipo_id=5)
     })
 
 
@@ -193,6 +197,7 @@ def agregar_Transaccion(request):
             return guardarMovimientos(request, formulario, movimientos, transaccion2)
         return render(request, 'main/libro_diario.html', {'transaccion': formulario, 'agregar': formulario})
 
+    
 
 def libro_diario(request):
     transaccion = TransaccionForm()
@@ -200,39 +205,36 @@ def libro_diario(request):
     return render(request, 'main/libro_diario.html', {
         'titulo': 'Libro Diario', 'transaccion': transaccion, 'agregar': False
     })
+def guardarMovimientos(request,formulario,movimientos,transaccion):
+    for movimiento in movimientos :
+        movimientoM=Movimiento()
+        movimientoM.cuenta=movimiento.cleaned_data.get('cuenta')
+        movimientoM.debe=movimiento.cleaned_data.get('tipo')
+        movimientoM.cantidad=movimiento.cleaned_data.get('cantidad')
 
-
-def guardarMovimientos(request,formulario,movimientos, transaccion):
-    for movimiento in movimientos:
-        movimientoM = Movimiento()
-        movimientoM.cuenta = movimiento.cleaned_data.get('cuenta')
-        movimientoM.debe = False
-        movimientoM.cantidad = movimiento.cleaned_data.get('cantidad')
-
-        Movimiento.objects.create(cuenta=movimiento.cleaned_data.get('cuenta'), debe=movimiento.cleaned_data.get('tipo'), cantidad=movimiento.cleaned_data.get('cantidad'), transaccion=Transaccion.objects.get(id=Transaccion.objects.count()))
-        cuentaModificar = Cuenta.objects.get(id=movimientoM.cuenta.id)
+        Movimiento.objects.create(cuenta=movimiento.cleaned_data.get('cuenta') ,debe=movimiento.cleaned_data.get('tipo') ,cantidad=movimiento.cleaned_data.get('cantidad') ,transaccion=Transaccion.objects.get(id=Transaccion.objects.count()))
+        cuentaModificar=Cuenta.objects.get(id=movimientoM.cuenta.id)
 
         cuentaModificar.save()
-
-        if movimientoM.debe:
-            cuentaModificar.debe += movimientoM.cantidad
-            guardarCambioCuenta(cuentaModificar)
+        if movimientoM.debe :
+            cuentaModificar.debe=movimientoM.cantidad+cuentaModificar.debe
+            t=guardarCambioCuenta(cuentaModificar)
         else:
-            cuentaModificar.haber += movimientoM.cantidad
-            guardarCambioCuenta(cuentaModificar)
+            cuentaModificar.haber=movimientoM.cantidad+cuentaModificar.haber
+            t=guardarCambioCuenta(cuentaModificar)
 
-    return render(request, 'main/libro_diario.html', {'transaccion': formulario, 'agregar': True})
+    return render(request, 'main/libro_diario.html',{'transaccion':formulario,'agregar':True})
 
-
-def guardarCambioCuenta(cuenta_modificar):
-    if cuenta_modificar.haber >= cuenta_modificar.debe:
-        cuenta_modificar.saldoFinal = cuenta_modificar.haber - cuenta_modificar.debe
-        cuenta_modificar.acreedor = True
+def guardarCambioCuenta(cuentaModificar):
+    if cuentaModificar.haber>=cuentaModificar.debe :
+        cuentaModificar.saldoFinal=cuentaModificar.haber-cuentaModificar.debe
+        cuentaModificar.acreedor=True
     else:
-        cuenta_modificar.saldoFinal = cuenta_modificar.debe - cuenta_modificar.haber
-        cuenta_modificar.acreedor = False
-    cuenta_modificar.save()
+        cuentaModificar.saldoFinal=cuentaModificar.debe-cuentaModificar.haber
+        cuentaModificar.acreedor=False
+    cuentaModificar.save()
     return 1
+
 
 
 def empleado_view(reques):
@@ -247,7 +249,7 @@ def empleado_view(reques):
     return render(reques, 'main/agregarEmpleado.html', {'form': form, 'titulo': 'Agregar Empleado'})
 
 
-class Empleado_list(ListView):
+class empleado_list(TemplateView):
     model = Empleado
     template_name = 'main/list_empleados.html'
 

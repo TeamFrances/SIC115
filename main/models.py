@@ -63,7 +63,7 @@ class TipoTransaccion(models.Model):
 
 
 class Rubro(models.Model):
-    id = models.IntegerField(editable=False, auto_created=True, primary_key=True)
+    id = models.IntegerField(editable=False,auto_created=True, primary_key=True)
     numero=models.IntegerField()
     nombre=models.CharField(max_length=21, null=False)
 
@@ -142,8 +142,7 @@ class Movimiento(models.Model):
 class Prestacion(models.Model):
     id=models.IntegerField(editable=False, auto_created=True, primary_key=True)
     nombre=models.CharField(max_length=100, null=False)
-    porcentage= models.FloatField(default=0.0)
-
+    porcentage= models.DecimalField(max_digits=6,decimal_places=3)
     def __str__(self):
         return self.nombre
 

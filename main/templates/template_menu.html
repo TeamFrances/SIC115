@@ -9,16 +9,16 @@
         <li class="bold"><a href="{% url 'index' %}" class="waves-effect waves-black"><i class="material-icons">home</i>Inicio</a></li>
 
         <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li class="bold "><a class="collapsible-header  waves-effect waves-black  "><i class="material-icons ">input</i>Transacciones</a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="{%  url 'libro_diario' %}" class="waves-effect waves-black">Libro Diario</a></li>
-                        <li><a href="" class="waves-effect waves-black">Venta</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="bold "><a class="collapsible-header  waves-effect waves-black  "><i class="material-icons ">assessment</i>Estados financieros</a>
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold "><a class="collapsible-header  waves-effect waves-black  "><i class="material-icons ">input</i>Transacciones</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="{%  url 'libro_diario' %}" class="waves-effect waves-black">Libro Diario</a></li>
+                            <li><a href="" class="waves-effect waves-black">Venta</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold "><a class="collapsible-header  waves-effect waves-black  "><i class="material-icons ">assessment</i>Estados financieros</a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{% url 'balance_comprobacion' %}" class="waves-effect waves-black">Balance de comprobación</a></li>
@@ -43,15 +43,19 @@
                             <li><a href="{% url 'usuarios_list' %}" class="waves-effect waves-black">Usuarios</a></li>
                             <li><a href="{% url 'proveedores_list' %}" class="waves-effect waves-black">Proveedores</a></li>
                             <li><a href="{% url 'cuentas_list' %}" class="waves-effect waves-black">Catálogo de Cuentas</a></li>
-
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
 
+
         <li class="bold"><a href="{% url 'ayuda' %}" class="waves-effect waves-black"><i class="material-icons">help</i>Ayuda</a></li>
         <li class="bold"><a href="{% url 'acerca_de' %}" class="waves-effect waves-black"><i class="material-icons">email</i>Acerca de</a></li>
         <li class="bold"><a href="{% url 'logout' %}" class="waves-effect waves-black"><i class="material-icons">close</i>Salir</a></li>
+        <li class="bold">
+            <iframe width="100%" src="http://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&timezone=America%2FEl_Salvador" frameborder="0"></iframe>
+        </li>
     </ul>
+
 </header>

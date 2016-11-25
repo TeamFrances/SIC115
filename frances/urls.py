@@ -45,7 +45,7 @@ urlpatterns = [
 
     url(r'^agregar_empleado/', views.empleado_view, name="agregar_empleado"),
     url(r'^planilla/', views.Planilla.as_view(), name="planilla"),
-    url(r'^empleados/', views.Empleado_list.as_view(), name="empleados_list"),
+    url(r'^empleados/', views.empleado_list.as_view(), name="empleados_list"),
 
     url(r'^ordenes/', views.ListaOrdenes.as_view(), name="ordenes"),
     url(r'^crearOrde/', views.CrearOrde.as_view(), name="crearOrden"),

@@ -139,10 +139,11 @@ class Movimiento(models.Model):
         return str(self.cantidad)
 
 
-class Prestacion(models.Model):
+class Configuracion(models.Model):
     id=models.IntegerField(editable=False, auto_created=True, primary_key=True)
-    nombre=models.CharField(max_length=100, null=False)
-    porcentage= models.DecimalField(max_digits=6,decimal_places=3)
+    nombre=models.CharField(max_length=100, null=False, blank=False)
+    valor=models.FloatField(null=False,blank=False)
+
     def __str__(self):
         return self.nombre
 

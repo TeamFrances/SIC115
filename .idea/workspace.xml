@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1212dae-74ac-431b-bff2-4e13c0c37658" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frances/urls.py" afterPath="$PROJECT_DIR$/frances/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/balance_comprobacion.html" afterPath="$PROJECT_DIR$/main/templates/main/balance_comprobacion.html" />
     </list>
     <ignored path="frances.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,24 +56,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="balance_comprobacion.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main/templates/main/balance_comprobacion.html">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+            <state relative-caret-position="277">
+              <caret line="199" column="25" selection-start-line="199" selection-start-column="25" selection-end-line="199" selection-end-column="25" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="395" column="0" selection-start-line="395" selection-start-column="0" selection-end-line="395" selection-end-column="0" />
-              <folding>
-                <element signature="e#17#46#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -137,7 +124,6 @@
         <option value="$PROJECT_DIR$/main/templates/main/cuentas_list.html" />
         <option value="$PROJECT_DIR$/main/templates/main/list_empleados.html" />
         <option value="$PROJECT_DIR$/main/templates/login.html" />
-        <option value="$PROJECT_DIR$/main/models.py" />
         <option value="$PROJECT_DIR$/main/admin.py" />
         <option value="$PROJECT_DIR$/main/templates/main/produccion_ventas.html" />
         <option value="$PROJECT_DIR$/main/templates/main/index.html" />
@@ -151,6 +137,7 @@
         <option value="$PROJECT_DIR$/frances/urls.py" />
         <option value="$PROJECT_DIR$/main/templates/main/balance_comprobacion_contenido.html" />
         <option value="$PROJECT_DIR$/main/templates/main/balance_comprobacion.html" />
+        <option value="$PROJECT_DIR$/main/models.py" />
       </list>
     </option>
   </component>
@@ -267,28 +254,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SIC115" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SIC115" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1063,7 +1028,7 @@
       <workItem from="1479993421930" duration="319000" />
       <workItem from="1480024150817" duration="1741000" />
       <workItem from="1480051041954" duration="1126000" />
-      <workItem from="1480092736164" duration="4005000" />
+      <workItem from="1480092736164" duration="4981000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial. El login está funcional, pero la página &quot;acerca de&quot; no está completa">
       <created>1477889122970</created>
@@ -1331,11 +1296,25 @@
       <option name="project" value="LOCAL" />
       <updated>1480051116700</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="* Pequeñas mejoras al balance de comprobación&#10;* Se añadió la habilidad de exportar a PDF algunos estados, pero aún no está implementada la petición en los templates">
+      <created>1480096940398</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1480096940398</updated>
+    </task>
+    <task id="LOCAL-00040" summary="* Se cambió la tabla &quot;Prestación&quot; por &quot;Configuración&quot;. Ésto, para que fuese posible guardar el IVA en la misma tabla, además de cualquier otra configuración que pueda representarse como un número">
+      <created>1480102113668</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1480102113668</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198019000" />
+    <option name="totallyTimeSpent" value="198995000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1348,7 +1327,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1357,13 +1336,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3878887" sideWeight="0.5030257" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33878887" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33878887" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3633388" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19591528" sideWeight="0.42195123" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19591528" sideWeight="0.57804877" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1374,7 +1354,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1408,9 +1387,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="* Implementada la tabla de &quot;Transacciones&quot;&#10;* Se modificó la tabla &quot;Cuenta&quot; añadiéndole el campo &quot;tipo&quot;, para que cada cuenta tenga, desde el principio el tipo, dejándo como predeterminado el valor &quot;Activo&quot;" />
-    <MESSAGE value="* Se modificó la tabla &quot;Cuenta&quot; añadiéndole el campo &quot;Proveedor&quot;, que puede ser NULL, pues se usará sólo cuando sean cuentas de compras" />
-    <MESSAGE value="* Se creó el formulario de la transacción&#10;* Se añadieron algunas funciones básicas a la BD&#10;* Se renombraron algunos archivos de las vistas" />
     <MESSAGE value="* Se removió la característica &quot;default=NULL&quot; en el atributo &quot;proveedor&quot; de la tabla &quot;transacción&quot;" />
     <MESSAGE value="* Se removió el campo &quot;proveedor&quot; de la tabla &quot;Transacción&quot;" />
     <MESSAGE value="* Se incluyen los cambios en la tabla &quot;Cuenta&quot; que realizó Carlos&#10;* Se añadieron al menú un ítem más: Cuentas, aunque su vista, por ahora, esté vacía" />
@@ -1433,7 +1409,10 @@
     <MESSAGE value="* Cambios de Luis añadidos" />
     <MESSAGE value="* Migraciones aplicadas" />
     <MESSAGE value="* Cambios de Carlos añadidos&#10;&#10;Merge remote-tracking branch 'origin/conectado-a-django' into conectado-a-django&#10;&#10;# Conflicts:&#10;#&#9;db.sqlite3&#10;#&#9;frances/__init__.pyc&#10;#&#9;frances/settings.pyc&#10;#&#9;frances/urls.pyc&#10;#&#9;frances/wsgi.pyc&#10;#&#9;main/__init__.pyc&#10;#&#9;main/admin.py&#10;#&#9;main/admin.pyc&#10;#&#9;main/forms.py&#10;#&#9;main/forms.pyc&#10;#&#9;main/migrations/0001_initial.pyc&#10;#&#9;main/migrations/0002_transaccion.pyc&#10;#&#9;main/migrations/0003_auto_20161112_2131.pyc&#10;#&#9;main/migrations/0004_auto_20161113_1657.pyc&#10;#&#9;main/migrations/0005_auto_20161114_0354.pyc&#10;#&#9;main/migrations/0006_auto_20161114_0521.pyc&#10;#&#9;main/migrations/0007_auto_20161117_0042.pyc&#10;#&#9;main/migrations/0008_auto_20161117_0413.pyc&#10;#&#9;main/migrations/0009_cuenta_acreedor.pyc&#10;#&#9;main/migrations/0010_auto_20161117_0522.pyc&#10;#&#9;main/migrations/0011_auto_20161117_0527.pyc&#10;#&#9;main/migrations/0012_prestacion.pyc&#10;#&#9;main/migrations/0013_auto_20161117_1532.pyc&#10;#&#9;main/migrations/0014_auto_20161117_1539.pyc&#10;#&#9;main/migrations/0015_auto_20161117_1540.pyc&#10;#&#9;main/migrations/0016_auto_20161117_1546.pyc&#10;#&#9;main/migrations/0017_auto_20161117_1548.pyc&#10;#&#9;main/migrations/__init__.pyc&#10;#&#9;main/models.py&#10;#&#9;main/models.pyc&#10;#&#9;main/templates/main/balance_comprobacion.html&#10;#&#9;main/templates/main/cuentas_list.html&#10;#&#9;main/templates/main/libro_diario.html&#10;#&#9;main/templates/template_home.html&#10;#&#9;main/views.py&#10;#&#9;main/views.pyc&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Cambios de Carlos añadidos&#10;&#10;Merge remote-tracking branch 'origin/conectado-a-django' into conectado-a-django&#10;&#10;# Conflicts:&#10;#&#9;db.sqlite3&#10;#&#9;frances/__init__.pyc&#10;#&#9;frances/settings.pyc&#10;#&#9;frances/urls.pyc&#10;#&#9;frances/wsgi.pyc&#10;#&#9;main/__init__.pyc&#10;#&#9;main/admin.py&#10;#&#9;main/admin.pyc&#10;#&#9;main/forms.py&#10;#&#9;main/forms.pyc&#10;#&#9;main/migrations/0001_initial.pyc&#10;#&#9;main/migrations/0002_transaccion.pyc&#10;#&#9;main/migrations/0003_auto_20161112_2131.pyc&#10;#&#9;main/migrations/0004_auto_20161113_1657.pyc&#10;#&#9;main/migrations/0005_auto_20161114_0354.pyc&#10;#&#9;main/migrations/0006_auto_20161114_0521.pyc&#10;#&#9;main/migrations/0007_auto_20161117_0042.pyc&#10;#&#9;main/migrations/0008_auto_20161117_0413.pyc&#10;#&#9;main/migrations/0009_cuenta_acreedor.pyc&#10;#&#9;main/migrations/0010_auto_20161117_0522.pyc&#10;#&#9;main/migrations/0011_auto_20161117_0527.pyc&#10;#&#9;main/migrations/0012_prestacion.pyc&#10;#&#9;main/migrations/0013_auto_20161117_1532.pyc&#10;#&#9;main/migrations/0014_auto_20161117_1539.pyc&#10;#&#9;main/migrations/0015_auto_20161117_1540.pyc&#10;#&#9;main/migrations/0016_auto_20161117_1546.pyc&#10;#&#9;main/migrations/0017_auto_20161117_1548.pyc&#10;#&#9;main/migrations/__init__.pyc&#10;#&#9;main/models.py&#10;#&#9;main/models.pyc&#10;#&#9;main/templates/main/balance_comprobacion.html&#10;#&#9;main/templates/main/cuentas_list.html&#10;#&#9;main/templates/main/libro_diario.html&#10;#&#9;main/templates/template_home.html&#10;#&#9;main/views.py&#10;#&#9;main/views.pyc&#10;" />
+    <MESSAGE value="* Pequeñas mejoras al balance de comprobación&#10;* Se añadió la habilidad de exportar a PDF algunos estados" />
+    <MESSAGE value="* Pequeñas mejoras al balance de comprobación&#10;* Se añadió la habilidad de exportar a PDF algunos estados, pero aún no está implementada la petición en los templates" />
+    <MESSAGE value="* Se cambió la tabla &quot;Prestación&quot; por &quot;Configuración&quot;. Ésto, para que fuese posible guardar el IVA en la misma tabla, además de cualquier otra configuración que pueda representarse como un número" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Se cambió la tabla &quot;Prestación&quot; por &quot;Configuración&quot;. Ésto, para que fuese posible guardar el IVA en la misma tabla, además de cualquier otra configuración que pueda representarse como un número" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1453,9 +1432,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_puesto" />
-    <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_rubro" />
-    <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_tipocuenta" />
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_tipotransaccion" />
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_transaccion" />
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_usuario" />
@@ -1549,20 +1525,6 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_ordendefabricacion" />
-    <entry file="file://$PROJECT_DIR$/main/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2788">
-          <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://DATABASE/3db5add9-eb83-4ff3-81a8-6c3e32adeed3">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1703,16 +1665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="395" column="0" selection-start-line="395" selection-start-column="0" selection-end-line="395" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/django/utils/autoreload.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -1725,14 +1677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frances/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="58" column="141" selection-start-line="58" selection-start-column="141" selection-end-line="58" selection-end-column="141" />
           <folding />
         </state>
       </provider>
@@ -1758,10 +1702,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/templates/main/balance_comprobacion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
+        <state relative-caret-position="277">
           <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="395" column="0" selection-start-line="395" selection-start-column="0" selection-end-line="395" selection-end-column="0" />
+          <folding>
+            <element signature="e#17#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frances/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="58" column="141" selection-start-line="58" selection-start-column="141" selection-end-line="58" selection-end-column="141" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ef72de34/a59bd8d0-5c1a-4f91-8c30-3be29f32954e/main_configuracion">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="199" column="25" selection-start-line="199" selection-start-column="25" selection-end-line="199" selection-end-column="25" />
           <folding />
         </state>
       </provider>

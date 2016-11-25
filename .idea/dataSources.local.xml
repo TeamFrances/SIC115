@@ -2,10 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Default" uuid="a59bd8d0-5c1a-4f91-8c30-3be29f32954e">
-      <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <auth-required>false</auth-required>
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
     </data-source>
   </component>
 </project>

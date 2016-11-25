@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1212dae-74ac-431b-bff2-4e13c0c37658" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="frances.iws" />
@@ -35,41 +34,7 @@
     <favorites_list name="frances" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frances/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frances/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
-              <folding>
-                <marker date="1480030100330" expanded="true" signature="464:666" ph="..." />
-                <marker date="1480030100330" expanded="true" signature="879:1071" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -303,6 +268,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SIC115" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SIC115" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1427,11 +1410,25 @@
       <option name="project" value="LOCAL" />
       <updated>1479933226689</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="* Cambios de Luis añadidos">
+      <created>1480032207389</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1480032207389</updated>
+    </task>
+    <task id="LOCAL-00037" summary="* Migraciones aplicadas">
+      <created>1480032233302</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1480032233302</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192616000" />
+    <option name="totallyTimeSpent" value="192888000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1443,8 +1440,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1457,7 +1454,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3633388" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19591528" sideWeight="0.42195123" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19591528" sideWeight="0.42195123" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19591528" sideWeight="0.57804877" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1504,7 +1501,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Después de crear la BD" />
     <MESSAGE value="* La base de datos está lista&#10;* La tabla del inventario ha sido añadida" />
     <MESSAGE value="* Implementada la tabla de &quot;Transacciones&quot;&#10;* Se modificó la tabla &quot;Cuenta&quot; añadiéndole el campo &quot;tipo&quot;, para que cada cuenta tenga, desde el principio el tipo, dejándo como predeterminado el valor &quot;Activo&quot;" />
     <MESSAGE value="* Se modificó la tabla &quot;Cuenta&quot; añadiéndole el campo &quot;Proveedor&quot;, que puede ser NULL, pues se usará sólo cuando sean cuentas de compras" />
@@ -1516,7 +1512,6 @@
     <MESSAGE value="* Se añadieron los archivos de las migraciones" />
     <MESSAGE value="* Se añadieron los HTML de Lista de cuentas, empleados proveedores y usuarios, pero aún no están completos" />
     <MESSAGE value="Merge branch 'conectado-a-django' of https://github.com/TeamFrances/SIC115 into conectado-a-django&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources/3db5add9-eb83-4ff3-81a8-6c3e32adeed3.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;main/migrations/0001_initial.pyc&#10;#&#9;main/templates/main/cuentas_list.html&#10;#&#9;main/templates/main/empleados_list.html&#10;#&#9;main/templates/template_menu.html&#10;#&#9;main/views.py&#10;" />
-    <MESSAGE value="* Cambios de Luis añadidos" />
     <MESSAGE value="* Cambios parciales añadidos" />
     <MESSAGE value="Merge branch 'pr/4' into conectado-a-django&#10;&#10;# Conflicts:&#10;#&#9;db.sqlite3&#10;#&#9;frances/__init__.pyc&#10;#&#9;frances/settings.py&#10;#&#9;frances/settings.pyc&#10;#&#9;frances/urls.py&#10;#&#9;frances/urls.pyc&#10;#&#9;frances/wsgi.pyc&#10;#&#9;main/__init__.pyc&#10;#&#9;main/admin.py&#10;#&#9;main/admin.pyc&#10;#&#9;main/forms.py&#10;#&#9;main/forms.pyc&#10;#&#9;main/migrations/0001_initial.py&#10;#&#9;main/migrations/0001_initial.pyc&#10;#&#9;main/migrations/__init__.pyc&#10;#&#9;main/models.py&#10;#&#9;main/models.pyc&#10;#&#9;main/templates/main/balance_comprobacion.html&#10;#&#9;main/templates/main/cuentas_list.html&#10;#&#9;main/templates/main/empleados_list.html&#10;#&#9;main/templates/main/libro_diario.html&#10;#&#9;main/templates/template_menu.html&#10;#&#9;main/views.py&#10;#&#9;main/views.pyc&#10;" />
     <MESSAGE value="* Cambios de Luis añadidos&#10;* Algunas mejoras menores&#10;* Se repararon algunos defectos" />
@@ -1529,7 +1524,9 @@
     <MESSAGE value="* Eliminando espacios innecesarios en views.py&#10;* Eliminando Imports no utilizados en views.py" />
     <MESSAGE value="* Los movimientos se pueden crear usando AJAX&#10;* Se deshicieron unos errores que cometí&#10;* Aún no salen habilitados los SELECT" />
     <MESSAGE value="* Correcciones mínimas" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Correcciones mínimas" />
+    <MESSAGE value="* Cambios de Luis añadidos" />
+    <MESSAGE value="* Migraciones aplicadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Migraciones aplicadas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1954,17 +1951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frances/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
-          <folding>
-            <marker date="1480030100330" expanded="true" signature="464:666" ph="..." />
-            <marker date="1480030100330" expanded="true" signature="879:1071" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -2012,10 +1998,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frances/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frances/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="697">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
           <folding />
         </state>
       </provider>

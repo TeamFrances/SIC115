@@ -1,3 +1,48 @@
 {% extends 'template_home.html' %}
 
+{% load staticfiles %}
+
 {% block titulo %}Proveedores{% endblock %}
+
+{% block contenido %}
+
+    <main>
+        <div class="container">
+            <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href="{% url 'agregarProveedor' %}"><i class="material-icons right">add_circle</i>Agregar</a>
+            <a class="waves-effect waves-light btn #01579b light-blue darken-4"   href="http://127.0.0.1:8000/admin/main/proveedor/"><i class="material-icons right">cached</i>Administrar Clientes</a>
+
+            <br>
+            <br>
+            <div class="divider"></div>
+            {% if object_list %}
+                <table class="striped centered responsive-table">
+                    <thead>
+                    <tr>
+                        <th data-field=" Marca">Marca</th>
+                        <th data-field="direccion">Direción</th>
+                        <th data-field="telefono">Telefono</th>
+                        <th data-field="NIT">NIT</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for proveedor in object_list%}
+                        <tr>
+                            <td>{{proveedor.marca}}</td>
+                            <td>{{proveedor.direccion}}</td>
+                            <td>{{proveedor.telefono}}</td>
+                            <td>{{proveedor.nit}}</td>
+
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay Ordenes</h6>
+            {% endif %}
+
+        </div>
+
+    </main>
+
+{% endblock %}

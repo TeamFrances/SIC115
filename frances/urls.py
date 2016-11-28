@@ -58,9 +58,20 @@ urlpatterns = [
 
     url(r'^inventario/$', views.listaMovimientosMP.as_view(), name="inventario"),
     url(r'^add_mov/$', views.crearMovimientoMP.as_view(), name="add_mov"),
+    url(r'^clientes/', views.listClientes.as_view(), name="clientes"),
+    url(r'^agregarCliente/', views.crearClente.as_view(), name="agregarCliente"),
 
     url(r'^pdf/balance_comprobacion$', PDFTemplateView.as_view(template_name='main/balance_comprobacion.html', filename='balance_comprobacion.pdf'), name="pdf"),
     url(r'^pdf/estado_resultados$', PDFTemplateView.as_view(template_name='main/estado_resultados.html', filename='estado_resultados.pdf'), name="pdf"),
     url(r'^pdf/estado_capital$', PDFTemplateView.as_view(template_name='main/estado_capital.html', filename='estado_capital.pdf'), name="pdf"),
     url(r'^pdf/balance_general$', PDFTemplateView.as_view(template_name='main/balance_general.html', filename='balance_general.pdf'), name="pdf"),
+
+    url(r'^agregarProveedor/', views.crearProveedor.as_view(), name="agregarProveedor"),
+
+    url(r'^maquinaria/', views.listaMaq.as_view(), name="maquinaria"),
+
+
+
+
+
 ]

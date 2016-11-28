@@ -1,0 +1,44 @@
+{% extends 'template_home.html' %}
+
+{% load staticfiles %}
+
+{% block titulo %}Clientes{% endblock %}
+
+{% block contenido %}
+
+    <main>
+        <div class="container">
+            <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href="{% url 'agregarCliente' %}"><i class="material-icons right">add_circle</i>Agregar</a>
+            <a class="waves-effect waves-light btn #01579b light-blue darken-4"   href="http://127.0.0.1:8000/admin/main/cliente/"><i class="material-icons right">cached</i>Administrar Clientes</a>
+
+            <br>
+            <br>
+            <div class="divider"></div>
+            {% if object_list %}
+                <table class="striped centered responsive-table">
+                    <thead>
+                    <tr>
+                        <th data-field=" numero">Nombre</th>
+                        <th data-field="material">Telefono</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for cliente in object_list%}
+                        <tr>
+                            <td>{{cliente.nombre}}</td>
+                            <td>{{cliente.telefono}}</td>
+
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay Ordenes</h6>
+            {% endif %}
+
+        </div>
+
+    </main>
+
+{% endblock %}

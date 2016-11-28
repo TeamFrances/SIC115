@@ -1,0 +1,41 @@
+{% extends 'template_home.html' %}
+
+{% block titulo %}
+    Agregar Cliente
+{% endblock %}
+
+{% block contenido %}
+
+
+    <main>
+        <div class="container">
+            <form method="post">
+                <h1>Agregar Cliente</h1>
+                <div class="divider"></div>
+                <br>
+                <br>
+                <br>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s4">
+                        {{ form.nombre }}
+                        <label class="active " for="{{ form.nombre.id_for_label }}" >Nombre</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        {{ form.telefono }}
+                        <label class="active " for="{{ form.telefono.id_for_label }}" >Numero de telefono</label>
+                    </div>
+
+                </div>
+
+                <button class="btn waves-effect waves-light #2e7d32 green darken-3" type="submit" name="action" >Agregar <i class="material-icons right">send</i>
+                </button>
+                <a class="waves-effect waves-light btn #e53935 red darken-1" href="{% url 'clientes' %}"><i class="material-icons right">clear_all</i>Cancelar</a>
+            </form>
+
+        </div>
+
+    </main>
+
+{% endblock %}

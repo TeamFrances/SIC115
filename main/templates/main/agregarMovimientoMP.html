@@ -41,6 +41,14 @@
                         {{ form.tipo }}
                         <label class="active " for="{{ form.nombre.id_for_label }}" >Tipo de movimiento</label>
                     </div>
+                    <div class="input-field col s1">
+
+                        <label class="active " for="{{ form.cliente.id_for_label }}" >Proveedor</label>
+                    </div>
+                    <div class="input-field col s3">
+                        {{ form.proveedor }}
+
+                    </div>
 
                 </div>
                 <button class="btn waves-effect waves-light #2e7d32 green darken-3" type="submit" name="action" >Agregar <i class="material-icons right">send</i>

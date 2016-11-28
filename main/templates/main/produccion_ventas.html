@@ -9,6 +9,7 @@
     <main>
         <div class="container">
             <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href="{% url 'add_producto' %}"><i class="material-icons right">add_circle</i>Agregar</a>
+            <a class="waves-effect waves-light btn #01579b light-blue darken-4"   href="http://127.0.0.1:8000/admin/main/producto/"><i class="material-icons right">cached</i>Administrar Productos</a>
             <br>
             <br>
             <h3>Caja de costos</h3>
@@ -55,9 +56,12 @@
 
                 <br>
                 <br>
+                <div class="card-panel">
                 <h5 class="bold">  Orden de Fabricación vrs. Costo de lo Vendido</h5>
                 <div class="divider"></div>
-                <div id="Chart1" class="card-panel"></div>
+                <div id="Chart1">
+                </div>
+                </div>
 
 
                 <h3>Costos Unitarios</h3>
@@ -89,10 +93,14 @@
 
                 <br>
 
+                <div class="card-panel">
+
                 <h5>Producto vs. Costo Unitario</h5>
 
                 <div class="divider"></div>
-                <div id="Chart2" class="card-panel"></div>
+                <div id="Chart2">
+                </div>
+                </div>
 
             {% else %}
                 <h5>No hay producción</h5>

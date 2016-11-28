@@ -529,11 +529,15 @@ model</columns>
       <mandatory>1</mandatory>
       <data-type>DATE(0,-1)|12</data-type>
     </column>
-    <key id="137" parent="15">
+    <column id="137" parent="15" name="eficiencia">
+      <mandatory>1</mandatory>
+      <data-type>REAL(0,-1)|6</data-type>
+    </column>
+    <key id="138" parent="15">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="138" parent="15" name="#FAKE_main_empleado_1">
+    <foreign-key id="139" parent="15" name="#FAKE_main_empleado_1">
       <name-surrogate>1</name-surrogate>
       <columns>puesto_id</columns>
       <deferrable>1</deferrable>
@@ -542,66 +546,66 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="139" parent="16" name="idMov">
+    <column id="140" parent="16" name="idMov">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="140" parent="16" name="fechaFin">
+    <column id="141" parent="16" name="fechaFin">
       <mandatory>1</mandatory>
       <data-type>DATE(0,-1)|12</data-type>
     </column>
-    <column id="141" parent="16" name="cantidad">
+    <column id="142" parent="16" name="cantidad">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="142" parent="16" name="precioUnitario">
+    <column id="143" parent="16" name="precioUnitario">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <key id="143" parent="16">
+    <key id="144" parent="16">
       <columns>idMov</columns>
       <primary>1</primary>
     </key>
-    <column id="144" parent="17" name="id">
+    <column id="145" parent="17" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="145" parent="17" name="descripcion">
+    <column id="146" parent="17" name="descripcion">
       <mandatory>1</mandatory>
       <data-type>TEXT(0,-1)|12</data-type>
     </column>
-    <column id="146" parent="17" name="valor">
+    <column id="147" parent="17" name="valor">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <key id="147" parent="17">
+    <key id="148" parent="17">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="148" parent="18" name="id">
+    <column id="149" parent="18" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="149" parent="18" name="debe">
+    <column id="150" parent="18" name="debe">
       <mandatory>1</mandatory>
       <data-type>BOOL(0,-1)|4</data-type>
     </column>
-    <column id="150" parent="18" name="cuenta_id">
+    <column id="151" parent="18" name="cuenta_id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="151" parent="18" name="transaccion_id">
+    <column id="152" parent="18" name="transaccion_id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="152" parent="18" name="cantidad">
+    <column id="153" parent="18" name="cantidad">
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <key id="153" parent="18">
+    <key id="154" parent="18">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="154" parent="18" name="#FAKE_main_movimiento_2">
+    <foreign-key id="155" parent="18" name="#FAKE_main_movimiento_2">
       <name-surrogate>1</name-surrogate>
       <columns>cuenta_id</columns>
       <deferrable>1</deferrable>
@@ -610,7 +614,7 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="155" parent="18" name="#FAKE_main_movimiento_1">
+    <foreign-key id="156" parent="18" name="#FAKE_main_movimiento_1">
       <name-surrogate>1</name-surrogate>
       <columns>transaccion_id</columns>
       <deferrable>1</deferrable>
@@ -619,79 +623,96 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="156" parent="19" name="idMov">
+    <column id="157" parent="19" name="idMov">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="157" parent="19" name="tipo">
+    <column id="158" parent="19" name="tipo">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(1)(0,-1)|12</data-type>
     </column>
-    <column id="158" parent="19" name="fecha">
+    <column id="159" parent="19" name="fecha">
       <mandatory>1</mandatory>
       <data-type>DATE(0,-1)|12</data-type>
     </column>
-    <column id="159" parent="19" name="nombre">
+    <column id="160" parent="19" name="nombre">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(50)(0,-1)|12</data-type>
     </column>
-    <column id="160" parent="19" name="cantidad">
+    <column id="161" parent="19" name="cantidad">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="161" parent="19" name="precioUnitario">
+    <column id="162" parent="19" name="precioUnitario">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <key id="162" parent="19">
+    <column id="163" parent="19" name="proveedor_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <key id="164" parent="19">
       <columns>idMov</columns>
       <primary>1</primary>
     </key>
-    <column id="163" parent="20" name="numOrden">
+    <foreign-key id="165" parent="19" name="#FAKE_main_movimientomp_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>proveedor_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.main_proveedor.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="166" parent="20" name="numOrden">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="164" parent="20" name="materal">
+    <column id="167" parent="20" name="materal">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(100)(0,-1)|12</data-type>
     </column>
-    <column id="165" parent="20" name="catidadMP">
+    <column id="168" parent="20" name="catidadMP">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="166" parent="20" name="costoUnitarioMP">
+    <column id="169" parent="20" name="costoUnitarioMP">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="167" parent="20" name="numHoras">
+    <column id="170" parent="20" name="numHoras">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="168" parent="20" name="costoHora">
+    <column id="171" parent="20" name="costoHora">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="169" parent="20" name="tasaCIF">
+    <column id="172" parent="20" name="tasaCIF">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="170" parent="20" name="obrero_id">
+    <column id="173" parent="20" name="obrero_id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="171" parent="20" name="fechaExpedicion">
+    <column id="174" parent="20" name="fechaExpedicion">
       <mandatory>1</mandatory>
       <data-type>DATE(0,-1)|12</data-type>
     </column>
-    <column id="172" parent="20" name="fechaRequerida">
+    <column id="175" parent="20" name="fechaRequerida">
       <mandatory>1</mandatory>
       <data-type>DATE(0,-1)|12</data-type>
     </column>
-    <key id="173" parent="20">
+    <column id="176" parent="20" name="cliente_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <key id="177" parent="20">
       <columns>numOrden</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="174" parent="20" name="#FAKE_main_ordendefabricacion_1">
+    <foreign-key id="178" parent="20" name="#FAKE_main_ordendefabricacion_2">
       <name-surrogate>1</name-surrogate>
       <columns>obrero_id</columns>
       <deferrable>1</deferrable>
@@ -700,55 +721,64 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="175" parent="21" name="numProducto">
+    <foreign-key id="179" parent="20" name="#FAKE_main_ordendefabricacion_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>cliente_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.main_cliente.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="180" parent="21" name="numProducto">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="176" parent="21" name="nombre">
+    <column id="181" parent="21" name="nombre">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(50)(0,-1)|12</data-type>
     </column>
-    <column id="177" parent="21" name="inventarioInicialMp">
+    <column id="182" parent="21" name="inventarioInicialMp">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="178" parent="21" name="compras">
+    <column id="183" parent="21" name="compras">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="179" parent="21" name="inventarioFinal">
+    <column id="184" parent="21" name="inventarioFinal">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="180" parent="21" name="invIniPenP">
+    <column id="185" parent="21" name="invIniPenP">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="181" parent="21" name="invFinalPenP">
+    <column id="186" parent="21" name="invFinalPenP">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="182" parent="21" name="invInicialProductTerminado">
+    <column id="187" parent="21" name="invInicialProductTerminado">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="183" parent="21" name="invFinalProductTerminado">
+    <column id="188" parent="21" name="invFinalProductTerminado">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <column id="184" parent="21" name="ordenDeFabricacion_id">
+    <column id="189" parent="21" name="ordenDeFabricacion_id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="185" parent="21" name="nuneroArticulos">
+    <column id="190" parent="21" name="nuneroArticulos">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <key id="186" parent="21">
+    <key id="191" parent="21">
       <columns>numProducto</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="187" parent="21" name="#FAKE_main_producto_1">
+    <foreign-key id="192" parent="21" name="#FAKE_main_producto_1">
       <name-surrogate>1</name-surrogate>
       <columns>ordenDeFabricacion_id</columns>
       <deferrable>1</deferrable>
@@ -757,118 +787,118 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="188" parent="22" name="id">
+    <column id="193" parent="22" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="189" parent="22" name="marca">
+    <column id="194" parent="22" name="marca">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(50)(0,-1)|12</data-type>
     </column>
-    <column id="190" parent="22" name="direccion">
+    <column id="195" parent="22" name="direccion">
       <mandatory>1</mandatory>
       <data-type>TEXT(0,-1)|12</data-type>
     </column>
-    <column id="191" parent="22" name="telefono">
+    <column id="196" parent="22" name="telefono">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(9)(0,-1)|12</data-type>
     </column>
-    <column id="192" parent="22" name="nit">
+    <column id="197" parent="22" name="nit">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(17)(0,-1)|12</data-type>
     </column>
-    <key id="193" parent="22">
+    <key id="198" parent="22">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="194" parent="23" name="id">
+    <column id="199" parent="23" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="195" parent="23" name="nombre">
+    <column id="200" parent="23" name="nombre">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(30)(0,-1)|12</data-type>
     </column>
-    <column id="196" parent="23" name="salarioMensual">
+    <column id="201" parent="23" name="salarioMensual">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <key id="197" parent="23">
+    <key id="202" parent="23">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="198" parent="24" name="id">
+    <column id="203" parent="24" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="199" parent="24" name="numero">
+    <column id="204" parent="24" name="numero">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="200" parent="24" name="nombre">
+    <column id="205" parent="24" name="nombre">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(21)(0,-1)|12</data-type>
     </column>
-    <key id="201" parent="24">
+    <key id="206" parent="24">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="202" parent="25" name="id">
+    <column id="207" parent="25" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="203" parent="25" name="nombre">
+    <column id="208" parent="25" name="nombre">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(50)(0,-1)|12</data-type>
     </column>
-    <column id="204" parent="25" name="codigo">
+    <column id="209" parent="25" name="codigo">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(5)(0,-1)|12</data-type>
     </column>
-    <key id="205" parent="25">
+    <key id="210" parent="25">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="206" parent="26" name="id">
+    <column id="211" parent="26" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="207" parent="26" name="nombre">
+    <column id="212" parent="26" name="nombre">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(49)(0,-1)|12</data-type>
     </column>
-    <key id="208" parent="26">
+    <key id="213" parent="26">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="209" parent="27" name="id">
+    <column id="214" parent="27" name="id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="210" parent="27" name="fecha">
+    <column id="215" parent="27" name="fecha">
       <mandatory>1</mandatory>
       <data-type>DATE(0,-1)|12</data-type>
     </column>
-    <column id="211" parent="27" name="empleado_id">
+    <column id="216" parent="27" name="empleado_id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="212" parent="27" name="tipo_id">
+    <column id="217" parent="27" name="tipo_id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="213" parent="27" name="descripcion">
+    <column id="218" parent="27" name="descripcion">
       <data-type>TEXT(0,-1)|12</data-type>
     </column>
-    <column id="214" parent="27" name="monto">
+    <column id="219" parent="27" name="monto">
       <mandatory>1</mandatory>
       <data-type>REAL(0,-1)|6</data-type>
     </column>
-    <key id="215" parent="27">
+    <key id="220" parent="27">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="216" parent="27" name="#FAKE_main_transaccion_2">
+    <foreign-key id="221" parent="27" name="#FAKE_main_transaccion_2">
       <name-surrogate>1</name-surrogate>
       <columns>empleado_id</columns>
       <deferrable>1</deferrable>
@@ -877,7 +907,7 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="217" parent="27" name="#FAKE_main_transaccion_1">
+    <foreign-key id="222" parent="27" name="#FAKE_main_transaccion_1">
       <name-surrogate>1</name-surrogate>
       <columns>tipo_id</columns>
       <deferrable>1</deferrable>
@@ -886,23 +916,23 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="218" parent="28" name="id">
+    <column id="223" parent="28" name="id">
       <mandatory>1</mandatory>
       <data-type>TEXT(0,-1)|12</data-type>
     </column>
-    <column id="219" parent="28" name="password">
+    <column id="224" parent="28" name="password">
       <mandatory>1</mandatory>
       <data-type>VARCHAR(64)(0,-1)|12</data-type>
     </column>
-    <column id="220" parent="28" name="empleado_id">
+    <column id="225" parent="28" name="empleado_id">
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <key id="221" parent="28">
+    <key id="226" parent="28">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="222" parent="28" name="#FAKE_main_usuario_1">
+    <foreign-key id="227" parent="28" name="#FAKE_main_usuario_1">
       <name-surrogate>1</name-surrogate>
       <columns>empleado_id</columns>
       <deferrable>1</deferrable>
@@ -911,10 +941,10 @@ model</columns>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="223" parent="29" name="name">
+    <column id="228" parent="29" name="name">
       <data-type>(0,-1)|12</data-type>
     </column>
-    <column id="224" parent="29" name="seq">
+    <column id="229" parent="29" name="seq">
       <data-type>(0,-1)|12</data-type>
     </column>
   </database-model>

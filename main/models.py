@@ -120,6 +120,9 @@ class Proveedor(models.Model):
     telefono = models.CharField(max_length=9, null=False)
     nit = models.CharField(max_length=17, null=False)
 
+    def __str__(self):
+        return self.marca
+
 
 class TipoTransaccion(models.Model):
     id = models.IntegerField(editable=False, auto_created=True, primary_key=True)
@@ -176,11 +179,17 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=100, null=False)
     telefono = models.CharField(max_length=9, null=False)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Inventario(models.Model):
     id = models.IntegerField(editable=False, auto_created=True, primary_key=True)
     descripcion = models.TextField(max_length=100, null=False)
     valor = models.FloatField(default=0.0)
+
+    def __str__(self):
+        return self.descripcion
 
 
 class Transaccion(models.Model):
@@ -217,6 +226,7 @@ class Configuracion(models.Model):
 
 class ordenDeFabricacion(models.Model):
     numOrden=models.IntegerField(editable=False, auto_created=True, primary_key=True, unique=True)
+    cliente=models.ForeignKey(Cliente, default=1)
     fechaExpedicion=models.DateField()
     fechaRequerida=models.DateField()
     materal=models.CharField(max_length=100, null=False)
@@ -286,6 +296,7 @@ class MovimientoMp(models.Model):
         ('S', 'Salida'),
     )
     idMov=models.IntegerField(primary_key=True, editable=False, auto_created=True)
+    proveedor=models.ForeignKey(Proveedor, blank=True, default=1)
     tipo = models.CharField(max_length=1, choices=tipo_opt, null=False)
     fecha=models.DateField()
     nombre=models.CharField(max_length=50)

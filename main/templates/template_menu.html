@@ -34,15 +34,18 @@
                 <li class="bold"><a href="{% url 'produccion' %}" class="waves-effect waves-black"><i class="material-icons">business</i>Costeos</a></li>
                 <li class="bold"><a href="{% url 'planilla' %}" class="waves-effect waves-black"><i class="material-icons">playlist_add_check</i>Planilla</a></li>
                 <li class="bold"><a href="{% url 'inventario' %}" class="waves-effect waves-black"><i class="material-icons">assignment</i>Inventario de Materia Prima</a></li>
-
+                <li class="bold"><a href="{% url 'cuentas_list' %}" class="waves-effect waves-black"><i class="material-icons">library_books</i>Catálogo de Cuentas</a></li>
 
                 <li class="bold"><a class="collapsible-header  waves-effect waves-black"><i class="material-icons">create</i>Opciones</a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{% url 'empleados_list' %}" class="waves-effect waves-black">Empleados</a></li>
-                            <li><a href="{% url 'usuarios_list' %}" class="waves-effect waves-black">Usuarios</a></li>
+                            <li><a href="http://127.0.0.1:8000/admin/auth/user/" class="waves-effect waves-black">Usuarios</a></li>
                             <li><a href="{% url 'proveedores_list' %}" class="waves-effect waves-black">Proveedores</a></li>
                             <li><a href="{% url 'cuentas_list' %}" class="waves-effect waves-black">Catálogo de Cuentas</a></li>
+                            <li><a href="{% url 'clientes' %}" class="waves-effect waves-black">Clientes</a></li>
+                            <li><a href="{% url 'maquinaria' %}" class="waves-effect waves-black">Maquinaria y Equipo</a></li>
+                            <li><a href="http://127.0.0.1:8000/admin/" class="waves-effect waves-black">Administración</a></li>
                         </ul>
                     </div>
                 </li>

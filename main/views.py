@@ -12,7 +12,7 @@ from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView
 
-from main.forms import CuentaForm
+from main.forms import CuentaForm, ClienteForm, ProveedorForm
 from main.forms import EmpleadoForm
 from main.forms import LoginForm
 from main.forms import MovimientoForm
@@ -20,7 +20,7 @@ from main.forms import MovimientoFormMP
 from main.forms import OrdenForm
 from main.forms import ProductoForm
 from main.forms import TransaccionForm
-from main.models import MovimientoMp, EstadoFinalMP
+from main.models import MovimientoMp, EstadoFinalMP, Cliente, Proveedor, Inventario
 from models import Cuenta, TipoCuenta, Transaccion, Empleado, Movimiento, ordenDeFabricacion, producto
 
 
@@ -65,6 +65,7 @@ def ayuda_view(request):
 def proveedores_list_view(request):
     return render(request, 'main/list_proveedores.html', {
         'titulo': 'Proveedores',
+        'object_list': Proveedor.objects.all()
     })
 
 
@@ -392,6 +393,17 @@ class crearCuenta(CreateView):
     success_url = reverse_lazy('cuentas_list')
 
 
+class listClientes(ListView):
+    model = Cliente
+    template_name = 'main/listaClientes.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'main/listaClientes.html', {
+            'titulo':'Clientes',
+            'object_list': Cliente.objects.all()
+        })
+
+
 class Empleado_DetailView(DetailView):
     model = Empleado
     template_name = 'main/empleado_details.html'
@@ -400,3 +412,42 @@ class Empleado_DetailView(DetailView):
     #     return render(request, self.template_name, {
     #         'empleado': self.model.objects.filter(id=kwargs['pk'])
     #     })
+
+
+class listaProveedores(ListView):
+    model = Proveedor
+    template_name = 'main/list_proveedores.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'main/list_proveedores.html', {
+            'titulo':'Proveedores',
+            'object_list': Proveedor.objects.all()
+        })
+
+class crearClente(CreateView):
+    model = Cliente
+    form_class = ClienteForm
+    template_name = 'main/crearCliente.html'
+    success_url = reverse_lazy('clientes')
+
+
+class crearProveedor(CreateView):
+    model = Proveedor
+    form_class = ProveedorForm
+    template_name = 'main/crearProveedor.html'
+    success_url = reverse_lazy('proveedores_list')
+
+
+class listaMaq(ListView):
+    model = Inventario
+    template_name = 'main/maquinaria-equipo.html'
+
+    def get(self, request, *args, **kwargs):
+         return render(request, 'main/maquinaria-equipo.html', {
+        'titulo':'Maquinaria, Mobiliario y Equipo',
+        'object_list': Inventario.objects.all()
+        })
+
+
+
+

@@ -1,0 +1,43 @@
+{% extends 'template_home.html' %}
+
+{% load staticfiles %}
+
+{% block titulo %}Maquinaria{% endblock %}
+
+{% block contenido %}
+
+    <main>
+        <div class="container">
+            <a class="waves-effect waves-light btn #01579b light-blue darken-4"   href="http://127.0.0.1:8000/admin/main/inventario/"><i class="material-icons right">cached</i>Administrar</a>
+
+            <br>
+            <br>
+            <div class="divider"></div>
+            {% if object_list %}
+                <table class="striped centered responsive-table">
+                    <thead>
+                    <tr>
+                        <th data-field=" numero">Nombre</th>
+                        <th data-field="material">Valor</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for maq in object_list%}
+                        <tr>
+                            <td>{{maq.descripcion}}</td>
+                            <td>${{maq.valor}}</td>
+
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            {% else %}
+                <h6>No hay inventario de maquinaria y equipo</h6>
+            {% endif %}
+
+        </div>
+
+    </main>
+
+{% endblock %}

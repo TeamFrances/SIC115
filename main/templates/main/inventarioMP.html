@@ -8,6 +8,9 @@
     <main>
         <div class="container">
             <a class="waves-effect waves-light btn #2e7d32 green darken-3"   href="{% url 'add_mov' %}"><i class="material-icons right">add_circle</i>Agregar</a>
+            <a class="waves-effect waves-light btn #01579b light-blue darken-4"   href="http://127.0.0.1:8000/admin/main/movimientomp/"><i class="material-icons right">cached</i>Administrar Materiales</a>
+            <a class="waves-effect waves-light btn #f57f17 yellow darken-4"   href="{% url 'proveedores_list' %}"><i class="material-icons right">contact_phone</i>Proveedores</a>
+
             <br>
             <br>
             <div class="divider"></div>
@@ -24,6 +27,7 @@
                     <thead>
 
                     <tr>
+                        <th data-field="nombre">Proveedor</th>
                         <th data-field="nombre">Materia Prima</th>
                         <th data-field="apellidos">Cantidad</th>
                         <th data-field="cargo">Costo Unitario</th>
@@ -45,6 +49,7 @@
                         {%for movimiento in object_list%}
                             {% if movimiento.tipo == 'E'%}
                                 <tr>
+                                    <td>{{movimiento.proveedor}}</td>
                                     <td>{{movimiento.nombre}}</td>
                                     <td>{{movimiento.cantidad}}</td>
                                     <td>{{movimiento.precioUnitario}}</td>
@@ -60,6 +65,7 @@
                             {% else %}
 
                                 <tr>
+                                    <td>{{movimiento.proveedor}}</td>
                                     <td>{{movimiento.nombre}}</td>
                                     <td></td>
                                     <td></td>

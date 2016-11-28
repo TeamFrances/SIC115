@@ -2,7 +2,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from main.models import ordenDeFabricacion, producto, MovimientoMp
+from main.models import ordenDeFabricacion, producto, MovimientoMp, Cliente, Proveedor
 from models import Cuenta,Rubro, Empleado,TipoTransaccion
 
 tiposCuentas=((1,'Activo',),(2,'Pasivo',),(3,'Capital',),(4,'Resultado Deudora',),(5,'Resultado Acreedora'),)
@@ -18,13 +18,13 @@ class LoginForm(forms.Form):
                                widget=forms.PasswordInput(attrs={'class': 'validate white-text'}))
 
 
-class CuentaForm(forms.Form):
-    nombre = forms.CharField(required=True,
-                             label='Nombre de la cuenta')
-    rubro = forms.ModelChoiceField(required=True,
-                                   queryset=Rubro.objects.all())
-    tipo = forms.ChoiceField(required=True,
-                             choices=tiposCuentas)
+# class CuentaForm(forms.Form):
+#     nombre = forms.CharField(required=True,
+#                              label='Nombre de la cuenta')
+#     rubro = forms.ModelChoiceField(required=True,
+#                                    queryset=Rubro.objects.all())
+#     tipo = forms.ChoiceField(required=True,
+#                              choices=tiposCuentas)
 
 
 class MovimientoForm(forms.Form):
@@ -130,6 +130,7 @@ class OrdenForm(forms.ModelForm):
         model = ordenDeFabricacion
 
         fields = [
+            'cliente',
             'fechaExpedicion',
             'fechaRequerida',
             'materal',
@@ -170,7 +171,7 @@ class MovimientoFormMP(forms.ModelForm):
     class Meta:
         model = MovimientoMp
 
-        fields=['fecha', 'nombre', 'cantidad', 'precioUnitario','tipo']
+        fields=['proveedor','fecha', 'nombre', 'cantidad', 'precioUnitario','tipo']
 
 
 class CuentaForm(forms.ModelForm):
@@ -178,3 +179,16 @@ class CuentaForm(forms.ModelForm):
         model = Cuenta
 
         fields = ['nombre', 'rubro', 'tipo']
+
+
+class ClienteForm(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ['nombre', 'telefono']
+
+
+class ProveedorForm(forms.ModelForm):
+    class Meta:
+        model = Proveedor
+
+        fields = ['marca', 'direccion', 'telefono', 'nit']

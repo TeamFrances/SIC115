@@ -6,7 +6,7 @@ from main.models import ordenDeFabricacion, producto, MovimientoMp
 from models import Cuenta,Rubro, Empleado,TipoTransaccion
 
 tiposCuentas=((1,'Activo',),(2,'Pasivo',),(3,'Capital',),(4,'Resultado Deudora',),(5,'Resultado Acreedora'),)
-DATE_INPUT_FORMATS = ('%d-%m-%Y')
+DATE_INPUT_FORMATS = '%d-%m-%Y'
 debes=((True,'Debe',),(False,'Haber',))
 
 class LoginForm(forms.Form):

@@ -9,6 +9,7 @@ from django.forms import formset_factory
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic import TemplateView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView
 
 from main.forms import CuentaForm
@@ -197,7 +198,6 @@ def agregar_Transaccion(request):
             return guardarMovimientos(request, formulario, movimientos, transaccion2)
         return render(request, 'main/libro_diario.html', {'transaccion': formulario, 'agregar': formulario})
 
-    
 
 def libro_diario(request):
     transaccion = TransaccionForm()
@@ -205,6 +205,8 @@ def libro_diario(request):
     return render(request, 'main/libro_diario.html', {
         'titulo': 'Libro Diario', 'transaccion': transaccion, 'agregar': False
     })
+
+
 def guardarMovimientos(request,formulario,movimientos,transaccion):
     for movimiento in movimientos :
         movimientoM=Movimiento()
@@ -234,7 +236,6 @@ def guardarCambioCuenta(cuentaModificar):
         cuentaModificar.acreedor=False
     cuentaModificar.save()
     return 1
-
 
 
 def empleado_view(reques):
@@ -391,6 +392,11 @@ class crearCuenta(CreateView):
     success_url = reverse_lazy('cuentas_list')
 
 
+class Empleado_DetailView(DetailView):
+    model = Empleado
+    template_name = 'main/empleado_details.html'
 
-
-
+    # def get(self, request, *args, **kwargs):
+    #     return render(request, self.template_name, {
+    #         'empleado': self.model.objects.filter(id=kwargs['pk'])
+    #     })

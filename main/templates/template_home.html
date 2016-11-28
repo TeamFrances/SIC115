@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     {% load staticfiles %}
 
+    <script src="{% static 'main/js/jquery-3.1.0.js' %}"></script>
     <script src="{% static 'main/js/Chart.js' %}"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="shortcut icon" href="{% static 'main/images/frances.ico' %}">
@@ -24,9 +25,9 @@
 
     <style rel="stylesheet">
         /* TEMPLATE STYLES */
-       p{
-           text-align: justify;
-       }
+        p{
+            text-align: justify;
+        }
     </style>
 
     {% block extra_scripts %}{% endblock %}
@@ -50,6 +51,7 @@
 {% endblock %}
 
 {% block contenido %}{% endblock %}
+{% block modals %}{% endblock %}
 
 {% block footer %}
     <footer class="page-footer #b71c1c red darken-4">
@@ -86,7 +88,6 @@
     });
 
 </script>
-<script>{% block javascript %}
-    {% endblock %}</script>
+<script>{% block javascript %}{% endblock %}</script>
 </body>
 </html>

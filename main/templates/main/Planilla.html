@@ -5,54 +5,81 @@
 
 {% block contenido%}
 
-   <main>
-   <div class="container">
+    <main>
+        <div class="container">
 
-        <h3>Datos del Empleado</h3>
-       <div class="divider"></div>
-       {% if object_list %}
-           <table class="striped centered">
+            <h3>Datos del Empleado</h3>
+            <div class="divider"></div>
+            {% if object_list %}
+                <table class="striped centered">
 
-               <thead>
+                    <thead>
 
-               <tr>
-                   <th data-field="Idempleado">ID</th>
-                   <th data-field="nombre">Nombre</th>
-                   <th data-field="apellidos">Apellidos</th>
-                   <th data-field="cargo">Cargo</th>
-                   <th data-field="SalarioNominal">Salario Nominal</th>
-                   <th data-field="SalarioReal">Salario Real</th>
+                    <tr>
+                        <th data-field="Idempleado">ID</th>
+                        <th data-field="nombre">Nombre</th>
+                        <th data-field="apellidos">Apellidos</th>
+                        <th data-field="cargo">Cargo</th>
+                        <th data-field="SalarioNominal">Salario Nominal</th>
+                        <th data-field="SalarioReal">Salario Real</th>
+                        <th data-field="SalarioReal">Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
 
-               </tr>
-               </thead>
-               <tbody>
+                    {%for empleado in object_list%}
+                        <tr>
+                            <td>{{empleado.id}}</td>
+                            <td>{{empleado.nombres}}</td>
+                            <td>{{empleado.apellidos}}</td>
+                            <td>{{empleado.puesto.nombre}}</td>
+                            <td>${{empleado.puesto.get_salario_nominal|floatformat:"2"}}</td>
+                            <td>${{empleado.puesto.get_salario_real|floatformat:"2"}}</td>
+{#                            <td><a  href="#modal1"><i class="material-icons">visibility</i></a></td>#}
+                            <td><a id="showModal" data-target="#modal1" href="#modal1"><i class="material-icons" onclick="viewDetails({{ empleado.id }})">visibility</i></a></td>
+                        </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <h3>Prestaciones</h3>
+                <div class="divider"></div>
+            {% else %}
+                <h6>No hay empleados</h6>
+            {% endif %}
 
+        </div>
+    </main>
+{% endblock %}
 
-               {%for empleado in object_list%}
-                   <tr>
-                       <td>{{empleado.id}}</td>
-                       <td>{{empleado.nombres}}</td>
-                       <td>{{empleado.apellidos}}</td>
-                       <td>{{empleado.puesto.nombre}}</td>
-                       <td>${{empleado.puesto.salarioNominalDiario|floatformat:"2"}}</td>
-                       <td>${{empleado.salReal|floatformat:"2"}}</td>
-                   </tr>
-               {%endfor%}
-               </tbody>
-           </table>
-           <br>
-           <br>
-           <h3>Prestaciones</h3>
-           <div class="divider"></div>
-       {% else %}
-           <h6>No hay empleados</h6>
-       {% endif %}
+{% block extra_scripts %}
+    {% load staticfiles %}
+    <script src="{% static 'main/js/scripts.js' %}" type="text/javascript"></script>
 
+    <script>
+        function viewDetails(empleadoId) {
+{#            alert("msg");#}
+            requestGet("/empleado/"+empleadoId);
+        }
+
+        $(document).ready(function() {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('#showModal').leanModal();
+        });
+    </script>
+{% endblock %}
+
+{% block modals %}
+    <!-- Modal -->
+    <div id="modal1" class="modal">
+        <div id="form-container" class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        {#        <div class="modal-footer">#}
+        {#            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>#}
+        {#        </div>#}
     </div>
-   </main>
-
-
-
-
 {% endblock %}

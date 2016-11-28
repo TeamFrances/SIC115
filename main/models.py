@@ -1,15 +1,44 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
+from datetime import datetime, time, timedelta, date
+
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
 class Puesto(models.Model):
     id = models.IntegerField(editable=False, auto_created=True, primary_key=True)
     nombre = models.CharField(max_length=30, null=False)
-    salarioNominalDiario = models.FloatField(default=0.0, null=False)
+    salarioMensual = models.FloatField(default=0.0, null=False)
 
     def __str__(self):
         return self.nombre
+
+    def get_salario_diario(self):
+        return self.salarioMensual / 30
+
+    def get_salario_real(self):
+        return (self.get_salario_diario()*7)/5.5
+
+    def get_salario_nominal(self):
+        return self.get_salario_real()*7
+
+    def get_vacaciones(self):
+        return self.get_salario_diario()*15*1.3
+
+    def get_prestaciones(self):
+        return (self.get_salario_diario() * 15) * 0.1525
+
+    def get_cotizaciones_y_vacaciones(self):    #El dato 0.1525 debe sacarse de la BD, y es el total de prestaciones
+        return self.get_vacaciones() + self.get_prestaciones()
+
+    def get_provision_semanal(self):
+        return self.get_cotizaciones_y_vacaciones() / 52
+
+    def get_cotizacion_semanal(self):
+        return self.get_salario_nominal()*0.1525
+
 
 
 # Create your models here.
@@ -30,14 +59,52 @@ class Empleado(models.Model):
     dui = models.CharField(max_length=10, null=False)
     nit = models.CharField(max_length=17, null=False)
     afp = models.CharField(max_length=12, null=False)
+    eficiencia = models.FloatField(default=0.9)
     puesto = models.ForeignKey(Puesto, on_delete=models.CASCADE)
     activo = models.BooleanField()
+    fecha_contratacion = models.DateField(default='2001-01-01')
 
     def __str__(self):
         return self.nombres+" "+self.apellidos
 
-    def salReal(self):
-        return (self.puesto.salarioNominalDiario*7)/5.5
+    def get_dias_contratado(self):
+        f1 = self.fecha_contratacion
+        delta = date.today() - f1
+
+        return delta.days
+
+    def get_aguinaldo(self):
+        dias = self.get_dias_contratado()
+        salario_diario = self.puesto.get_salario_diario()
+
+        if dias >= 0 and dias < 1080:           #Si ha trabajado hasta menos de 3 años
+            # if datetime.today() >= date.today().replace(month=12, day=12):      #Si hoy
+            return salario_diario*15
+        elif dias >= 1080 and dias < 3600:      #Si ha trabajado desde 3 hasta 10 años
+            return salario_diario*19
+        elif dias >= 3600:                      #Si ha trabajado de 10 años en adelante
+            return salario_diario*21
+
+    def get_aguinaldo_semanal(self):
+        return self.get_aguinaldo()/52
+
+    def get_salario_semanal(self):
+        sum = self.puesto.get_salario_nominal() + self.get_aguinaldo_semanal() + \
+              self.puesto.get_provision_semanal() + self.puesto.get_cotizacion_semanal()
+
+        return sum
+
+    def get_factor_recargo(self):
+        return self.get_salario_semanal() / self.puesto.get_salario_nominal()
+
+    def get_factor_recargo_eficiencia(self):
+        return self.get_factor_recargo() / self.eficiencia
+
+    def get_salario_mensual(self):
+        return self.get_salario_semanal() * 4
+
+    def get_absolute_url(self):
+        return reverse('empleado_detail', kwargs={"pk":self.pk})
 
 
 class Usuario(models.Model):

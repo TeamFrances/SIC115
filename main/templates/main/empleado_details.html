@@ -1,0 +1,75 @@
+<h1>Detalles del Empleado</h1><br>{% load filters %}
+<table class="striped centered">
+    <tr>
+        <td>ID</td>
+        <td>{{ object.pk }}</td>
+    </tr>
+    <tr>
+        <td>Nombres</td>
+        <td>{{ object.nombres }}</td>
+    </tr>
+    <tr>
+        <td>Apellidos</td>
+        <td>{{ object.apellidos }}</td>
+    </tr>
+    <tr>
+        <td>Puesto</td>
+        <td>{{ object.puesto }}</td>
+    </tr>
+    <tr>
+        <td>Salario Nominal</td>
+        <td>${{ object.puesto.get_salario_nominal|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Salario Real</td>
+        <td>${{ object.puesto.get_salario_real|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Aguinaldo</td>
+        <td>${{ object.get_aguinaldo|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Aguinaldo semanal</td>
+        <td>${{ object.get_aguinaldo_semanal|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Vacaciones</td>
+        <td>${{ object.puesto.get_vacaciones|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Prestaciones</td>
+        <td>${{ object.puesto.get_prestaciones|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Vacaciones + Prestaciones</td>
+        <td>${{ object.puesto.get_cotizaciones_y_vacaciones|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Provisión semanal</td>
+        <td>${{ object.puesto.get_provision_semanal|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Cotización semanal</td>
+        <td>${{ object.puesto.get_cotizacion_semanal|floatformat:"2" }}</td>
+    </tr>
+    <tr style="color: #ee0500;">
+        <td>Salario semanal</td>
+        <td>${{ object.get_salario_semanal|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Factor de recargo</td>
+        <td>{{ object.get_factor_recargo|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Eficiencia</td>
+        <td>{{ object.eficiencia|porcentformat }}</td>
+    </tr>
+    <tr>
+        <td>Factor de recargo por eficiencia</td>
+        <td>{{ object.get_factor_recargo_eficiencia|floatformat:"2" }}</td>
+    </tr>
+    <tr style="color: #ee0500;">
+        <td>Salario mensual</td>
+        <td>${{ object.get_salario_mensual|floatformat:"2" }}</td>
+    </tr>
+</table>

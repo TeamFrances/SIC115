@@ -41,11 +41,14 @@ urlpatterns = [
     url(r'^estado_capital/$', views.estado_capital_view, name="estado_capital"),
     url(r'^estado_resultados/$', views.estado_resultados, name="estado_resultados"),
     url(r'^balance_comprobacion/$', views.balance_comprobacion, name="balance_comprobacion"),
+
     url(r'^libro_diario/$', views.libro_diario, name="libro_diario"),
 
     url(r'^agregar_empleado/$', views.empleado_view, name="agregar_empleado"),
     url(r'^planilla/$', views.Planilla.as_view(), name="planilla"),
+
     url(r'^empleados/$', views.empleado_list.as_view(), name="empleados_list"),
+    url(r'^empleado/(?P<pk>[\w]+)$', views.Empleado_DetailView.as_view(), name="empleado_detail"),
 
     url(r'^ordenes/$', views.ListaOrdenes.as_view(), name="ordenes"),
     url(r'^crearOrde/$', views.CrearOrde.as_view(), name="crearOrden"),

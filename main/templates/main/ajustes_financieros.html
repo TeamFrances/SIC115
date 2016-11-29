@@ -1,3 +1,44 @@
 {% extends 'template_home.html' %}
 
 {% block titulo %}Ajustes Financieros{% endblock %}
+
+{%block contenido%}
+<main>
+	<div class="container">
+		<table class="striped">
+		<thead>
+			<tr>
+			<th>Nombre de Activo</th>
+			<th>Valor de compra</th>
+			<th>Valor Actual</th>
+			<th>Vida Util</th>
+			<th>Valor de Recuparacion</th>
+			<th>Valor de Depreciacion</th>
+			</tr>
+
+		</thead>
+		<tbody>
+		{%for equipo in equipos%}
+			<tr>
+				<td>{{equipo.nombre}}</td>
+				<td>{{equipo.cuentaValorCompra.saldoFinal}}</td>
+				<td>{{equipo.valorActual}}</td>
+				<td>{{equipo.vidaUtil}}</td>
+				<td>{{equipo.valorRecuperacion}}</td>
+				<td>{{equipo.depreciacion.cantidad}}</td>
+			</tr>
+			{%endfor%}
+		</tbody>
+
+
+		</table>
+
+
+	</div>
+
+
+</main>
+
+
+
+{%endblock%}

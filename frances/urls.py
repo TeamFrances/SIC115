@@ -69,7 +69,7 @@ urlpatterns = [
     url(r'^agregarProveedor/', views.crearProveedor.as_view(), name="agregarProveedor"),
 
     url(r'^maquinaria/', views.listaMaq.as_view(), name="maquinaria"),
-
+    url(r'^compra_equipo/', views.compraEquipo, name="compra_equipo")
 
 
 

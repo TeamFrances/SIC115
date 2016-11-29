@@ -6,21 +6,91 @@
 {% endblock %}
 
 {% block contenido %}
+    {#    <main>#}
+    {#        <div class="container">#}
+    {#            <input id="fnum" type="number" name="mov" min="2" placeholder="Dijite el numero de cuentas a usar" value="1" aria-valuemin="2" required>#}
+    {#            {% csrf_token %}#}
+    {#            <button class="save btn btn-default" onclick="updateViewLibroDiario()">Agregar Movimientos</button>#}
+    {#            <br>#}
+    {#            <br>#}
+    {#            <br>#}
+    {##}
+    {##}
+    {#            <div id="form-container" class="modal-content"></div>#}
+    {#            <div id="modal1" class="modal" height="100">#}
+    {#            </div>#}
+    {##}
+    {#            <a class="waves-effect waves-light btn modal-trigger #2e7d32 green " href="#modal1">Agregar Transaccion</a>#}
+    {#        </div>#}
+    {#    </main>#}
     <main>
+        {%if agregar%}
+            <div class="card-action">
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Agregar Transaccion</a>
+            </div>
+        {%endif%}
+        <div id="modal1" class="modal" height="100">
+            <div class="modal-content" >
+
+                {%if agregar%}
+                    <form action="{%url 'transaccion_nueva'%}" method="POST">{%csrf_token%}
+                        <h4>Crear Transacción</h4>
+                        <div class="container">
+                            {{transaccion.as_p}}
+                            <table>
+                                <tr data-field="col s7 push-s5">
+                                    <td >{{movimientos.as_table}}</td>
+                                </tr>
+                            </table>
+                            <button type="submit" href="" class="save btn btn-default">Guardar Transaccion</button>
+                        </div>
+                    </form>
+                {%endif%}
+                <br>
+            </div>
+        </div>
+        </div>
+        </div>
         <div class="container">
-            <input id="fnum" type="number" name="mov" min="2" placeholder="Dijite el numero de cuentas a usar" value="1" aria-valuemin="2" required>
-            {% csrf_token %}
-            <button class="save btn btn-default" onclick="updateViewLibroDiario()">Agregar Movimientos</button>
+
+
+            <form action="{% url 'agregar_movimiento' %}" method="POST" >{%csrf_token%}
+                <h5>Cantidad de movimientos involucrados</h5>
+                <input type="text" name="mov" min="2" value="2" placeholder="Dijite el numero de cuentas a usar" size="10"  required>
+                <button type="submit" href="{% url 'agregar_movimiento' %}" class="save btn btn-default">Agregar Movimientos</button>
+            </form>
             <br>
             <br>
             <br>
-
-
-            <div id="form-container" class="modal-content"></div>
-{#            <div id="modal1" class="modal" height="100">#}
-{#            </div>#}
-
-{#            <a class="waves-effect waves-light btn modal-trigger #2e7d32 green " href="#modal1">Agregar Transaccion</a>#}
+            <div id="modal1" class="modal" height="100">
+                <div class="modal-content" >
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <table>
+                <thead><tr>
+                    <th>Empleado que realizo la transaccion</th>
+                    <th>Cantidad</th>
+                    <th>Cuenta involucrada</th>
+                    <th>tipo</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for movimiento in transacciones%}
+                    <tr>
+                        <td>{{movimiento.transaccion.empleado.nombres}}</td>
+                        <td>{{movimiento.cantidad}}</td>
+                        <td>{{movimiento.cuenta.nombre}}</td>
+                        {%if movimiento.debe%}
+                            <td>Debe</td>
+                        {%else%}
+                            <td>Haber</td>
+                        {%endif%}
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
         </div>
     </main>
 {% endblock %}

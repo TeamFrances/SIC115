@@ -150,6 +150,15 @@ class TipoCuenta(models.Model):
         return self.nombre+"  "+self.codigo
 
 
+class CuentaMayor(models.Model):
+    id=models.IntegerField(editable=False, auto_created=True, primary_key=True)
+    nombre=models.CharField(max_length=50, null=False)
+    codigo=models.CharField(max_length=5, null=False)
+    def __str__(self):
+        return self.nombre
+
+
+
 class Cuenta(models.Model):
     id = models.IntegerField(editable=False, auto_created=True, primary_key=True)
     saldoInicial = models.FloatField(default=0.0)
@@ -161,6 +170,7 @@ class Cuenta(models.Model):
     codigo= models.CharField(max_length=5, null=False, default=1)
     acreedor=models.BooleanField(default=True)
     rubro=models.ForeignKey(Rubro, null=False)
+    cuentaMayor=models.ForeignKey(CuentaMayor,null=True)
 
     def codigo2(self):
 
@@ -172,6 +182,9 @@ class Cuenta(models.Model):
 
     def __str__(self):
         return self.nombre
+
+    def saldoF(self):
+        return self.haber-self.debe
 
 
 class Cliente(models.Model):
@@ -322,3 +335,19 @@ class EstadoFinalMP(models.Model):
     def getTotal(self):
         return self.cantidad * self.precioUnitario
 
+class Depreciacion(models.Model):
+    id=models.IntegerField(editable=False, auto_created=True,primary_key=True)
+    cantidad=models.FloatField(max_length=50)
+    cuentaLibro=models.ForeignKey(Cuenta,null=False)
+
+
+class EquipoDespreciable(models.Model):
+    id=models.IntegerField(editable=False, auto_created=True,primary_key=True)
+    nombre=models.CharField(max_length=50)
+    vidaUtil=models.IntegerField()
+    valorRecuperacion=models.FloatField(default=0.0)
+    cuentaValorCompra=models.ForeignKey(Cuenta,null=False)
+    depreciacion=models.ForeignKey(Depreciacion,null=False)
+    valorActual=models.FloatField(default=0.0,null=True)
+    def __str__(self):
+        return self.nombre

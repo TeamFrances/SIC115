@@ -56,8 +56,82 @@
                 <h6>No hay Ordenes</h6>
             {% endif %}
 
+            <div class="">
+                <br>
+                <br>
+                <h5> Costos vrs.  Ordenes de Fabricación </h5>
+                <div class="divider"></div>
+                <div class="center-align">
+                <img  width="300" src="{% static 'main/images/leyenda.png' %}" class="responsive-img">
+                </div>
+                <br>
+                <div id="canvas-holder">
+                    <canvas id="chart-area4" width="600" height="200"></canvas>
+                </div>
+
+
+            </div>
+
         </div>
 
+
+
+
     </main>
+    <script>
+        var barChartData2 = {
+            labels : [
+                {% for orden in object_list %}
+                    "{{orden.numOrden}}",
+                {% endfor %}
+            ],
+            datasets : [
+                {
+                    label: "My First dataset",
+                    fillColor : "rgba(6, 61, 183,0.4)",
+                    strokeColor : "rgb(6, 61, 183)",
+                    highlightFill: "rgb(6, 61, 183)",
+                    highlightStroke: "rgb(6, 61, 183)",
+                    data : [
+                        {% for orden in object_list %}
+                            {{ orden.totalMP|floatformat:"2" }},
+                        {% endfor %}],
+
+                },
+
+                {
+                    label: "Mano de obra directa",
+                    fillColor : "rgba(237, 17, 17,0.4)",
+                    strokeColor : "rgb(237, 17, 17)",
+                    highlightFill: "rgb(237, 17, 17)",
+                    highlightStroke: "rgb(237, 17, 17)",
+                    data : [
+                        {% for orden in object_list %}
+                            {{ orden.totalMOD|floatformat:"2" }},
+                        {% endfor %}]
+                },
+                {
+                    label: "My First dataset",
+                    fillColor : "rgba(25, 129, 6,0.4)",
+                    strokeColor : "rgb(25, 129, 6)",
+                    highlightFill: "rgb(25, 129, 6)",
+                    highlightStroke: "rgb(25, 129, 6)",
+                    data : [
+                        {% for orden in object_list %}
+                            {{ orden.importe|floatformat:"2" }},
+                        {% endfor %}]
+                },]
+
+
+        }
+
+
+        var ctx4 = document.getElementById("chart-area4").getContext("2d");
+        window.myPie = new Chart(ctx4).Bar(barChartData2, {responsive:true});
+
+
+
+    </script>
+
 
 {% endblock %}

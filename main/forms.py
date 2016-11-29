@@ -7,7 +7,7 @@ from models import Cuenta,Rubro, Empleado,TipoTransaccion
 
 tiposCuentas=((1,'Activo',),(2,'Pasivo',),(3,'Capital',),(4,'Resultado Deudora',),(5,'Resultado Acreedora'),)
 DATE_INPUT_FORMATS = '%d-%m-%Y'
-debes=((True,'Debe',),(False,'Haber',))
+debes=((1,'Debe',),(0,'Haber',))
 
 class LoginForm(forms.Form):
     username = forms.CharField(required=True,
@@ -28,38 +28,27 @@ class LoginForm(forms.Form):
 
 
 class MovimientoForm(forms.Form):
-    cuenta = forms.ModelChoiceField(label='Eliga la cuenta a realizar el movimiento',
-                                    queryset=Cuenta.objects.all())
-    tipo = forms.MultipleChoiceField(
+    cuenta=forms.ModelChoiceField(label='Eliga la cuenta a realizar el movimiento',
+        queryset=Cuenta.objects.all())
+
+
+    tipo=forms.ChoiceField(
         required=False,
-        widget=forms.CheckboxSelectMultiple(attrs={'id':'test6p','checked':'checked'}),
-        choices=debes,
+        widget=forms.Select(attrs={'id':'test6p','checked':'checked'}),
+        choices=debes
     )
-    cantidad = forms.DecimalField(label='Cantidad a transferir a Cuenta:', max_digits=10, decimal_places=2, min_value=0)
+    cantidad=forms.DecimalField(label='Cantidad a transferir a Cuenta:',max_digits=10,decimal_places=2,min_value=0)
 
 
 class TransaccionForm(forms.Form):
-    monto = forms.DecimalField(
-        label='monto de transaccion',
-        max_digits=10,
-        decimal_places=2,
-        min_value=0.0,
-        initial=0.0
-    )
-    empleado = forms.ModelChoiceField(
-        required=True,
-        queryset=Empleado.objects.all(),
-        empty_label="Empleado",
-        widget=forms.Select()
-    )
-    tipo = forms.ModelChoiceField(
-        required=True,
-        queryset=TipoTransaccion.objects.all()
-    )
-    descripcion = forms.CharField(
-        widget=forms.Textarea()
-    )
-    fecha = forms.DateField()
+    # monto=forms.DecimalField(label='monto de transaccion',max_digits=10, decimal_places=2,min_value=0.0)
+    empleado=forms.ModelChoiceField(required=True,
+            queryset=Empleado.objects.all())
+    tipo=forms.ModelChoiceField(required=True,
+            queryset=TipoTransaccion.objects.all())
+    descripcion=forms.CharField(widget=forms.Textarea)
+
+    fecha=forms.DateField()
 
 
 class EmpleadoForm(forms.ModelForm):
@@ -116,6 +105,15 @@ class EmpleadoForm(forms.ModelForm):
             raise ValidationError("Los nombres no deben contener números")
 
         return nombres
+
+
+class EquipoForm(forms.Form):
+    nombre=forms.CharField(required=True, label="Ingrese el nombre del equipo a comprar",widget=forms.TextInput(attrs={'class':'input-field'}))
+    vida_util=forms.IntegerField(required=True,label="Ingrese la vida util del dispositivo", min_value=1)
+    valor_de_compra=forms.DecimalField(label="ingrese el valor de compra", min_value=0)
+    recuperacion=forms.DecimalField(label="Ingrese el valor de recuperacion", min_value=0)
+
+
 
 
 class ProductoForm(forms.ModelForm):

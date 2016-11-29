@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from wkhtmltopdf.views import PDFTemplateView
+# from wkhtmltopdf.views import PDFTemplateView
 
 from main import views
 
@@ -61,10 +61,10 @@ urlpatterns = [
     url(r'^clientes/', views.listClientes.as_view(), name="clientes"),
     url(r'^agregarCliente/', views.crearClente.as_view(), name="agregarCliente"),
 
-    url(r'^pdf/balance_comprobacion$', PDFTemplateView.as_view(template_name='main/balance_comprobacion.html', filename='balance_comprobacion.pdf'), name="pdf"),
-    url(r'^pdf/estado_resultados$', PDFTemplateView.as_view(template_name='main/estado_resultados.html', filename='estado_resultados.pdf'), name="pdf"),
-    url(r'^pdf/estado_capital$', PDFTemplateView.as_view(template_name='main/estado_capital.html', filename='estado_capital.pdf'), name="pdf"),
-    url(r'^pdf/balance_general$', PDFTemplateView.as_view(template_name='main/balance_general.html', filename='balance_general.pdf'), name="pdf"),
+    # url(r'^pdf/balance_comprobacion$', PDFTemplateView.as_view(template_name='main/balance_comprobacion.html', filename='balance_comprobacion.pdf'), name="pdf"),
+    # url(r'^pdf/estado_resultados$', PDFTemplateView.as_view(template_name='main/estado_resultados.html', filename='estado_resultados.pdf'), name="pdf"),
+    # url(r'^pdf/estado_capital$', PDFTemplateView.as_view(template_name='main/estado_capital.html', filename='estado_capital.pdf'), name="pdf"),
+    # url(r'^pdf/balance_general$', PDFTemplateView.as_view(template_name='main/balance_general.html', filename='balance_general.pdf'), name="pdf"),
 
     url(r'^agregarProveedor/', views.crearProveedor.as_view(), name="agregarProveedor"),
 

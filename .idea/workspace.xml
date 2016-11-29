@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1212dae-74ac-431b-bff2-4e13c0c37658" name="Default" comment="* Version de entrega">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/migrations/0028_auto_20161128_0647.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+    <list default="true" id="f1212dae-74ac-431b-bff2-4e13c0c37658" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frances/settings.py" afterPath="$PROJECT_DIR$/frances/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frances/urls.py" afterPath="$PROJECT_DIR$/frances/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/forms.py" afterPath="$PROJECT_DIR$/main/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/models.py" afterPath="$PROJECT_DIR$/main/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/Planilla.html" afterPath="$PROJECT_DIR$/main/templates/main/Planilla.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/agregarOrden.html" afterPath="$PROJECT_DIR$/main/templates/main/agregarOrden.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/ajustes_financieros.html" afterPath="$PROJECT_DIR$/main/templates/main/ajustes_financieros.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/ayuda.html" afterPath="$PROJECT_DIR$/main/templates/main/ayuda.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/balance_comprobacion.html" afterPath="$PROJECT_DIR$/main/templates/main/balance_comprobacion.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/balance_general.html" afterPath="$PROJECT_DIR$/main/templates/main/balance_general.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/estado_capital.html" afterPath="$PROJECT_DIR$/main/templates/main/estado_capital.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/estado_resultados.html" afterPath="$PROJECT_DIR$/main/templates/main/estado_resultados.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/libro_diario.html" afterPath="$PROJECT_DIR$/main/templates/main/libro_diario.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/ordenFabricacion.html" afterPath="$PROJECT_DIR$/main/templates/main/ordenFabricacion.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/produccion_ventas.html" afterPath="$PROJECT_DIR$/main/templates/main/produccion_ventas.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/template_menu.html" afterPath="$PROJECT_DIR$/main/templates/template_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/views.py" afterPath="$PROJECT_DIR$/main/views.py" />
     </list>
     <ignored path="frances.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,61 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frances/urls.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frances/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="libro_diario.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/main/libro_diario.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ordenFabricacion.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main/templates/main/ordenFabricacion.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="64" column="100" selection-start-line="64" selection-start-column="100" selection-end-line="64" selection-end-column="100" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="produccion_ventas.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/main/produccion_ventas.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3179">
-              <caret line="187" column="4" selection-start-line="187" selection-start-column="4" selection-end-line="187" selection-end-column="4" />
-              <folding>
-                <marker date="1480266880251" expanded="true" signature="136:2963" ph="..." />
-                <marker date="1480266880251" expanded="true" signature="168:2963" ph="..." />
-                <marker date="1480266880251" expanded="true" signature="744:2890" ph="..." />
-                <marker date="1480266880251" expanded="true" signature="772:1331" ph="..." />
-                <marker date="1480266880251" expanded="true" signature="797:1302" ph="..." />
-                <marker date="1480266880251" expanded="true" signature="1359:2865" ph="..." />
-                <marker date="1480266880251" expanded="true" signature="1440:2074" ph="..." />
-                <marker date="1480266880251" expanded="false" signature="2143:2175" ph="..." />
-                <marker date="1480266880251" expanded="true" signature="2176:2834" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="agregarOrden.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/main/agregarOrden.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="114" selection-start-line="36" selection-start-column="114" selection-end-line="36" selection-end-column="114" />
+            <state relative-caret-position="107">
+              <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -177,7 +111,6 @@
         <option value="$PROJECT_DIR$/main/templates/main/produccion_ventas.html" />
         <option value="$PROJECT_DIR$/main/templates/main/index.html" />
         <option value="$PROJECT_DIR$/main/templates/main/form_libro_diario.html" />
-        <option value="$PROJECT_DIR$/frances/settings.py" />
         <option value="$PROJECT_DIR$/main/templates/main/balance_comprobacion_contenido.html" />
         <option value="$PROJECT_DIR$/main/templates/template_home.html" />
         <option value="$PROJECT_DIR$/main/static/main/js/scripts.js" />
@@ -188,7 +121,6 @@
         <option value="$PROJECT_DIR$/main/models.py" />
         <option value="$PROJECT_DIR$/main/templates/main/crearProveedor.html" />
         <option value="$PROJECT_DIR$/main/templates/main/crearCliente.html" />
-        <option value="$PROJECT_DIR$/frances/urls.py" />
         <option value="$PROJECT_DIR$/main/templates/main/Planilla.html" />
         <option value="$PROJECT_DIR$/main/templates/main/estado_capital.html" />
         <option value="$PROJECT_DIR$/main/templates/main/estado_resultados.html" />
@@ -199,6 +131,8 @@
         <option value="$PROJECT_DIR$/main/views.py" />
         <option value="$PROJECT_DIR$/main/templates/main/libro_diario.html" />
         <option value="$PROJECT_DIR$/main/templates/main/ordenFabricacion.html" />
+        <option value="$PROJECT_DIR$/frances/urls.py" />
+        <option value="$PROJECT_DIR$/frances/settings.py" />
       </list>
     </option>
   </component>
@@ -268,7 +202,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -359,8 +292,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SIC115" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SIC115" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frances" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
@@ -370,7 +318,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="two.files.diff.last.used.folder" value="$USER_HOME$/Downloads/SIC115-master(1)/SIC115-master" />
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/UES/2016/Ciclo II/SIC115/Sistema/frances/SIC115-master/main/models.py" />
@@ -1112,7 +1060,8 @@
       <workItem from="1480271628374" duration="32085000" />
       <workItem from="1480335256292" duration="2592000" />
       <workItem from="1480338184475" duration="2593000" />
-      <workItem from="1480351452193" duration="1156000" />
+      <workItem from="1480351452193" duration="2085000" />
+      <workItem from="1480391137799" duration="1061000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial. El login está funcional, pero la página &quot;acerca de&quot; no está completa">
       <created>1477889122970</created>
@@ -1401,11 +1350,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480300744170</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="* Version de entrega">
+      <created>1480378118701</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1480378118701</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237421000" />
+    <option name="totallyTimeSpent" value="239411000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1418,11 +1374,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5060514" order="0" side_tool="true" content_ui="tabs" />
@@ -1443,6 +1398,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1535,52 +1491,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://DATABASE/3db5add9-eb83-4ff3-81a8-6c3e32adeed3">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>3db5add9-eb83-4ff3-81a8-6c3e32adeed3</OriginalElement>
-          <nodes>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:auth_user_groups</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_producto</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_empleado</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_prestacion</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_transaccion</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:auth_permission</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:auth_user</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_cuenta</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_inventario</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:auth_user_user_permissions</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_tipotransaccion</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:auth_group_permissions</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:django_content_type</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_tipocuenta</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_movimientomp</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:django_migrations</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_proveedor</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_cliente</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_usuario</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:sqlite_sequence</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:django_session</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_movimiento</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_ordendefabricacion</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:auth_group</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_rubro</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:main_puesto</node>
-            <node x="" y="">3db5add9-eb83-4ff3-81a8-6c3e32adeed3.TABLE:django_admin_log</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="417.0" y="749.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/auth_user" />
     <entry file="file://$PROJECT_DIR$/main/static/main/images/card7.jpg">
       <provider selected="true" editor-type-id="images">
@@ -1615,24 +1525,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_empleado" />
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_empleado" />
     <entry file="dbDummy://dbtable:/ef72de34/3db5add9-eb83-4ff3-81a8-6c3e32adeed3/main_empleado" />
-    <entry file="file://$PROJECT_DIR$/frances/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/templates/main/balance_comprobacion_contenido.html" />
     <entry file="dbDummy://dbtable:/ef72de34/a59bd8d0-5c1a-4f91-8c30-3be29f32954e/main_prestacion" />
     <entry file="file://$PROJECT_DIR$/main/README.rst">
@@ -1716,13 +1611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
           <caret line="477" column="6" selection-start-line="477" selection-start-column="6" selection-end-line="477" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="44" column="52" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1828,14 +1716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/templates/main/balance_general.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
@@ -1871,7 +1751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1879,7 +1758,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="114" selection-start-line="36" selection-start-column="114" selection-end-line="36" selection-end-column="114" />
-          <folding />
+          <folding>
+            <marker date="1480351732590" expanded="true" signature="122:3548" ph="..." />
+            <marker date="1480351732590" expanded="true" signature="154:3536" ph="..." />
+            <marker date="1480351732590" expanded="true" signature="187:3520" ph="..." />
+            <marker date="1480351732590" expanded="true" signature="1190:2023" ph="..." />
+            <marker date="1480351732590" expanded="true" signature="1243:1439" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1891,26 +1776,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frances/urls.py">
+    <entry file="file://$PROJECT_DIR$/main/templates/main/ordenFabricacion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="64" column="100" selection-start-line="64" selection-start-column="100" selection-end-line="64" selection-end-column="100" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/templates/main/libro_diario.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
+        <state relative-caret-position="17">
           <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/main/ordenFabricacion.html">
+    <entry file="file://$PROJECT_DIR$/main/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="64" column="100" selection-start-line="64" selection-start-column="100" selection-end-line="64" selection-end-column="100" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="44" column="52" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frances/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frances/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
           <folding />
         </state>
       </provider>
